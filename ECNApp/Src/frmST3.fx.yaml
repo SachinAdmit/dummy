@@ -1,0 +1,2828 @@
+"frmST3 As screen.'autoLayout_HeaderFooter_ver1.0'":
+    OnVisible: |+
+        =UpdateContext({varReworkchange:0});
+        UpdateContext({VarViewWorkflow:Blank()});Reset(ddlNavigateST3);Clear(colValidationST3);UpdateContext({VarValidationValue:0});
+        
+
+    ScreenContainerST3 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainerST3 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            headerST3 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                imgUserST3 As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =1
+
+                lblUserNameST3 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =2
+
+                imgCompanyLogoST3 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =3
+
+                lblTitleST3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =4
+
+                lblSubTitleST3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: ="Stage - 3"
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =6
+
+                btnExitST3 As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =//Exit();
+                        UpdateContext({varLogoutPopup:1});
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Visible: =!VarViewWorkflow
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =7
+
+                lblUserRoleST3 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =8
+
+        MainContainerST3 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =3
+
+            ctnListST2_1 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                DropShadow: =DropShadow.Regular
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =90
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =927
+                Y: =footer_2.Height
+                ZIndex: =1
+
+                lblFICodeST2_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="FI Code:"
+                    Width: =80
+                    X: =365
+                    Y: =8
+                    ZIndex: =11
+
+                txtFICodeST2_1 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_FICode
+                        //txtFICodeST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =100
+                    X: =445
+                    Y: =10
+                    ZIndex: =12
+
+                lblPartNoST2_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="Part No:"
+                    Width: =85
+                    X: =572
+                    Y: =8
+                    ZIndex: =13
+
+                txtPartNoST2_1 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_PartNumber
+                        //txtPartNoST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    Reset: =true
+                    Width: =150
+                    X: =657
+                    Y: =10
+                    ZIndex: =14
+
+                lblNDNST2_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="New Drawing Number:"
+                    Width: =210
+                    X: =10
+                    Y: =45
+                    ZIndex: =15
+
+                txtNDNST2_1 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_NewDrawingNumber
+                        //txtNDNST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =220
+                    Y: =45
+                    ZIndex: =16
+
+                txtNDN_RVDST2_1 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_NewDrawingRevision
+                        //txtNDN_RVDST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =925
+                    Y: =45
+                    ZIndex: =18
+
+                lblCustomerST2_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Text: |-
+                        ="Customer:"
+                    Width: =118
+                    X: =807
+                    Y: =8
+                    ZIndex: =19
+
+                txtCustomerST2_1 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_Customer.Value
+                        //ddlCustomerST1.SelectedText.Value
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    Reset: =true
+                    Width: =250
+                    X: =925
+                    Y: =10
+                    ZIndex: =20
+
+                lblECNNoST2_1 As label:
+                    Align: =Align.Justify
+                    FontWeight: =FontWeight.Bold
+                    Height: =28
+                    Text: |-
+                        ="ECN No:"
+                    Width: =95
+                    X: =10
+                    Y: =10
+                    ZIndex: =21
+
+                txtECNNoST2_1 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_ECNReference
+                        //txtFICodeST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =90
+                    Y: =10
+                    ZIndex: =22
+
+                lblNDN_RVDST2_1 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="New Drawing Revision/Version and Date:"
+                    Width: =380
+                    X: =542
+                    Y: =45
+                    ZIndex: =23
+
+            ctnTitleST3 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                Height: =30
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =2
+
+                lblCTNTitleST3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(71, 158, 245, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    LineHeight: =1.5
+                    Text: ="Changes Approval for technical & commercial differences from customer."
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            ctnListST3 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                DropShadow: =DropShadow.Regular
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =130
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =927
+                Y: =footer_2.Height
+                ZIndex: =3
+
+                lblHdrCustomerNameST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: =
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: ="Customer Name"
+                    Width: =200
+                    X: =lblHdrSrNoST3.X+lblHdrSrNoST3.Width
+                    ZIndex: =1
+
+                lblHdrSrNoST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: |
+                        =//Set(varSortColumn, "ECN No");
+                        //Set(varSortOrder, If(varSortColumn = "ECN No" && varSortOrder = SortOrder.Ascending, SortOrder.Descending, SortOrder.Ascending));
+                        Set(varSortECNNo, true)
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: ="Sr. No."
+                    Width: =60
+                    X: =lblActionST3.X+lblActionST3.Width
+                    ZIndex: =2
+
+                lblHdrCustomerLocationST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: =
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: ="Current supplied location"
+                    Width: =200
+                    X: =lblHdrCustomerNameST3.X+lblHdrCustomerNameST3.Width
+                    ZIndex: =3
+
+                lblHdrCILST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: =
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: ="Change implemented location"
+                    Width: =250
+                    X: =lblHdrCustomerLocationST3.X+lblHdrCustomerLocationST3.Width
+                    ZIndex: =4
+
+                lblActionST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: |
+                        =//Set(varSortColumn, "ECN No");
+                        //Set(varSortOrder, If(varSortColumn = "ECN No" && varSortOrder = SortOrder.Ascending, SortOrder.Descending, SortOrder.Ascending));
+                        Set(varSortECNNo, true)
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: ="Action"
+                    Width: =60
+                    ZIndex: =5
+
+                GalleryST3 As gallery.galleryVertical:
+                    BorderThickness: =1
+                    DelayItemLoading: =true
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =100
+                    Items: |+
+                        =VarECN_Stage3Details
+                        
+                        
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplateFill: =RGBA(255, 255, 255, 1)
+                    TemplatePadding: =1
+                    TemplateSize: =32
+                    Width: =ctnListST3.Width
+                    X: =lblHdrCustomerNameST3.
+                    Y: =30
+                    ZIndex: =6
+
+                    RectangleST3 As rectangle:
+                        BorderColor: =RGBA(128, 128, 128, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(215, 223, 240, 1)
+                        Height: =0.2
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.Width
+                        Y: =30
+                        ZIndex: =8
+
+                    IcoEditST3 As icon.Edit:
+                        Color: =RGBA(72, 163, 62, 1)
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                        Height: =30
+                        Icon: =Icon.Add
+                        OnSelect: |+
+                            =Collect(
+                                    VarECN_Stage3Details,
+                                    {
+                                        TextInput1: Max(GalleryST3.AllItems,Value(TxtsnoST3.Text))+1
+                                                
+                                       // ES003_ECNReference: ThisItem.'ECN NO.'
+                                    }
+                                );
+                            
+                               /* Collect(
+                                    VarECN_Stage2Details,
+                                    {
+                                        TxtSnSt2: If(
+                                            IsEmpty(VarECN_Stage2Details),
+                                            1, // Start with 1 if the collection is empty
+                                            Max(VarECN_Stage2Details, Value(TxtSnSt2)) + 1
+                                        ),
+                                      TextInput3_1: "",
+                                        TextInput3_2: "",
+                                        TextInput3_3: "",
+                                        TextInput3_4: "",
+                                        TextInput3_5: ""           
+                                       
+                                    
+                                    }
+                                )
+                            
+                            /*If(
+                                !IsBlank(ThisItem.TxtPNSt2.Text) &&
+                                !IsBlank(ThisItem.TxtCDSSt2.Text) &&
+                                !IsBlank(ThisItem.TxtNDSSt2.Text),
+                            
+                                Collect(
+                                    VarECN_Stage2Details,
+                                    {
+                                        TxtSnSt2: If(
+                                            IsEmpty(VarECN_Stage2Details),
+                                            1, // Start with 1 if the collection is empty
+                                            Max(VarECN_Stage2Details, Value(TxtSnSt2)) + 1
+                                        ),
+                                        TxtPNSt2: "", // Clear the text for the new row
+                                        TxtCDSSt2: "",
+                                        TxtNDSSt2: "",
+                                        ECN_No: SelectedECNNo.'ECN NO.'
+                                    }
+                                ),
+                                
+                                Notify("All fields must be filled before adding a new row.", NotificationType.Error)
+                            );*/
+                            
+                            
+                            
+                            
+                        PaddingRight: =0.00
+                        Tooltip: ="Edit"
+                        Visible: =If(IsBlank(ThisItem.ES003_SR_NO),If(ThisItem.TextInput1=Max(VarECN_Stage3Details,TextInput1), true , false ),If(ThisItem.ES003_SR_NO=Max(VarECN_Stage3Details,ES003_SR_NO)&&IsBlank(LookUp(VarECN_Stage3Details,TextInput1<>Blank())), true , false ))
+                        Width: =30
+                        X: =lblActionST3.X
+                        ZIndex: =11
+
+                    IcoDeleteST3 As icon.Trash:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(215, 58, 60, 1)
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                        Height: =30
+                        Icon: =Icon.Trash
+                        OnSelect: |-
+                            =Remove(
+                                VarECN_Stage3Details, 
+                                ThisItem
+                            );
+                        PaddingRight: =0.00
+                        Visible: =If(ThisItem.TextInput1=Max(VarECN_Stage3Details,TextInput1) &&ThisItem.TextInput1<>1,true,false)
+                        Width: =30
+                        X: =30
+                        ZIndex: =12
+
+                    TxtsnoST3 As text:
+                        Default: =If(IsBlank(ThisItem.ES003_SR_NO), ThisItem.TextInput1,ThisItem.ES003_SR_NO)
+                        DisabledColor: =Color.Black
+                        DisplayMode: =DisplayMode.Disabled
+                        Format: =TextFormat.Number
+                        Height: =30
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =10
+                        Width: =lblHdrSrNoST3.Width
+                        X: =61
+                        ZIndex: =13
+
+                    "DatePickerEILST3 As 'Date picker'":
+                        Appearance: =If(ctnApproveST3.Visible||Value(varStageItem)>3, 'DatePickerCanvas.Appearance'.FilledDarker,'DatePickerCanvas.Appearance'.FilledLighter)
+                        BorderColor: |-
+                            =If(VarValidationValue=1&&Value(TxtsnoST3.Text)=1&&IsBlank(Self.SelectedDate),Color.Red, 
+                                If(VarValidationValue=1&&(!IsBlank(DrpCustNameST3Details.Selected.Value)||!IsBlank(DrpCurrLocST3Details.Selected.Value)||!IsBlank(DrpChngImpLocST3Details.Selected.Value)||!IsBlank(DatePickerEILST3.SelectedDate)||!IsBlank(DrpPPAPST3.Selected.Value))&&IsBlank(Self.SelectedDate),Color.Red,RGBA(0, 18, 107, 1)))
+                        BorderStyle: =BorderStyle.Solid
+                        BorderThickness: =2
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Edit,DisplayMode.Edit)
+                        Height: =30
+                        OnChange: |-
+                            =UpdateContext({varReworkchange:1});
+                        PaddingBottom: =5
+                        PaddingLeft: =10
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Placeholder: =If(ctnApproveST3.Visible,ThisItem.ES003_ExpectedImplementation,Blank())
+                        SelectedDate: =ThisItem.ES003_ExpectedImplementation
+                        Width: =lblHdrEIST3.Width
+                        X: =lblHdrEIST3.X
+                        Y: =0
+                        ZIndex: =20
+
+                    DrpPPAPST3 As Dropdown.pcfdataset:
+                        Appearance: =If(!IsBlank(ctnApproveST3.Visible), "FilledDarker","FilledLighter")
+                        BorderColor: |-
+                            =If(VarValidationValue=1&&Value(TxtsnoST3.Text)=1&&IsBlank(Self.Selected.Value),Color.Red, 
+                                If(VarValidationValue=1&&(!IsBlank(DrpCustNameST3Details.Selected.Value)||!IsBlank(DrpCurrLocST3Details.Selected.Value)||!IsBlank(DrpChngImpLocST3Details.Selected.Value)||!IsBlank(DatePickerEILST3.SelectedDate)||!IsBlank(DrpPPAPST3.Selected.Value))&&IsBlank(Self.Selected.Value),Color.Red,RGBA(0, 18, 107, 1)))
+                        BorderThickness: =2
+                        DefaultSelectedItems: |
+                            =If(!IsBlank(ThisItem.ES003_PPAPLevel.Value),ThisItem.ES003_PPAPLevel,LookUp(Choices(ECN_Stage3_Details.ES003_PPAPLevel),Value="Level-1"))
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Edit,DisplayMode.Edit)
+                        Height: =30
+                        Items: |
+                            =Choices(ECN_Stage3_Details.ES003_PPAPLevel)
+                        OnChange: |-
+                            =UpdateContext({varReworkchange:1});
+                        PaddingBottom: =5
+                        PaddingLeft: =10
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =167
+                        X: =1020
+                        Y: =0
+                        ZIndex: =21
+
+                    txtIDst3Details As Text:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =ThisItem.ID
+                        Visible: =false
+                        Width: =61
+                        X: =60
+                        Y: =0
+                        ZIndex: =22
+
+                    lblSelectDateST3 As label:
+                        Height: =20
+                        OnSelect: =Select(Parent)
+                        Size: =8
+                        Text: ="Select Date"
+                        Visible: =If(IsBlank(DatePickerEILST3.SelectedDate),true,false)
+                        Width: =70
+                        X: =775
+                        Y: =5
+                        ZIndex: =23
+
+                    lblDDppapST3 As label:
+                        Height: =20
+                        OnSelect: =
+                        Size: =8
+                        Text: ="Select an option"
+                        Visible: =If(DrpPPAPST3.Selected.Value=Blank()||DrpPPAPST3.Selected.Value="",true,false)
+                        Width: =90
+                        X: =1025
+                        Y: =5
+                        ZIndex: =24
+
+                    DrpCustNameST3Details As Dropdown.pcfdataset:
+                        Appearance: =If(!IsBlank(ctnApproveST3.Visible), "FilledDarker","FilledLighter")
+                        BorderColor: |-
+                            =If(VarValidationValue=1&&Value(TxtsnoST3.Text)=1&&IsBlank(Self.Selected.Value),Color.Red, 
+                                If(VarValidationValue=1&&(!IsBlank(DrpCustNameST3Details.Selected.Value)||!IsBlank(DrpCurrLocST3Details.Selected.Value)||!IsBlank(DrpChngImpLocST3Details.Selected.Value)||!IsBlank(DatePickerEILST3.SelectedDate)||!IsBlank(DrpCustNameST3Details.Selected.Value))&&IsBlank(Self.Selected.Value),Color.Red,RGBA(0, 18, 107, 1)))
+                        BorderThickness: =2
+                        DefaultSelectedItems: =ThisItem.ES003_CustomerNameL
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Edit,DisplayMode.Edit)
+                        Height: =30
+                        Items: |
+                            =Distinct(Customer,Title)
+                        OnChange: |-
+                            =UpdateContext({varReworkchange:1});
+                        PaddingBottom: =5
+                        PaddingLeft: =10
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =200
+                        X: =120
+                        Y: =0
+                        ZIndex: =25
+
+                    DrpCurrLocST3Details As Dropdown.pcfdataset:
+                        Appearance: =If(!IsBlank(ctnApproveST3.Visible), "FilledDarker","FilledLighter")
+                        BorderColor: |-
+                            =If(VarValidationValue=1&&Value(TxtsnoST3.Text)=1&&IsBlank(Self.Selected.Value),Color.Red, 
+                                If(VarValidationValue=1&&(!IsBlank(DrpCustNameST3Details.Selected.Value)||!IsBlank(DrpCurrLocST3Details.Selected.Value)||!IsBlank(DrpChngImpLocST3Details.Selected.Value)||!IsBlank(DatePickerEILST3.SelectedDate)||!IsBlank(DrpCurrLocST3Details.Selected.Value))&&IsBlank(Self.Selected.Value),Color.Red,RGBA(0, 18, 107, 1)))
+                        BorderThickness: =2
+                        DefaultSelectedItems: =ThisItem.ES003_CurrentSuppliedLocationL
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Edit,DisplayMode.Edit)
+                        Height: =30
+                        Items: |
+                            =Distinct(Filter(Customer,Title=DrpCustNameST3Details.Selected.Value),Location.Value)
+                        OnChange: |-
+                            =UpdateContext({varReworkchange:1});
+                        PaddingBottom: =5
+                        PaddingLeft: =10
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =200
+                        X: =320
+                        Y: =0
+                        ZIndex: =26
+
+                    DrpChngImpLocST3Details As Dropdown.pcfdataset:
+                        Appearance: =If(!IsBlank(ctnApproveST3.Visible), "FilledDarker","FilledLighter")
+                        BorderColor: |-
+                            =If(VarValidationValue=1&&Value(TxtsnoST3.Text)=1&&IsBlank(Self.Selected.Value),Color.Red, 
+                                If(VarValidationValue=1&&(!IsBlank(DrpCustNameST3Details.Selected.Value)||!IsBlank(DrpCurrLocST3Details.Selected.Value)||!IsBlank(DrpChngImpLocST3Details.Selected.Value)||!IsBlank(DatePickerEILST3.SelectedDate)||!IsBlank(DrpChngImpLocST3Details.Selected.Value))&&IsBlank(Self.Selected.Value),Color.Red,RGBA(0, 18, 107, 1)))
+                        BorderThickness: =2
+                        DefaultSelectedItems: =ThisItem.ES003_ChangeImplementedLocationL
+                        DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Edit,DisplayMode.Edit)
+                        Height: =30
+                        Items: |
+                            =Distinct(Filter(Customer,Title=DrpCustNameST3Details.Selected.Value),Location.Value)
+                        OnChange: |-
+                            =UpdateContext({varReworkchange:1});
+                        PaddingBottom: =5
+                        PaddingLeft: =10
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Width: =250
+                        X: =520
+                        Y: =0
+                        ZIndex: =27
+
+                    lblGalST3 As label:
+                        Height: =30
+                        OnSelect: =Select(Parent)
+                        Text: =ThisItem.'Compliance Asset Id'
+                        Visible: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,true,false)
+                        Width: =1195
+                        ZIndex: =28
+
+                lblHdrEIST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: =
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: ="Expected implemenetation (*)"
+                    Width: =250
+                    X: =lblHdrCILST3.X+lblHdrCILST3.Width
+                    ZIndex: =7
+
+                lblHdrPPAPLevelST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledFill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    LineHeight: =1
+                    OnSelect: =
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =11
+                    Text: =" PPAP Level *"
+                    Width: =175
+                    X: =lblHdrEIST3.X+lblHdrEIST3.Width
+                    ZIndex: =8
+
+            ctnDetailST3 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =4
+
+                rectDecisionST3 As rectangle:
+                    BorderThickness: =1
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =190
+                    Width: =1165
+                    X: =15
+                    Y: =35
+                    ZIndex: =1
+
+                lblApplicableTickST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =43
+                    Text: ="Applicable stages (Tick)"
+                    Width: =200
+                    X: =15
+                    Y: =30
+                    ZIndex: =2
+
+                lblDesisionTitleST3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(71, 158, 245, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    LineHeight: =1.5
+                    Text: ="Decision on existing RM, WIP,  FGs and other items."
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+                lblTotalQtyST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =43
+                    Text: ="Total Quantity (Nos.)"
+                    Width: =200
+                    X: =215
+                    Y: =30
+                    ZIndex: =4
+
+                lblUseST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =25
+                    Text: ="Use as it is"
+                    X: =415
+                    Y: =48
+                    ZIndex: =5
+
+                lblScrapST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =25
+                    Text: ="Scrap"
+                    X: =564
+                    Y: =48
+                    ZIndex: =6
+
+                lblReworkST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =25
+                    Text: ="Rework"
+                    X: =715
+                    Y: =48
+                    ZIndex: =7
+
+                lblDispositionST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =18
+                    Text: ="Disposition (tick one)"
+                    Width: =450
+                    X: =415
+                    Y: =30
+                    ZIndex: =8
+
+                lblRemarksST3 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =43
+                    Text: ="Remarks"
+                    Width: =315
+                    X: =865
+                    Y: =30
+                    ZIndex: =9
+
+                lblRMST3 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =25
+                    Text: ="RM"
+                    Width: =200
+                    X: =15
+                    Y: =73
+                    ZIndex: =10
+
+                lblShopWIPST3 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =lblRMST3.Height
+                    Text: ="Shop WIP"
+                    Width: =200
+                    X: =15
+                    Y: =99
+                    ZIndex: =11
+
+                lblFGsST3 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =lblRMST3.Height
+                    Text: ="FGs"
+                    Width: =200
+                    X: =15
+                    Y: =124
+                    ZIndex: =12
+
+                lblTransitST3 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =lblRMST3.Height
+                    Text: ="Transit"
+                    Width: =200
+                    X: =15
+                    Y: =150
+                    ZIndex: =13
+
+                lblWarehouseST3 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =lblRMST3.Height
+                    Text: ="Warehouse"
+                    Width: =200
+                    X: =15
+                    Y: =175
+                    ZIndex: =14
+
+                lblConsiderAsST3 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =lblRMST3.Height
+                    Text: ="Consider as"
+                    Width: =200
+                    X: =15
+                    Y: =200
+                    ZIndex: =15
+
+                txtRMTotQtyST3 As text:
+                    BorderColor: |
+                        =If(VarValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_RM_TotalQuantity,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1}); If(Value(Self.Text)=0, Reset(chkRMReworkST3);Reset(chkRMScrapST3);Reset(chkRMUseST3);Reset(txtRMRemarksST3))
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =200
+                    X: =215
+                    Y: =lblRMST3.Y
+                    ZIndex: =16
+
+                txtShopWIPTotQtyST3 As text:
+                    BorderColor: |
+                        =If(VarValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_ShopWIP_TotalQuantity,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1}); If(Value(Self.Text)=0, Reset(chkShowWIPUseST3);Reset(chkShowWIPScrapST3);Reset(chkShowWIPReworkST3);Reset(txtShopWIPRemarksST3))
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =200
+                    X: =215
+                    Y: =lblShopWIPST3.Y
+                    ZIndex: =17
+
+                txtFGsTotQtyST3 As text:
+                    BorderColor: |
+                        =If(VarValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_FGs_TotalQuantity,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1}); If(Value(Self.Text)=0, Reset(chkFGs2ReworkST3);Reset(chkFGs2ScrapST3);Reset(chkFGsUseST3);Reset(txtFGsRemarksST3))
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =200
+                    X: =215
+                    Y: =lblFGsST3.Y
+                    ZIndex: =18
+
+                txtTransitTotQtyST3 As text:
+                    BorderColor: |
+                        =If(VarValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_Transit_TotalQuantity,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1}); If(Value(Self.Text)=0, Reset(chkTrasitReworkST3);Reset(chkTrasitScrapST3);Reset(chkTrasitUseST3);Reset(txtTransitRemarksST3))
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =200
+                    X: =215
+                    Y: =lblTransitST3.Y
+                    ZIndex: =19
+
+                txtWarehouseTotQtyST3 As text:
+                    BorderColor: |
+                        =If(VarValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_Warehouse_TotalQuantity,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1}); If(Value(Self.Text)=0, Reset(chkWarehouseReworkST3);Reset(chkWarehouseScrapST3);Reset(chkWarehouseUseST3);Reset(txtWarehouseRemarksST3))
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =200
+                    X: =215
+                    Y: =lblWarehouseST3.Y
+                    ZIndex: =20
+
+                chkRMUseST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkRMUseST3.Value=false&&chkRMScrapST3.Value=false&&chkRMReworkST3.Value=false&&Value(txtRMTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_RM_Disposition.Value="Use as it is"&&Value(txtRMTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkRMReworkST3.Value=true||chkRMScrapST3.Value=true||Value(txtRMTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnCheck: |
+                        =chkRMScrapST3.Value = false;
+                        chkRMReworkST3.Value = false;
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    OnUncheck: |-
+                        =chkRMScrapST3.Value = true;
+                        chkRMReworkST3.Value = true;
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =415
+                    Y: =lblRMST3.Y
+                    ZIndex: =38
+
+                chkShowWIPUseST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkShowWIPUseST3.Value=false&&chkShowWIPScrapST3.Value=false&&chkShowWIPReworkST3.Value=false&&Value(txtShopWIPTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_ShopWIP_Disposition.Value="Use as it is"&&Value(txtShopWIPTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkShowWIPReworkST3.Value=true||chkShowWIPScrapST3.Value=true||Value(txtShopWIPTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =415
+                    Y: =lblShopWIPST3.Y
+                    ZIndex: =39
+
+                chkFGsUseST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkFGsUseST3.Value=false&&chkFGs2ScrapST3.Value=false&&chkFGs2ReworkST3.Value=false&&Value(txtFGsTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_FGs_Decision.Value="Use as it is"&&Value(txtFGsTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkFGs2ScrapST3.Value=true||chkFGs2ReworkST3.Value=true||Value(txtFGsTotQtyST3.Text)=0 ,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =415
+                    Y: =lblFGsST3.Y
+                    ZIndex: =40
+
+                chkTrasitUseST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkTrasitUseST3.Value=false&&chkTrasitScrapST3.Value=false&&chkTrasitReworkST3.Value=false&&Value(txtTransitTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_Transit_Disposition.Value="Use as it is"&&Value(txtTransitTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkTrasitReworkST3.Value=true||chkTrasitScrapST3.Value=true||Value(txtTransitTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =415
+                    Y: =lblTransitST3.Y
+                    ZIndex: =41
+
+                chkWarehouseUseST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkWarehouseUseST3.Value=false&&chkWarehouseScrapST3.Value=false&&chkWarehouseReworkST3.Value=false&&Value(txtWarehouseTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_Warehouse_Disposition.Value="Use as it is"&&Value(txtWarehouseTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkWarehouseReworkST3.Value=true||chkWarehouseScrapST3.Value=true||Value(txtWarehouseTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =415
+                    Y: =lblWarehouseST3.Y
+                    ZIndex: =42
+
+                chkRMScrapST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkRMUseST3.Value=false&&chkRMScrapST3.Value=false&&chkRMReworkST3.Value=false&&Value(txtRMTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_RM_Disposition.Value="Scrap"&&Value(txtRMTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkRMReworkST3.Value=true||chkRMUseST3.Value||Value(txtRMTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnCheck: |-
+                        =chkRMUseST3.Value = false;
+                        chkRMReworkST3.Value = false;
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    OnUncheck: |-
+                        =chkRMUseST3.Value = true;
+                        chkRMReworkST3.Value = true;
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =564
+                    Y: =lblRMST3.Y
+                    ZIndex: =43
+
+                chkShowWIPScrapST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkShowWIPUseST3.Value=false&&chkShowWIPScrapST3.Value=false&&chkShowWIPReworkST3.Value=false&&Value(txtShopWIPTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_ShopWIP_Disposition.Value="Scrap"&&Value(txtShopWIPTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkShowWIPReworkST3.Value=true||chkShowWIPUseST3.Value=true||Value(txtShopWIPTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =564
+                    Y: =lblShopWIPST3.Y
+                    ZIndex: =44
+
+                chkFGs2ScrapST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkFGsUseST3.Value=false&&chkFGs2ScrapST3.Value=false&&chkFGs2ReworkST3.Value=false&&Value(txtFGsTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_FGs_Decision.Value="Scrap"&&Value(txtFGsTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkFGsUseST3.Value=true||chkFGs2ReworkST3.Value=true||Value(txtFGsTotQtyST3.Text)=0 ,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =564
+                    Y: =lblFGsST3.Y
+                    ZIndex: =45
+
+                chkTrasitScrapST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkTrasitUseST3.Value=false&&chkTrasitScrapST3.Value=false&&chkTrasitReworkST3.Value=false&&Value(txtTransitTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =
+                        If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_Transit_Disposition.Value="Scrap"&&Value(txtTransitTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkTrasitReworkST3.Value=true||chkTrasitUseST3.Value=true||Value(txtTransitTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =564
+                    Y: =lblTransitST3.Y
+                    ZIndex: =46
+
+                chkWarehouseScrapST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkWarehouseUseST3.Value=false&&chkWarehouseScrapST3.Value=false&&chkWarehouseReworkST3.Value=false&&Value(txtWarehouseTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =
+                        If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_Warehouse_Disposition.Value="Scrap"&&Value(txtWarehouseTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkWarehouseReworkST3.Value=true||chkWarehouseUseST3.Value=true||Value(txtWarehouseTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =564
+                    Y: =lblWarehouseST3.Y
+                    ZIndex: =47
+
+                chkRMReworkST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkRMUseST3.Value=false&&chkRMScrapST3.Value=false&&chkRMReworkST3.Value=false&&Value(txtRMTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_RM_Disposition.Value="Rework"&&Value(txtRMTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkRMUseST3.Value=true||chkRMScrapST3.Value||Value(txtRMTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =715
+                    Y: =lblRMST3.Y
+                    ZIndex: =48
+
+                chkShowWIPReworkST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkShowWIPUseST3.Value=false&&chkShowWIPScrapST3.Value=false&&chkShowWIPReworkST3.Value=false&&Value(txtShopWIPTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =
+                        If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_ShopWIP_Disposition.Value="Rework"&&Value(txtShopWIPTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkShowWIPUseST3.Value=true||chkShowWIPScrapST3.Value=true||Value(txtShopWIPTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =715
+                    Y: =lblShopWIPST3.Y
+                    ZIndex: =49
+
+                chkFGs2ReworkST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkFGsUseST3.Value=false&&chkFGs2ScrapST3.Value=false&&chkFGs2ReworkST3.Value=false&&Value(txtFGsTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: =If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_FGs_Decision.Value="Rework"&&Value(txtFGsTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkFGsUseST3.Value=true||chkFGs2ScrapST3.Value=true||Value(txtFGsTotQtyST3.Text)=0 ,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: |
+                        =//ES003_ShopWIP_Disposition
+                    X: =715
+                    Y: =lblFGsST3.Y
+                    ZIndex: =50
+
+                chkTrasitReworkST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkTrasitUseST3.Value=false&&chkTrasitScrapST3.Value=false&&chkTrasitReworkST3.Value=false&&Value(txtTransitTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =
+                        If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_Transit_Disposition.Value="Rework"&&Value(txtTransitTotQtyST3.Text)<>0,true,false)
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkTrasitScrapST3.Value=true||chkTrasitUseST3.Value=true||Value(txtTransitTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =715
+                    Y: =lblTransitST3.Y
+                    ZIndex: =51
+
+                chkWarehouseReworkST3 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(VarValidationValue=1&&chkWarehouseUseST3.Value=false&&chkWarehouseScrapST3.Value=false&&chkWarehouseReworkST3.Value=false&&Value(txtWarehouseTotQtyST3.Text)<>0,Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =
+                        If(!IsBlank(VarECN_Stage3)&& VarECN_Stage3.ES003_Warehouse_Disposition.Value="Rework"&&Value(txtWarehouseTotQtyST3.Text)<>0,true,false)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||chkWarehouseUseST3.Value=true||chkWarehouseScrapST3.Value=true||Value(txtWarehouseTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnSelect: |-
+                        =UpdateContext({varReworkchange:1});
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =715
+                    Y: =lblWarehouseST3.Y
+                    ZIndex: =52
+
+                txtRMRemarksST3 As text:
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_RM_Remarks,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||Value(txtRMTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1});
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =865
+                    Y: =lblRMST3.Y
+                    ZIndex: =53
+
+                txtShopWIPRemarksST3 As text:
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_ShopWIP_Remarks,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||Value(txtShopWIPTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1});
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =865
+                    Y: =lblShopWIPST3.Y
+                    ZIndex: =54
+
+                txtFGsRemarksST3 As text:
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_FGs_Remarks,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||Value(txtFGsTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1});
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =865
+                    Y: =lblFGsST3.Y
+                    ZIndex: =55
+
+                txtTransitRemarksST3 As text:
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_Transit_Remarks,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||Value(txtTransitTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =25
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1});
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =865
+                    Y: =lblTransitST3.Y
+                    ZIndex: =56
+
+                txtWarehouseRemarksST3 As text:
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_Warehouse_Remarks,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3||Value(txtWarehouseTotQtyST3.Text)=0,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblRMST3.Height
+                    OnChange: |-
+                        =UpdateContext({varReworkchange:1});
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =865
+                    Y: =lblWarehouseST3.Y
+                    ZIndex: =57
+
+                ddlConsiderAsST3 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: |
+                        =If(VarValidationValue=1&&IsBlank(Self.Selected.Value),Color.Red, RGBA(0, 18, 107, 1))
+                    ChevronBackground: =RGBA(15, 84, 140, 1)
+                    Default: =If(!IsBlank(VarECN_Stage3),VarECN_Stage3.ES003_ConsiderAs.Value,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(ctnApproveST3.Visible||Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =lblConsiderAsST3.Height
+                    Items: =Distinct('Consider As', Name)
+                    OnChange: =
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =varResetCtrls
+                    Size: =11.70
+                    Width: =200
+                    X: =215
+                    Y: =lblConsiderAsST3.Y
+                    ZIndex: =58
+
+                ctnApproveST3 As groupContainer.manualLayoutContainer:
+                    BorderThickness: =1
+                    Height: =78
+                    Visible: |
+                        =LookUp(colStageVisibility, StageNumber = 3, Visible)
+                    Width: =1165
+                    X: =16
+                    Y: =225
+                    ZIndex: =66
+
+                    lblHdrApprovalST3 As label:
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Height: =65
+                        Text: |-
+                            ="Changes Approval:-   "
+                        Width: =200
+                        ZIndex: =1
+
+                    lblCreatedByST3 As label:
+                        BorderThickness: =1
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Height: =28
+                        Text: ="Created by"
+                        Width: =198
+                        X: =200
+                        ZIndex: =2
+
+                    lblApprovedByST3 As label:
+                        BorderThickness: =1
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Height: =28
+                        Text: ="Approved By (HOD Mkt.)"
+                        Width: =220
+                        X: =398
+                        ZIndex: =3
+
+                    lblApprovalRemarkST3 As label:
+                        BorderThickness: =1
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Height: =30
+                        Text: ="Remark"
+                        Width: =547
+                        X: =618
+                        ZIndex: =4
+
+                    txtCreatedByST3 As text:
+                        Default: =If(!IsBlank(VarECN_Stage3),LookUp(ECN_UserMaster, User_Id = VarECN_Stage3.ES003_ModifyBy.Value, User_Name)," " )
+                        DisabledBorderColor: =RGBA(0, 18, 107, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =35
+                        Width: =198
+                        X: =200
+                        Y: =30
+                        ZIndex: =5
+
+                    txtApprovedByST3 As text:
+                        Default: =varUser.User_Name
+                        DisabledBorderColor: =RGBA(0, 18, 107, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =37
+                        Width: =220
+                        X: =398
+                        Y: =28
+                        ZIndex: =6
+
+                    txtApprovalRemarkST3 As text:
+                        BorderColor: =If(IsBlank(Self.Text)&&VarValidationValue=1,Color.Red, RGBA(0, 18, 107, 1))
+                        Default: =
+                        Height: =37
+                        Mode: =TextMode.MultiLine
+                        Reset: =varResetCtrls
+                        Width: =547
+                        X: =618
+                        Y: =28
+                        ZIndex: =7
+
+                    rdbApprovalST3 As radio:
+                        BorderColor: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,Color.Red, RGBA(0, 18, 107, 1))
+                        BorderThickness: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,2,0)
+                        Color: =RGBA(13, 50, 61, 1)
+                        FocusedBorderThickness: =0
+                        Height: =28
+                        Items: =["Approve", "Reject", "Rework"]
+                        Layout: =Layout.Horizontal
+                        PaddingBottom: =0
+                        PaddingTop: =1
+                        RadioSize: =26
+                        Reset: =varResetCtrls
+                        Width: =400
+                        X: =755
+                        ZIndex: =8
+
+                ctnReworkST3 As groupContainer.manualLayoutContainer:
+                    Height: =78
+                    Visible: =If(varSelectedECN.Current_Stage_Status.Value="Rework",true,false)
+                    Width: =1165
+                    X: =16
+                    Y: =225
+                    ZIndex: =67
+
+                    lblRemarkforReworkST3 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =30
+                        Text: |-
+                            ="Remark for Rework:"
+                        Width: =200
+                        X: =445
+                        Y: =25
+                        ZIndex: =1
+
+                    txtRemarkforReworkST3 As text:
+                        BorderThickness: =1
+                        Default: =VarECN_Stage3.ES003_ApprovalRemark
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =30
+                        LineHeight: =1
+                        Mode: =TextMode.MultiLine
+                        Reset: =varResetCtrls
+                        Width: =500
+                        X: =634
+                        Y: =27
+                        ZIndex: =2
+
+        FooterContainerST3 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =4
+
+            footerST3 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                btnSubmitST3 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =If(Value(varStageItem)<>3,DisplayMode.Disabled,DisplayMode.Edit)
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Save"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =//collect All approver user id
+                        ClearCollect(ColApprovewrEmail,Filter(ColApprover,'ApprovalAccess '=true&&Stage_Id.Value=varStageItem));
+                        ClearCollect(coltempId,ForAll(ColApprovewrEmail,{UserId:ThisRecord.User_Id}));
+                        Set(VarApproverId,JSON(coltempId,JSONFormat.IncludeBinaryData));
+                        
+                        If(varReworkchange=0&&Text(varSelectedECN.Current_Stage_Status.Value)="Rework",Notify("There is nothing changed on this form, please ensure required changes are done", NotificationType.Warning),
+                        
+                        Clear(colValidationST3);
+                        UpdateContext({VarValidationValue: 0});
+                        If(
+                            CountRows(GalleryST3.AllItems) = 0,
+                            // Show an error message if the gallery is empty
+                            Notify(
+                                "No items found in the gallery. Please add items before saving.",
+                                NotificationType.Error
+                            ),
+                            ForAll(
+                                GalleryST3.AllItems,
+                                If(
+                                    !IsBlank(ThisRecord.DrpCustNameST3Details.Selected.Value) || !IsBlank(ThisRecord.DrpCurrLocST3Details.Selected.Value) || !IsBlank(ThisRecord.DrpChngImpLocST3Details.Selected.Value) || !IsBlank(ThisRecord.DatePickerEILST3.SelectedDate) || !IsBlank(ThisRecord.DrpPPAPST3.Selected.Value)||Value(ThisRecord.TxtsnoST3.Text)=1,
+                                    If(
+                                        IsBlank(ThisRecord.DrpCustNameST3Details.Selected.Value) || IsBlank(ThisRecord.DrpCurrLocST3Details.Selected.Value) || IsBlank(ThisRecord.DrpChngImpLocST3Details.Selected.Value) || IsBlank(ThisRecord.DatePickerEILST3.SelectedDate) || IsBlank (ThisRecord.DrpPPAPST3.Selected.Value),
+                                        Collect(
+                                            colValidationST3,
+                                            {Value: 0}
+                                        ),
+                                        Collect(
+                                            colValidationST3,
+                                            {Value: 1}
+                                        )
+                                    )
+                                )
+                            );
+                            If(
+                                (chkRMUseST3.Value = false && chkRMScrapST3.Value = false && chkRMReworkST3.Value = false && Value(txtRMTotQtyST3.Text)<>0) ||
+                                (chkShowWIPUseST3.Value = false && chkShowWIPScrapST3.Value = false && chkShowWIPReworkST3.Value = false && Value(txtShopWIPTotQtyST3.Text)<>0) ||
+                                (chkFGsUseST3.Value = false && chkFGs2ScrapST3.Value = false && chkFGs2ReworkST3.Value = false && Value(txtFGsTotQtyST3.Text)<>0) ||
+                                (chkTrasitUseST3.Value = false && chkTrasitScrapST3.Value = false && chkTrasitReworkST3.Value = false && Value(txtTransitTotQtyST3.Text)<>0) ||
+                                (chkWarehouseUseST3.Value = false && chkWarehouseScrapST3.Value = false && chkWarehouseReworkST3.Value = false && Value(txtWarehouseTotQtyST3.Text)<>0) ||
+                                
+                                 IsBlank(txtRMTotQtyST3.Text) || IsBlank(txtShopWIPTotQtyST3.Text) || IsBlank(txtFGsTotQtyST3.Text) || IsBlank(txtTransitTotQtyST3.Text) || IsBlank(txtWarehouseTotQtyST3.Text)||IsBlank(ddlConsiderAsST3.Selected.Value)||(LookUp(colStageVisibility, StageNumber = 3, Visible)&&(IsBlank(txtApprovalRemarkST3.Text)||IsBlank(rdbApprovalST3.Selected.Value))),
+                                Collect(
+                                    colValidationST3,
+                                    {Value: 0}
+                                ),
+                                Collect(
+                                    colValidationST3,
+                                    {Value: 1}
+                                )
+                            );
+                            UpdateContext({VarValidationValue: 1});
+                            
+                        );
+                        If(
+                            0 in colValidationST3.Value,
+                            Notify(
+                                "Validation Error, please fill required fields in Red.",
+                                NotificationType.Error
+                            ),
+                            
+                         
+                        //Original code without above validatoins starts here  
+                        // Check if the gallery has any items
+                            If(
+                                CountRows(GalleryST3.AllItems) = 0,
+                            // Show an error message if the gallery is empty
+                                Notify(
+                                    "No items found in the gallery. Please add items before saving.",
+                                    NotificationType.Error
+                                ),
+                            // Proceed with the patch operations if gallery has items
+                                ForAll(
+                                    GalleryST3.AllItems,
+                                    If(
+                                    // Check if the record is new or existing by checking the ID
+                                        IsBlank(ThisRecord.ID)&&!IsBlank(ThisRecord.DrpCustNameST3Details.Selected.Value),
+                                    // Insert new record into the SharePoint list
+                                        Patch(
+                                            ECN_Stage3_Details,
+                                            Defaults(ECN_Stage3_Details),
+                                            {
+                                                Title: varSelectedECN.ES001_ECNReference,
+                                                ES003_ExpectedImplementation: ThisRecord.DatePickerEILST3.SelectedDate,
+                                                ES003_PPAPLevel: ThisRecord.DrpPPAPST3.Selected,
+                                                ES003_SR_NO: Value(TxtsnoST3.Text),
+                                                ES003_ECNReference: {
+                                                    Value: varSelectedECN.ES001_ECNReference,
+                                                    Id: LookUp(
+                                                        ECN_Stage1,
+                                                        ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                    ).ID
+                                                },
+                                                ES003_CustomerNameL: {
+                                                    Value: DrpCustNameST3Details.Selected.Value,
+                                                    Id: LookUp(
+                                                        Customer,
+                                                        Location.Id = LookUp(Location_1,Title=DrpCurrLocST3Details.Selected.Value).ID&&Title=DrpCustNameST3Details.Selected.Value
+                                                    ).ID
+                                                },
+                                                                        
+                                                ES003_CurrentSuppliedLocationL: {
+                                                    Value: DrpCurrLocST3Details.Selected.Value,
+                                                    Id: LookUp(
+                                                        Location_1,
+                                                        Title = DrpCurrLocST3Details.Selected.Value
+                                                    ).ID
+                                                },
+                        
+                                                ES003_ChangeImplementedLocationL: {
+                                                    Value: DrpChngImpLocST3Details.Selected.Value,
+                                                    Id: LookUp(
+                                                        Location_1,
+                                                        Title = DrpChngImpLocST3Details.Selected.Value
+                                                    ).ID
+                                                }
+                                            }
+                                        ),
+                                    // Update existing record in the SharePoint list
+                        Patch(
+                                        ECN_Stage3_Details,
+                                        LookUp(
+                                            ECN_Stage3_Details,
+                                            ID = Value(txtIDst3Details.Text)
+                                        ),
+                                        {
+                                            Title: varSelectedECN.ES001_ECNReference,
+                                            ES003_ExpectedImplementation: ThisRecord.DatePickerEILST3.SelectedDate,
+                                            ES003_PPAPLevel: ThisRecord.DrpPPAPST3.Selected,
+                                            ES003_ECNReference: {
+                                                Value: varSelectedECN.ES001_ECNReference,
+                                                Id: LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ).ID
+                                            },
+                                            ES003_CustomerNameL: {
+                                                Value: DrpCustNameST3Details.Selected.Value,
+                                                Id: LookUp(
+                                                        Customer,
+                                                        Location.Id = LookUp(Location_1,Title=DrpCurrLocST3Details.Selected.Value).ID&&Title=DrpCustNameST3Details.Selected.Value
+                                                    ).ID
+                                            },
+                                                                    
+                                            ES003_CurrentSuppliedLocationL: {
+                                                Value: DrpCurrLocST3Details.Selected.Value,
+                                                Id: LookUp(
+                                                    Location_1,
+                                                    Title = DrpCurrLocST3Details.Selected.Value
+                                                ).ID
+                                            },
+                        
+                                            ES003_ChangeImplementedLocationL: {
+                                                Value: DrpChngImpLocST3Details.Selected.Value,
+                                                Id: LookUp(
+                                                    Location_1,
+                                                    Title = DrpChngImpLocST3Details.Selected.Value
+                                                ).ID
+                                            }                    
+                                        
+                                        }
+                                    )
+                                    )
+                                );
+                                UpdateContext(
+                                    {
+                                        existingRecordST3: LookUp(
+                                            ECN_Stage3,
+                                            ES003_ECNReference.Value = varSelectedECN.ES001_ECNReference
+                                        )
+                                    }
+                                );
+                                
+                                ClearCollect(colECNStage3Data,existingRecordST3.ES003_ApproveBy);
+                                If(IsBlank(First(colECNStage3Data).Id),Set(gblDataInput,true),Set(gblDataInput,false);Set(gblApproveData,First(colECNStage3Data).Id));
+                                If(
+                                    !IsBlank(existingRecordST3),
+                                // Update the existing record
+                                    Patch(
+                                        ECN_Stage3,
+                                         LookUp(
+                                        ECN_Stage3,
+                                        ES003_ECNReference.Value = varSelectedECN.ES001_ECNReference
+                                    ),
+                                    If(LookUp(colStageVisibility, StageNumber = 3, Visible),
+                                        {
+                                            ES003_ApproveBy: {
+                                                Value: varUser.User_Name,
+                                                Id:If(gblDataInput=true, LookUp(ECN_UserMaster,User_Id = varUser.User_Id).ID,gblApproveData)
+                                            },
+                                            ES003_ApprovalRemark: txtApprovalRemarkST3.Text,
+                                            ES003_Status: {Value: rdbApprovalST3.Selected.Value},
+                                            ES003_ApproveDate: Now()
+                                        },
+                        
+                                        {
+                                            Title: varSelectedECN.ES001_ECNReference,
+                                            ES003_RM_TotalQuantity: Value(txtRMTotQtyST3.Text),
+                                            ES003_ShopWIP_TotalQuantity: Value(txtShopWIPTotQtyST3.Text),
+                                            ES003_FGs_TotalQuantity: Value(txtFGsTotQtyST3.Text),
+                                            ES003_Transit_TotalQuantity: Value(txtTransitTotQtyST3.Text),
+                                            ES003_Warehouse_TotalQuantity: Value(txtWarehouseTotQtyST3.Text),
+                                            ES003_RM_Remarks: txtRMRemarksST3.Text,
+                                            ES003_FGs_Remarks: txtShopWIPRemarksST3.Text,
+                                            ES003_ShopWIP_Remarks: txtFGsRemarksST3.Text,
+                                            ES003_Transit_Remarks: txtTransitRemarksST3.Text,
+                                            ES003_Warehouse_Remarks: txtWarehouseRemarksST3.Text,
+                                            ES003_ECNReference: {
+                                                Value: varSelectedECN.ES001_ECNReference,
+                                                Id: LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ).ID
+                                            },
+                                            // Disposition fields with shortened checkbox names
+                                            ES003_RM_Disposition: If(
+                                                chkRMUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkRMScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkRMReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_FGs_Decision: If(
+                                                chkFGsUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkFGs2ScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkFGs2ReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_ShopWIP_Disposition: If(
+                                                chkShowWIPUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkShowWIPScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkShowWIPReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_Transit_Disposition: If(
+                                                chkTrasitUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkTrasitScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkTrasitReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_Warehouse_Disposition: If(
+                                                chkWarehouseUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkWarehouseScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkWarehouseReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_Status: {Value: "Pending"},
+                                            ES003_ConsiderAs: {Value: ddlConsiderAsST3.Selected.Value},
+                                            ES003_ModifyBy: {
+                                                Value: varUser.User_Name,
+                                                Id: LookUp(
+                                                    ECN_UserMaster,
+                                                    User_Id = varUser.User_Id
+                                                ).ID
+                                            }
+                                        }
+                        
+                                    )
+                                    );
+                                   ,
+                                // Insert a new record if it does not exist
+                                    Patch(
+                                        ECN_Stage3,
+                                        Defaults(ECN_Stage3),
+                                        {
+                                            Title: varSelectedECN.ES001_ECNReference,
+                                            ES003_RM_TotalQuantity: Value(txtRMTotQtyST3.Text),
+                                            ES003_ShopWIP_TotalQuantity: Value(txtShopWIPTotQtyST3.Text),
+                                            ES003_FGs_TotalQuantity: Value(txtFGsTotQtyST3.Text),
+                                            ES003_Transit_TotalQuantity: Value(txtTransitTotQtyST3.Text),
+                                            ES003_Warehouse_TotalQuantity: Value(txtWarehouseTotQtyST3.Text),
+                                            ES003_RM_Remarks: txtRMRemarksST3.Text,
+                                            ES003_FGs_Remarks: txtShopWIPRemarksST3.Text,
+                                            ES003_ShopWIP_Remarks: txtFGsRemarksST3.Text,
+                                            ES003_Transit_Remarks: txtTransitRemarksST3.Text,
+                                            ES003_Warehouse_Remarks: txtWarehouseRemarksST3.Text,
+                                            ES003_ECNReference: {
+                                                Value: varSelectedECN.ES001_ECNReference,
+                                                Id: LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ).ID
+                                            },
+                                            // Disposition fields with shortened checkbox names
+                                            ES003_RM_Disposition: If(
+                                                chkRMUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkRMScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkRMReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_FGs_Decision: If(
+                                                chkFGsUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkFGs2ScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkFGs2ReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_ShopWIP_Disposition: If(
+                                                chkShowWIPUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkShowWIPScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkShowWIPReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_Transit_Disposition: If(
+                                                chkTrasitUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkTrasitScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkTrasitReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_Warehouse_Disposition: If(
+                                                chkWarehouseUseST3.Value = true,
+                                                {Value: "Use as it is"},
+                                                If(
+                                                    chkWarehouseScrapST3.Value = true,
+                                                    {Value: "Scrap"},
+                                                    If(
+                                                        chkWarehouseReworkST3.Value = true,
+                                                        {Value: "Rework"}
+                                                    )
+                                                )
+                                            ),
+                                            ES003_Status: {Value: "Pending"},
+                                            ES003_ConsiderAs: {Value: ddlConsiderAsST3.Selected.Value},
+                                            ES003_ModifyBy: {
+                                                Value: varUser.User_Name,
+                                                Id: LookUp(
+                                                    ECN_UserMaster,
+                                                    User_Id = varUser.User_Id
+                                                ).ID
+                                            }
+                                        }
+                                    );
+                        
+                        
+                                );
+                                // Check for errors in ECN_Stage2
+                        If(
+                                    !IsEmpty(Errors(ECN_Stage2)),
+                                    Notify(
+                                        "An error occurred while saving the record.",
+                                        NotificationType.Error
+                                    ),
+                            // If no errors, proceed with patching ECN_Stage1
+                                    If(
+                                        !IsBlank(existingRecordST3) && ctnApproveST3.Visible,
+                                        If(
+                                            rdbApprovalST3.Selected.Value = "Approve",
+                                            Patch(
+                                                ECN_Stage1,
+                                                LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ),
+                                                {
+                                                    ES001_CurrentStage: {
+                                                        Value: "Stage4",
+                                                        Id: LookUp(
+                                                            ECN_StageMaster,
+                                                            Stage_Id = 4
+                                                        ).ID
+                                                    },
+                                                    Current_Stage_Status: {Value: "New"}
+                                                }
+                                            ),
+                                            Patch(
+                                                ECN_Stage1,
+                                                LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ),
+                                                {
+                                                    ES001_CurrentStage: {
+                                                        Value: "Stage3",
+                                                        Id: LookUp(
+                                                            ECN_StageMaster,
+                                                            Stage_Id = 3
+                                                        ).ID
+                                                    },
+                                                    Current_Stage_Status: {Value: rdbApprovalST3.Selected.Value}
+                                                }
+                                            )
+                                        ),
+                                        Patch(
+                                            ECN_Stage1,
+                                            LookUp(
+                                                ECN_Stage1,
+                                                ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                            ),
+                                            {
+                                                ES001_CurrentStage: {
+                                                    Value: "Stage3",
+                                                    Id: LookUp(
+                                                        ECN_StageMaster,
+                                                        Stage_Id = 3
+                                                    ).ID
+                                                },
+                                                Current_Stage_Status: {Value: "Pending"}
+                                            }
+                                        );
+                                        //Approval
+                        'Copyof-Stage2Approval'.Run(
+                                            varSelectedECN.ES001_ECNReference,
+                                            LookUp(
+                                                ECN_StageMaster,
+                                                  Stage_Id = Text(Value(varSelectedECN.ES001_CurrentStage.Value)+1)
+                                            ).Stage_Name,
+                                            VarApproverId
+                                        );
+                                    );
+                                );
+                                // Notify success based on the presence of an existing record
+                        If(
+                                    IsBlank(existingRecordST3),
+                                    Notify(
+                                        "Record saved successfully!",
+                                        NotificationType.Success
+                                    ),
+                                    Notify(
+                                        "Record updated successfully!",
+                                        NotificationType.Success
+                                    )
+                                );
+                                //Email on latest Status Submit,Rework,Approve and Rejected
+                        If(
+                                    !IsBlank(rdbApprovalST3.Selected.Value) And LookUp(
+                                        colStageVisibility,
+                                        StageNumber = 3,
+                                        Visible
+                                    ),
+                                    'Copyof-Submit,Rework,ApproveandRejected'.Run(
+                                        LookUp(
+                                            ECN_UserMaster,
+                                            User_Name = "Marketing"
+                                        ).Email,
+                                        rdbApprovalST3.Selected.Value,
+                                        varSelectedECN.ES001_ECNReference,
+                                        If(
+                                            IsBlank(txtApprovalRemarkST2.Text),
+                                            "",
+                                            txtApprovalRemarkST2.Text
+                                        ),
+                                        If(
+                                            rdbApprovalST3.Selected.Value = "Approve",
+                                            "Stage4",
+                                            LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = varSelectedECN.ES001_CurrentStage.Value
+                                            ).Stage_Name
+                                        ),If(
+                                            rdbApprovalST3.Selected.Value = "Approve",
+                                            4,
+                                            LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = varSelectedECN.ES001_CurrentStage.Value
+                                            ).Stage_Id
+                                        )
+                                    )/*,
+                                    'Submit,Rework,ApproveandRejected'.Run(
+                                        LookUp(
+                                            ECN_UserMaster,
+                                            User_Name = "Marketing"
+                                        ).Email,
+                                        "Submit",
+                                        varSelectedECN.ES001_ECNReference,
+                                        If(IsBlank( txtRemarkforReworkST2.Text),"", txtRemarkforReworkST2.Text),
+                                        ""
+                                    )*/
+                                );
+                                //Workflow Patch
+                        If(
+                                    !IsBlank(rdbApprovalST3.Selected.Value) && !IsBlank(LookUp(
+                                        ECN_UserDetails,
+                                        User_Id.Value = Text(varUser.User_Id)
+                                    ).'ApprovalAccess '),
+                                    Patch(
+                                        ECN_Approval_History,
+                                        
+                        First(Sort(Filter(ECN_Approval_History, ApprHist_ECNno.Value=varSelectedECN.ES001_ECNReference),Created,SortOrder.Descending)),
+                                        {
+                                            ApprHist_ECNno: {
+                                                Id: varSelectedECN.ID,
+                                                Value: varSelectedECN.ES001_ECNReference
+                                            },
+                                            ApprHist_Status: If(
+                                                rdbApprovalST3.Selected.Value = "Rework",
+                                                {Value: "Rework"},
+                                                If(
+                                                    rdbApprovalST3.Selected.Value = "Approve",
+                                                    {Value: "Approve"},
+                                                    {Value: "Rjected"}
+                                                )
+                                            ),
+                                            ApprHist_ProcessedBy: {
+                                                Id: LookUp(
+                                                    ECN_UserMaster,
+                                                    User_Id = varUser.User_Id
+                                                ).ID,
+                                                Value: LookUp(
+                                                    ECN_UserMaster,
+                                                    User_Id = varUser.User_Id
+                                                ).User_Name
+                                                
+                                            },
+                                            ApprHist_ProcessedTime: Now(),
+                                            ApprHist_Remarks: If(
+                                                IsBlank(txtApprovalRemarkST3.Text),
+                                                "",
+                                                txtApprovalRemarkST3.Text
+                                            ),
+                                            ApprHist_Stage: If(rdbApprovalST3.Selected.Value="Approve",{
+                                            Value: "3",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = Text(3)
+                                            ).ID
+                                        },{
+                                            Value: "3",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = Text(3)
+                                            ).ID
+                                        })
+                                         /*,
+                                            ApprHist_RequestedBy: {
+                                                Id: LookUp(ECN_UserMaster, User_Id = VarECN_Stage3.ES003_ModifyBy.Value).User_Id,
+                                                Value: txtCreatedByST3.Text
+                                            }*/
+                                            /*,
+                                            ApprHist_RequestedTime: LookUp(
+                                                ECN_Stage1,
+                                                ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                            ).Created*/
+                        
+                                        }
+                                    ),
+                                     //patch on resubmit
+                                    Patch(ECN_Approval_History,Defaults(ECN_Approval_History),
+                        {
+                            ApprHist_ECNno:{Id:varSelectedECN.ID,Value:varSelectedECN.ES001_ECNReference},
+                        
+                            ApprHist_Stage:If(rdbApprovalST3.Selected.Value="Approve",{
+                                            Value: "3",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = Text(3)
+                                            ).ID
+                                        },{
+                                            Value: "3",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = Text(3)
+                                            ).ID
+                                        }),
+                            
+                          
+                                ApprHist_RequestedTime:Now(),
+                                ApprHist_RequestedBy:{
+                                                Id: LookUp(ECN_UserMaster, User_Id = varUser.User_Id).ID,
+                                                Value:  LookUp(ECN_UserMaster, User_Id = varUser.User_Id).User_Name
+                                            }
+                        
+                            }
+                        
+                        
+                        
+                        
+                        )
+                                );
+                                // Set this on a Button OnSelect or after the form submission:
+                        Reset(txtRMTotQtyST3);
+                                Reset(txtShopWIPTotQtyST3);
+                                Reset(txtFGsTotQtyST3);
+                                Reset(txtTransitTotQtyST3);
+                                Reset(txtWarehouseTotQtyST3);
+                                Reset(txtRMRemarksST3);
+                                Reset(txtShopWIPRemarksST3);
+                                Reset(txtFGsRemarksST3);
+                                Reset(txtTransitRemarksST3);
+                                Reset(txtWarehouseRemarksST3);
+                                // Reset checkboxes for dispositions
+                        Reset(chkRMUseST3);
+                                Reset(chkRMScrapST3);
+                                Reset(chkRMReworkST3);
+                                Reset(chkFGsUseST3);
+                                Reset(chkFGs2ScrapST3);
+                                Reset(chkFGs2ReworkST3);
+                                Reset(chkShowWIPUseST3);
+                                Reset(chkShowWIPScrapST3);
+                                Reset(chkShowWIPReworkST3);
+                                Reset(chkTrasitUseST3);
+                                Reset(chkTrasitScrapST3);
+                                Reset(chkTrasitReworkST3);
+                                Reset(chkWarehouseUseST3);
+                                Reset(chkWarehouseScrapST3);
+                                Reset(chkWarehouseReworkST3);
+                                // Reset dropdown
+                        Reset(ddlConsiderAsST3);
+                                Navigate(frmHome);
+                            )
+                        )
+                        )
+                    Text: ="Submit"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =1036
+                    Y: =17
+                    ZIndex: =1
+
+                btnUpdateST3 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Document"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =Navigate(ScreenReport);
+                    Text: ="Report"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =854
+                    Y: =17
+                    ZIndex: =2
+
+                btnClearST3 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eraser"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |
+                        =Set(varResetCtrls,true);
+                        Set(varResetCtrls,false);
+                    Text: ="Clear"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =686
+                    Y: =17
+                    ZIndex: =3
+
+                btnBackST3 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =
+                        
+                        Navigate(frmHome)
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =15
+                    Y: =17
+                    ZIndex: =4
+
+                btnViewWorkflow_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eye"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =UpdateContext({VarViewWorkflow:!VarViewWorkflow});
+                    Text: =If(VarViewWorkflow,"Apr History Hide","Apr History Show")
+                    VerticalAlign: =VerticalAlign.Middle
+                    Visible: =CountRows(Gallery1_1.AllItems)>0
+                    Width: =216
+                    X: =179
+                    Y: =17
+                    ZIndex: =5
+
+                btnNavigateDummy1_1 As Button:
+                    Align: =Align.Left
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontColor: =
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowSort"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =
+                    Text: ="Navigate"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =256
+                    X: =410
+                    Y: =17
+                    ZIndex: =6
+
+                ddlNavigateST3 As dropdown:
+                    BorderColor: =RGBA(39, 113, 194, 1)
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: ="Stage 3"
+                    Height: =30
+                    Items: |
+                        =Switch(Value(varStageItem),
+                        
+                        1,["Stage 1"],
+                        2,["Stage 1","Stage 2"],
+                        3,["Stage 1","Stage 2","Stage 3"],
+                        4,["Stage 1","Stage 2","Stage 3","Stage 4"],
+                        5,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5"],
+                        6,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6"],
+                        7,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7"],
+                        8,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8"],
+                        9,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9"],
+                        10,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10"],
+                        11,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11"],
+                        12,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12"],
+                        13,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13"],
+                        14,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14"],
+                        15,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15"],
+                        16,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15","Stage 16"],[""])
+                    OnChange: |
+                        =Switch(Self.Selected.Value,
+                        "Stage 1",Navigate(frmST1),
+                        "Stage 2",Navigate(frmST2),
+                        "Stage 3",Navigate(frmST3),
+                        "Stage 4",Navigate(frmST4),
+                        "Stage 5",Navigate(frmST5),
+                        "Stage 6",Navigate(frmST6),
+                        "Stage 7",Navigate(frmST7),
+                        "Stage 8",Navigate(frmST8),
+                        "Stage 9",Navigate(frmST9),
+                        "Stage 10",Navigate(frmST10),
+                        "Stage 11",Navigate(frmST11),
+                        "Stage 12",Navigate(frmST12),
+                        "Stage 13",Navigate(frmST13),
+                        "Stage 14",Navigate(frmST14),
+                        "Stage 15",Navigate(frmST15),
+                        "Stage 16",Navigate(frmST15)
+                        
+                        )
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =true
+                    Size: =11.70
+                    Width: =118
+                    X: =538
+                    Y: =22
+                    ZIndex: =7
+
+                con_footer_history_1 As groupContainer.manualLayoutContainer:
+                    Fill: =RGBA(39, 113, 194, 1)
+                    Height: =75
+                    Visible: =VarViewWorkflow
+                    Width: =1197
+                    ZIndex: =8
+
+                    btnViewWorkflow_history_1 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Primary
+                        BasePaletteColor: =
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        BorderThickness: =2
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontSize: =20
+                        FontStrikethrough: =false
+                        Height: =40
+                        Icon: ="Eye"
+                        IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                        OnSelect: |
+                            =UpdateContext({VarViewWorkflow:!VarViewWorkflow});
+                            //If(VarViewWorkflow,btnNavigateDummy1.Visible=false;,btnNavigateDummy1.Visible=true;);
+                            //Notify(VarViewWorkflow,NotificationType.Information);
+                        Text: =If(VarViewWorkflow,"Apr History Hide","Apr History Show")
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: =VarViewWorkflow
+                        Width: =216
+                        X: =18
+                        Y: =18
+                        ZIndex: =1
+
+    Icon1 As icon.CancelBadge:
+        Height: =34
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =UpdateContext({VarViewWorkflow:!VarViewWorkflow})
+        Visible: =VarViewWorkflow
+        Width: =50
+        X: =1179
+        Y: =95
+        ZIndex: =4
+
+    Group_popUp_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =4
+
+        Container_popup_1 As groupContainer.manualLayoutContainer:
+            Height: =501
+            Visible: =VarViewWorkflow
+            Width: =1229
+            Y: =171
+            ZIndex: =2
+
+            "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =501
+                Items: |+
+                    =/*Filter(ECN_Approval_History,ApprHist_ECNno.Value=varSelectedECN.ES001_ECNReference && ApprHist_Stage.Value=Text(LookUp(ECN_StageMaster,Stage_Id = varSelectedECN.ES001_CurrentStage.Value).Stage_Id))*/
+                    /*Sort(Filter(ECN_Approval_History,ApprHist_ECNno.Value=varSelectedECN.ES001_ECNReference && ApprHist_Stage.Value=Text(LookUp(ECN_StageMaster,Stage_Id = varSelectedECN.ES001_CurrentStage.Value).Stage_Id)&& !IsBlank(ApprHist_ProcessedTime)),Modified,SortOrder.Ascending)*/
+                    SortByColumns(Filter(ECN_Approval_History,ApprHist_ECNno.Value=varSelectedECN.ES001_ECNReference && ApprHist_Stage.Value ="3" && !IsBlank(ApprHist_Status.Value)),"Created",SortOrder.Ascending)
+                    
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =67
+                Width: =1229
+                ZIndex: =1
+
+                Container2_2 As groupContainer.horizontalAutoLayoutContainer:
+                    Height: =64
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =1229
+                    ZIndex: =15
+
+                    "'Text_ ECN_No_2' As Text":
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =ThisItem.ApprHist_ECNno.Value
+                        Width: =96
+                        X: =89
+                        Y: =32
+                        ZIndex: =1
+
+                    "'Text_ Status_2' As Text":
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =ThisItem.ApprHist_Status.Value
+                        Width: =96
+                        X: =40
+                        Y: =40
+                        ZIndex: =2
+
+                    "'Text_ Requested_By_2' As Text":
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =LookUp(ECN_UserMaster,User_Id= Value(ThisItem.ApprHist_RequestedBy.Value),User_Name)
+                        Width: =96
+                        X: =20
+                        Y: =20
+                        ZIndex: =3
+
+                    "'Text_ Request_Time_2' As Text":
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =ThisItem.ApprHist_RequestedTime
+                        Width: =96
+                        X: =40
+                        Y: =32
+                        ZIndex: =4
+
+                    "'Text_ Processed_By_2' As Text":
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =LookUp(ECN_UserMaster,User_Id= Value(ThisItem.ApprHist_ProcessedBy.Value),User_Name)
+                        Width: =96
+                        X: =60
+                        Y: =32
+                        ZIndex: =5
+
+                    "'Text_ Processed_Time_2' As Text":
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =ThisItem.ApprHist_ProcessedTime
+                        Width: =96
+                        X: =80
+                        Y: =32
+                        ZIndex: =6
+
+                    Text_Remark_2 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =ThisItem.ApprHist_Remarks
+                        Width: =96
+                        X: =100
+                        Y: =32
+                        ZIndex: =7
+
+        Container2_3 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =76
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutMode: =LayoutMode.Auto
+            Visible: =VarViewWorkflow
+            Width: =1229
+            Y: =95
+            ZIndex: =3
+
+            "'Text_ ECN_No_3' As Text":
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="ECN No"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =89
+                Y: =32
+                ZIndex: =1
+
+            "'Text_ Status_3' As Text":
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="Status"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =40
+                Y: =40
+                ZIndex: =2
+
+            "'Text_ Requested_By_3' As Text":
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="Requested By"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =20
+                Y: =20
+                ZIndex: =3
+
+            "'Text_ Request_Time_3' As Text":
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="Requested Time"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =40
+                Y: =32
+                ZIndex: =4
+
+            "'Text_ Processed_By_3' As Text":
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="Processed By"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =60
+                Y: =32
+                ZIndex: =5
+
+            "'Text_ Processed_Time_3' As Text":
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="Processed Time"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =80
+                Y: =32
+                ZIndex: =6
+
+            Text_Remark_3 As Text:
+                Align: ='TextCanvas.Align'.Center
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: ="Remarks"
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =96
+                X: =100
+                Y: =32
+                ZIndex: =7
+
+    PopupContainer_3 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(200, 200, 200, 0.8)
+        Height: =740
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: =If(varLogoutPopup=1,true,false)
+        Width: =1200
+        X: =15
+        Y: =15
+        ZIndex: =5
+
+        Popup_3 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            btnPopupBack_3 As button:
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =188
+                Size: =11
+                Text: ="Are you sure to logout?"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =2
+
+            btnPopupTop_3 As button:
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(39, 113, 194, 1)
+                DisplayMode: =DisplayMode.Disabled
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                Size: =13
+                Text: ="Confirm Logout"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =5
+
+            btnPopupBottom_3 As button:
+                DisabledFill: =RGBA(214, 221, 224, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(214, 221, 224, 1)
+                RadiusTopLeft: =00
+                RadiusTopRight: =0
+                Text: =
+                Width: =347
+                X: =755
+                Y: =243
+                ZIndex: =6
+
+            btnPopupYes_3 As button:
+                Fill: =RGBA(132, 40, 38, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Set(varUser, Blank());
+                    Clear(colStageIDs);
+                    Navigate(frmLogin);
+                    UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="Yes"
+                Width: =95
+                X: =822
+                Y: =248
+                ZIndex: =7
+
+            btnPopupNo_3 As button:
+                Fill: =RGBA(39, 113, 194, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="No"
+                Width: =95
+                X: =940
+                Y: =248
+                ZIndex: =8
+

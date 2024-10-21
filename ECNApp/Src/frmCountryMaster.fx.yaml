@@ -1,0 +1,1809 @@
+"frmCountryMaster As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnVisible: =
+
+    ScreenContainerMSTCountry As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainerMSTCountry As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =1
+
+            headerMSTCountry As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =2
+
+                lblTitleMSTCountry As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =3
+
+                btnExitMSTCountry As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =//Exit();
+                        Set(varUser, Blank());
+                        Clear(colStageIDs);
+                        Navigate(frmLogin,ScreenTransition.CoverRight)
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =4
+
+                imgUserMSTCountry As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =5
+
+                imgCompanyLogoMSTCountry As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =6
+
+                lblUserNameMSTCountry As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =7
+
+                lblSubTitleMSTCountry As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: |-
+                        =Switch(
+                            true, 
+                            gblCountryMaster, "Country Master", 
+                            gblDivisionMaster, "Division Master", 
+                            gblProductFamily, "Product Family", 
+                            gblSBU, "SBU"
+                        )
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =8
+
+                lblUserRoleST14_3 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =9
+
+        MainContainerMSTCountry As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =10
+
+            ctrDetailMSTCountry As groupContainer.manualLayoutContainer:
+                Height: =554
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1197
+                ZIndex: =1
+
+                grp_divison_master_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label26 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Division Master ID: "
+                        Visible: =gblDivisionMaster
+                        Width: =200
+                        X: =180
+                        Y: =114
+                        ZIndex: =5
+
+                    Label26_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Division Master Name: "
+                        Visible: =gblDivisionMaster
+                        Width: =210
+                        X: =180
+                        Y: =178
+                        ZIndex: =6
+
+                    Label26_2 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Division Master SBU Master ID: "
+                        Visible: =gblDivisionMaster
+                        Width: =300
+                        X: =180
+                        Y: =242
+                        ZIndex: =7
+
+                    TextInput6_1 As text:
+                        Default: =If(!IsBlank(gblDivisionName),gblDivisionName,"")
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Divsion Master Name"
+                        Visible: =gblDivisionMaster
+                        Width: =495
+                        X: =480
+                        Y: =178
+                        ZIndex: =9
+
+                    Dropdown3 As dropdown:
+                        Default: =If(IsBlank(gblDivisionSUBID),"1",gblDivisionSUBID.Id)
+                        Font: =Font.'Segoe UI'
+                        Items: =Choices([@ECN_DivisionMaster].DIVMST_SBUMSTID)
+                        Visible: =gblDivisionMaster
+                        Width: =495
+                        X: =480
+                        Y: =242
+                        ZIndex: =10
+
+                    Label25 As label:
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.'Segoe UI'
+                        Text: =If(!IsBlank(gblDivisionID),gblDivisionID,Last(ECN_DivisionMaster).DIVMST_ID+1)
+                        Visible: =gblDivisionMaster
+                        Width: =495
+                        X: =480
+                        Y: =114
+                        ZIndex: =26
+
+                grp_sbu_master_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6_5 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="SBU Master ID: "
+                        Visible: =gblSBU
+                        Width: =200
+                        X: =275
+                        Y: =118
+                        ZIndex: =20
+
+                    Label6_6 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="SBU Master Name: "
+                        Visible: =gblSBU
+                        Width: =220
+                        X: =275
+                        Y: =174
+                        ZIndex: =22
+
+                    TextInput5_5 As text:
+                        Default: =If(IsBlank(gblSBUName),"",gblSBUName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write SBU Master Name"
+                        Visible: =gblSBU
+                        Width: =500
+                        X: =495
+                        Y: =174
+                        ZIndex: =23
+
+                    Label6_7 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="SBU Master Country Master ID: "
+                        Visible: =gblSBU
+                        Width: =220
+                        X: =275
+                        Y: =230
+                        ZIndex: =24
+
+                    Dropdown3_2 As dropdown:
+                        Default: =If(IsBlank(gblSBUCountryID),"1",gblSBUCountryID.Id)
+                        Font: =Font.'Segoe UI'
+                        Height: =44
+                        Items: =Choices([@ECN_SBUMaster].SBUMST_CNTMSTID)
+                        Visible: =gblSBU
+                        Width: =500
+                        X: =495
+                        Y: =230
+                        ZIndex: =25
+
+                    Label30 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblSBUId),Last(ECN_SBUMaster).SBUMST_ID+1,gblSBUId)
+                        Visible: =gblSBU
+                        Width: =500
+                        X: =495
+                        Y: =118
+                        ZIndex: =29
+
+                grp_customer_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label28 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="ID"
+                        Visible: =gblcustomer
+                        X: =291
+                        Y: =129
+                        ZIndex: =61
+
+                    Label36 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Name"
+                        Visible: =gblcustomer
+                        X: =291
+                        Y: =184
+                        ZIndex: =62
+
+                    Label36_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Location"
+                        Visible: =gblcustomer
+                        X: =291
+                        Y: =233
+                        ZIndex: =63
+
+                    Label36_2 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Email"
+                        Visible: =gblcustomer
+                        X: =291
+                        Y: =285
+                        ZIndex: =64
+
+                    Label36_3 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Phone"
+                        Visible: =gblcustomer
+                        X: =291
+                        Y: =335
+                        ZIndex: =65
+
+                    Label37 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: =If(IsBlank(gblCustomerId),Last(Customer).ID+1,gblCustomerId)
+                        Visible: =gblcustomer
+                        Width: =500
+                        X: =441
+                        Y: =130
+                        ZIndex: =66
+
+                    TextInput3 As text:
+                        Default: =If(IsBlank(gblCustomerName),"",gblCustomerName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write name"
+                        Size: =15
+                        Visible: =gblcustomer
+                        Width: =500
+                        X: =441
+                        Y: =180
+                        ZIndex: =67
+
+                    TextInput3_1 As text:
+                        Default: =If(IsBlank(gblCustomerEmail),"",gblCustomerEmail)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write email"
+                        Size: =15
+                        Visible: =gblcustomer
+                        Width: =500
+                        X: =441
+                        Y: =284
+                        ZIndex: =68
+
+                    TextInput3_2 As text:
+                        Default: =If(IsBlank(gblCustomerPhone),"",gblCustomerPhone)
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HintText: ="write phone no"
+                        Size: =15
+                        Visible: =gblcustomer
+                        Width: =500
+                        X: =441
+                        Y: =335
+                        ZIndex: =69
+
+                    Dropdown4 As dropdown:
+                        Default: =If(IsBlank(gblCustomerLocation),"1",gblCustomerLocation.Value)
+                        Font: =Font.'Segoe UI'
+                        Items: =Choices([@Customer].Location)
+                        Size: =15
+                        Visible: =gblcustomer
+                        Width: =500
+                        X: =441
+                        Y: =233
+                        ZIndex: =70
+
+                grp_product_family_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6_2 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Product Master ID: "
+                        Visible: =gblProductFamily
+                        Width: =200
+                        X: =301
+                        Y: =154
+                        ZIndex: =11
+
+                    Label6_3 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Product Master Name: "
+                        Visible: =gblProductFamily
+                        Width: =220
+                        X: =301
+                        Y: =210
+                        ZIndex: =13
+
+                    TextInput5_3 As text:
+                        Default: =If(IsBlank(gblProductName),"",gblProductName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Product Master Name"
+                        Visible: =gblProductFamily
+                        Width: =500
+                        X: =521
+                        Y: =210
+                        ZIndex: =14
+
+                    Label6_4 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Product Master Division Master ID: "
+                        Visible: =gblProductFamily
+                        Width: =220
+                        X: =301
+                        Y: =266
+                        ZIndex: =15
+
+                    Dropdown3_1 As dropdown:
+                        Default: =If(IsBlank(gblProductDivisionID),"1",gblProductDivisionID.Id)
+                        Font: =Font.'Segoe UI'
+                        Height: =44
+                        Items: =Choices([@ECN_ProductFamilyMaster].PDFMST_DIVMSTID)
+                        Visible: =gblProductFamily
+                        Width: =500
+                        X: =521
+                        Y: =266
+                        ZIndex: =18
+
+                    Label27 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblProductId),Last(ECN_ProductFamilyMaster).PDFMST_ID+1,gblProductId)
+                        Visible: =gblProductFamily
+                        Width: =500
+                        X: =521
+                        Y: =154
+                        ZIndex: =27
+
+                grp_location_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6_12 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Location ID: "
+                        Visible: =gblLocation
+                        Width: =200
+                        X: =212
+                        Y: =178
+                        ZIndex: =117
+
+                    Label6_13 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Location Name: "
+                        Visible: =gblLocation
+                        Width: =220
+                        X: =212
+                        Y: =234
+                        ZIndex: =118
+
+                    TextInput5_6 As text:
+                        Default: =If(IsBlank(gblLocationName),"",gblLocationName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Country Master Name"
+                        Visible: =gblLocation
+                        Width: =500
+                        X: =432
+                        Y: =234
+                        ZIndex: =119
+
+                    Label38_2 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblLocationId),Last(Location_1).ID+1,gblLocationId)
+                        Visible: =gblLocation
+                        Width: =500
+                        X: =432
+                        Y: =179
+                        ZIndex: =120
+
+                grp_country_master_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Country Master ID: "
+                        Visible: =gblCountryMaster
+                        Width: =200
+                        X: =255
+                        Y: =186
+                        ZIndex: =1
+
+                    Label6_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="Country Master Name: "
+                        Visible: =gblCountryMaster
+                        Width: =220
+                        X: =255
+                        Y: =242
+                        ZIndex: =3
+
+                    TextInput5_1 As text:
+                        Default: =If(IsBlank(gblCountryName),"",gblCountryName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Country Master Name"
+                        Visible: =gblCountryMaster
+                        Width: =500
+                        X: =475
+                        Y: =242
+                        ZIndex: =4
+
+                    Label29 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblCountryId),Last(ECN_CountryMaster).CNTMST_ID+1,gblCountryId)
+                        Visible: =gblCountryMaster
+                        Width: =500
+                        X: =475
+                        Y: =186
+                        ZIndex: =28
+
+                grp_stage_master_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label28_2 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Title"
+                        Visible: =gblStageMaster
+                        X: =218
+                        Y: =190
+                        ZIndex: =103
+
+                    Label36_6 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Stage Name"
+                        Visible: =gblStageMaster
+                        X: =218
+                        Y: =245
+                        ZIndex: =104
+
+                    Label36_7 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Stage ID"
+                        Visible: =gblStageMaster
+                        X: =218
+                        Y: =294
+                        ZIndex: =105
+
+                    TextInput3_5 As text:
+                        Default: =If(IsBlank(gblStageMasterName),"",gblStageMasterName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Stage Name"
+                        Size: =15
+                        Visible: =gblStageMaster
+                        Width: =500
+                        X: =368
+                        Y: =241
+                        ZIndex: =106
+
+                    TextInput3_6 As text:
+                        Default: =If(IsBlank(gblStageMasterId),"",gblStageMasterId)
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HintText: ="Write Stage ID"
+                        Size: =15
+                        Visible: =gblStageMaster
+                        Width: =500
+                        X: =368
+                        Y: =295
+                        ZIndex: =107
+
+                    Label39_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: =If(IsBlank(gblStageMasterTitle),Last(ECN_StageMaster).Title+1,gblStageMasterTitle)
+                        Visible: =gblStageMaster
+                        Width: =500
+                        X: =368
+                        Y: =187
+                        ZIndex: =108
+
+                grp_role_master_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label28_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="ID"
+                        Visible: =gblRoleMaster
+                        X: =301
+                        Y: =190
+                        ZIndex: =92
+
+                    Label36_4 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Role Name"
+                        Visible: =gblRoleMaster
+                        X: =301
+                        Y: =245
+                        ZIndex: =93
+
+                    Label36_5 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: ="Role ID"
+                        Visible: =gblRoleMaster
+                        X: =301
+                        Y: =294
+                        ZIndex: =94
+
+                    TextInput3_3 As text:
+                        Default: =If(IsBlank(gblRoleMasterName),"",gblRoleMasterName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Role Name"
+                        Size: =15
+                        Visible: =gblRoleMaster
+                        Width: =500
+                        X: =451
+                        Y: =241
+                        ZIndex: =95
+
+                    TextInput3_4 As text:
+                        Default: =If(IsBlank(gblRoleMasterRoleID),"",gblRoleMasterRoleID)
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HintText: ="Write Role ID"
+                        Size: =15
+                        Visible: =gblRoleMaster
+                        Width: =500
+                        X: =451
+                        Y: =295
+                        ZIndex: =96
+
+                    Label39 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: =If(IsBlank(gblRoleMasterId),Last(ECN_RoleMaster).ID+1,gblRoleMasterId)
+                        Visible: =gblRoleMaster
+                        Width: =500
+                        X: =451
+                        Y: =187
+                        ZIndex: =97
+
+                grp_source_receipt_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6_14 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="SourceReceipt ID: "
+                        Visible: =gblSourceReceipt
+                        Width: =200
+                        X: =275
+                        Y: =194
+                        ZIndex: =125
+
+                    Label6_15 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="SourceReceipt Title: "
+                        Visible: =gblSourceReceipt
+                        Width: =220
+                        X: =275
+                        Y: =250
+                        ZIndex: =126
+
+                    TextInput5_7 As text:
+                        Default: =If(IsBlank(gblSourceReceiptName),"",gblSourceReceiptName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Source Receipt Title"
+                        Visible: =gblSourceReceipt
+                        Width: =500
+                        X: =495
+                        Y: =250
+                        ZIndex: =127
+
+                    Label38_3 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblSourceReceiptId),Last('Source of Receipt').ID+1,gblSourceReceiptId)
+                        Visible: =gblSourceReceipt
+                        Width: =500
+                        X: =495
+                        Y: =195
+                        ZIndex: =128
+
+                grp_considerAs_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6_8 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="ConsiderAs ID: "
+                        Visible: =gblConsiderAs
+                        Width: =200
+                        X: =238
+                        Y: =205
+                        ZIndex: =75
+
+                    Label6_9 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="ConsiderAs Title: "
+                        Visible: =gblConsiderAs
+                        Width: =220
+                        X: =238
+                        Y: =261
+                        ZIndex: =76
+
+                    TextInput5_2 As text:
+                        Default: =If(IsBlank(gblConsiderAsTitle),"",gblConsiderAsTitle)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write Country Master Name"
+                        Visible: =gblConsiderAs
+                        Width: =500
+                        X: =458
+                        Y: =261
+                        ZIndex: =77
+
+                    Label38 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblConsiderAsId),Last('Consider As').ID+1,gblConsiderAsId)
+                        Visible: =gblConsiderAs
+                        Width: =500
+                        X: =458
+                        Y: =206
+                        ZIndex: =78
+
+                grp_ppap_form As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =144
+
+                    Label6_10 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="PPAP ID: "
+                        Visible: =gblPPAP
+                        Width: =200
+                        X: =306
+                        Y: =210
+                        ZIndex: =83
+
+                    Label6_11 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="PPAP Title: "
+                        Visible: =gblPPAP
+                        X: =306
+                        Y: =266
+                        ZIndex: =84
+
+                    TextInput5_4 As text:
+                        Default: =If(IsBlank(gblPPAP),"",gblPPAPTitle)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write PPAP title"
+                        Visible: =gblPPAP
+                        Width: =500
+                        X: =458
+                        Y: =266
+                        ZIndex: =85
+
+                    Label38_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblPPAPId),Last('PPAP Level').ID+1,gblPPAPId)
+                        Visible: =gblPPAP
+                        Width: =500
+                        X: =458
+                        Y: =211
+                        ZIndex: =86
+
+                grp_doc_master As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =146
+
+                    Label6_16 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="DOC Title: "
+                        Visible: =gblDOC
+                        Width: =200
+                        X: =258
+                        Y: =121
+                        ZIndex: =135
+
+                    Label6_17 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="DOC Name: "
+                        Visible: =gblDOC
+                        Width: =220
+                        X: =258
+                        Y: =177
+                        ZIndex: =136
+
+                    TextInput5_8 As text:
+                        Default: =If(IsBlank(gblDOCName),"",gblDOCName)
+                        Font: =Font.'Segoe UI'
+                        HintText: ="Write DOC Name"
+                        Visible: =gblDOC
+                        Width: =500
+                        X: =478
+                        Y: =177
+                        ZIndex: =137
+
+                    Label6_18 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="DOC ID: "
+                        Visible: =gblDOC
+                        Width: =220
+                        X: =258
+                        Y: =233
+                        ZIndex: =138
+
+                    Label30_1 As label:
+                        Font: =Font.'Segoe UI'
+                        Text: =If(IsBlank(gblDOCID),Last(ECN_DocumentMaster).ID+1,gblDOCID)
+                        Visible: =gblDOC
+                        Width: =500
+                        X: =478
+                        Y: =121
+                        ZIndex: =140
+
+                    TextInput5_9 As text:
+                        Default: =If(IsBlank(gblDOCID),"",gblDOCID)
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        HintText: ="Write DOC ID"
+                        Visible: =gblDOC
+                        Width: =500
+                        X: =478
+                        Y: =231
+                        ZIndex: =141
+
+                    DatePicker1 As datepicker:
+                        Visible: =gblDOC
+                        Width: =152
+                        X: =478
+                        Y: =285
+                        ZIndex: =142
+
+                    Label6_19 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="DOC Start Date: "
+                        Visible: =gblDOC
+                        Width: =220
+                        X: =255
+                        Y: =285
+                        ZIndex: =143
+
+                    DatePicker1_1 As datepicker:
+                        Visible: =gblDOC
+                        Width: =152
+                        X: =481
+                        Y: =340
+                        ZIndex: =144
+
+                    Label6_20 As label:
+                        Font: =Font.'Segoe UI'
+                        Size: =15
+                        Text: |-
+                            ="DOC End Date: "
+                        Visible: =gblDOC
+                        Width: =220
+                        X: =258
+                        Y: =340
+                        ZIndex: =145
+
+        FooterContainerMSTCountry As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =12
+
+            footerMSTCountry As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =13
+
+                btnClearMSTCountry As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eraser"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    Text: ="Clear"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =854
+                    Y: =17
+                    ZIndex: =14
+
+                btnSubmitMSTCountry As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =If(gblCountryMasterData || gblDivisionMasterData || gblProductFamilyData || gblSBUData || gblcustomerData || gblConsiderAsData || gblPPAPData || gblRoleMasterData || gblStageMasterData || gblLocationData || gblSourceReceiptData || gblDocsData ,DisplayMode.Disabled,DisplayMode.Edit)
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Save"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =If(gblCountryMaster,
+                        Set(gblCountryMasterData,true);
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_CountryMaster,LookUp(ECN_CountryMaster,CNTMST_ID=gblCountryId),{
+                                CNTMST_ID:Value(Label29.Text),
+                                CNTMST_NAME:TextInput5_1.Text,
+                                Title:Label29.Text
+                            }
+                        );
+                        Notify(
+                                "Country Master Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblCountryMasterData,true),
+                        If(
+                            IsBlank(TextInput5_1.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_CountryMaster,Defaults(ECN_CountryMaster),{
+                                CNTMST_ID:Value(Label29.Text),
+                                CNTMST_NAME:TextInput5_1.Text,
+                                Title:Label29.Text
+                            }
+                        );
+                        Notify(
+                                "Country Master Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblCountryMasterData,true)
+                        )),gblDivisionMaster,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_DivisionMaster,LookUp(ECN_DivisionMaster,DIVMST_ID=gblDivisionID),{
+                                DIVMST_ID:Value(Label25.Text),
+                                DIVMST_NAME:TextInput6_1.Text,
+                                DIVMST_SBUMSTID:Dropdown3.SelectedText,
+                                Title:Value(Label25.Text)
+                            }
+                        );
+                        Notify(
+                                "Division Master Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblDivisionMasterData,true),
+                        If(
+                            IsBlank(TextInput6_1.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_DivisionMaster,Defaults(ECN_DivisionMaster),{
+                                DIVMST_ID:Value(Label25.Text),
+                                DIVMST_NAME:TextInput6_1.Text,
+                                DIVMST_SBUMSTID:Dropdown3.SelectedText,
+                                Title:Value(Label25.Text)
+                            }
+                        );
+                        Notify(
+                                "Division Master Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblDivisionMasterData,true)
+                        )),gblProductFamily,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_ProductFamilyMaster,LookUp(ECN_ProductFamilyMaster,PDFMST_ID=gblProductId),{
+                                PDFMST_ID:Value(Label27.Text),
+                                PDFMST_NAME:TextInput5_3.Text,
+                                PDFMST_DIVMSTID:Dropdown3_1.SelectedText,
+                                Title:Concatenate(LookUp(ECN_DivisionMaster,DIVMST_ID=Value(Dropdown3_1.SelectedText.Value)).DIVMST_NAME,"-",TextInput5_3.Text)
+                            }
+                        );
+                        Notify(
+                                "Product Family Master Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblProductFamilyData,true),
+                        If(
+                             IsBlank(TextInput5_3.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_ProductFamilyMaster,Defaults(ECN_ProductFamilyMaster),{
+                                PDFMST_ID:Value(Label27.Text),
+                                PDFMST_NAME:TextInput5_3.Text,
+                                PDFMST_DIVMSTID:Dropdown3_1.SelectedText,
+                                Title:Concatenate(LookUp(ECN_DivisionMaster,DIVMST_ID=Value(Dropdown3_1.SelectedText.Value)).DIVMST_NAME,"-",TextInput5_3.Text)
+                            }
+                        );
+                        Notify(
+                                "Product Master Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblProductFamilyData,true)
+                        )),
+                        gblSBU,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_SBUMaster,LookUp(ECN_SBUMaster,SBUMST_ID=gblSBUId),{
+                                SBUMST_ID:Value(Label30.Text),
+                                SBUMST_NAME:TextInput5_5.Text,
+                                SBUMST_CNTMSTID:Dropdown3_2.SelectedText,
+                                Title:Label30.Text
+                            }
+                        );
+                        Notify(
+                                "SBU Master Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblSBUData,true),
+                        If(
+                            IsBlank(TextInput5_5.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_SBUMaster,Defaults(ECN_SBUMaster),{
+                                SBUMST_ID:Value(Label30.Text),
+                                SBUMST_NAME:TextInput5_5.Text,
+                                SBUMST_CNTMSTID:Dropdown3_2.SelectedText,
+                                Title:Label30.Text
+                            }
+                        );
+                        Notify(
+                                "SBU Master Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblSBUData,true)
+                        )
+                        ),gblcustomer,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(Customer,LookUp(Customer,ID=gblCustomerId),{
+                                Title:TextInput3.Text,
+                                Location:Dropdown4.SelectedText,
+                                'Contact Email':TextInput3_1.Text,
+                                'Contact Phone':Value(TextInput3_2.Text)
+                            }
+                        );
+                        Notify(
+                                "Customer Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblcustomerData,true),
+                        If(
+                            IsBlank(TextInput3.Text) || IsBlank(TextInput3_1.Text) || IsBlank(TextInput3_2.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(Customer,Defaults(Customer),{
+                                Title:TextInput3.Text,
+                                Location:Dropdown4.SelectedText,
+                                'Contact Email':TextInput3_1.Text,
+                                'Contact Phone':Value(TextInput3_2.Text)
+                            }
+                        );
+                        Notify(
+                                "Customer Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblcustomerData,true)
+                        )
+                        ),gblConsiderAs,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch('Consider As',LookUp('Consider As',ID=gblConsiderAsId),{
+                                Title:TextInput5_2.Text
+                            }
+                        );
+                        Notify(
+                                "ConsiderAs Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblConsiderAsData,true),
+                        If(
+                            IsBlank(TextInput5_2.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch('Consider As',Defaults('Consider As'),{
+                                Title:TextInput5_2.Text
+                            }
+                        );
+                        Notify(
+                                "ConsiderAs Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblConsiderAsData,true)
+                        )
+                        ),gblPPAP,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch('PPAP Level',LookUp('PPAP Level',ID=gblPPAPId),{
+                                Title:TextInput5_4.Text
+                            }
+                        );
+                        Notify(
+                                "PPAP Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblPPAPData,true),
+                        If(
+                            IsBlank(TextInput5_4.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch('PPAP Level',Defaults('PPAP Level'),{
+                                Title:TextInput5_4.Text
+                            }
+                        );
+                        Notify(
+                                "PPAP Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblPPAPData,true)
+                        )
+                        ),gblRoleMaster,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_RoleMaster,LookUp(ECN_RoleMaster,ID=gblRoleMasterId),{
+                                Role_Id:Value(TextInput3_4.Text),
+                                Role_Name:TextInput3_3.Text
+                            }
+                        );
+                        Notify(
+                                "Role Master Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblRoleMasterData,true),
+                        If(
+                            IsBlank(TextInput3_3.Text) || IsBlank(TextInput3_4.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_RoleMaster,Defaults(ECN_RoleMaster),{
+                                Role_Id:Value(TextInput3_4.Text),
+                                Role_Name:TextInput3_3.Text
+                            }
+                        );
+                        Notify(
+                                "Role Master Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblRoleMasterData,true)
+                        )
+                        ),gblStageMaster,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_StageMaster,LookUp(ECN_StageMaster,Title=gblStageMasterTitle),{
+                                Title:Value(Label39_1.Text),
+                                Stage_Id:Value(TextInput3_6.Text),
+                                Stage_Name:TextInput3_5.Text
+                            }
+                        );
+                        Notify(
+                                "Stage Master Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblStageMasterData,true),
+                        If(
+                            IsBlank(TextInput3_5.Text) || IsBlank(TextInput3_6.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_StageMaster,Defaults(ECN_StageMaster),{
+                                Title:Value(Label39_1.Text),
+                                Stage_Id:Value(TextInput3_6.Text),
+                                Stage_Name:TextInput3_5.Text
+                            }
+                        );
+                        Notify(
+                                "Stage Master Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblStageMasterData,true)
+                        )
+                        ),gblLocation,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(Location_1,LookUp(Location_1,ID=gblLocationId),{
+                                Title:TextInput5_6.Text
+                            }
+                        );
+                        Notify(
+                                "Location Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblLocationData,true),
+                        If(
+                            IsBlank(TextInput5_6.Text) ,
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(Location_1,Defaults(Location_1),{
+                                Title:TextInput5_6.Text
+                            }
+                        );
+                        Notify(
+                                "Location Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblLocationData,true)
+                        )
+                        ),gblSourceReceipt,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch('Source of Receipt',LookUp('Source of Receipt',ID=gblSourceReceiptId),{
+                                Title:TextInput5_7.Text
+                            }
+                        );
+                        Notify(
+                                "SourceReceipt Data Update Successful",
+                                NotificationType.Success
+                            ); Set(gblSourceReceiptData,true),
+                        If(
+                            IsBlank(TextInput5_7.Text) ,
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch('Source of Receipt',Defaults('Source of Receipt'),{
+                                Title:TextInput5_7.Text
+                            }
+                        );
+                        Notify(
+                                "SourceReceipt Data Added Successful",
+                                NotificationType.Success
+                            ); Set(gblSourceReceiptData,true)
+                        )
+                        )
+                        ,
+                        gblDOC,
+                        If(btnSubmitMSTCountry.Text="Update",
+                        Patch(ECN_DocumentMaster,LookUp(ECN_DocumentMaster,Title=gblDOCTitle),{
+                                Title:Value(Label30_1.Text),
+                                DOCMST_ID:Value(TextInput5_9.Text),
+                                DOCMST_NAME:TextInput5_8.Text,
+                                DOCMST_STARTDATE:DatePicker1.SelectedDate,
+                                DOCMST_ENDDATE:DatePicker1_1.SelectedDate
+                            }
+                        );
+                        Notify(
+                                "DOC Data Update Successful",
+                                NotificationType.Success
+                            );Set(gblDocsData,true),
+                        If(
+                            IsBlank(TextInput5_9.Text) || IsBlank(TextInput5_8.Text) ,
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            Patch(ECN_DocumentMaster,Defaults(ECN_DocumentMaster),{
+                                Title:Value(Label30_1.Text),
+                                DOCMST_ID:Value(TextInput5_9.Text),
+                                DOCMST_NAME:TextInput5_8.Text,
+                                DOCMST_STARTDATE:DatePicker1.SelectedDate,
+                                DOCMST_ENDDATE:DatePicker1_1.SelectedDate
+                            }
+                        );
+                        Notify(
+                                "DOC Data Added Successful",
+                                NotificationType.Success
+                            );Set(gblDocsData,true)
+                        )
+                        )
+                        );
+                        Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Reset(TextInput3);
+                        Reset(TextInput3_1);
+                        Reset(TextInput3_2);
+                        Reset(Dropdown4);
+                        Reset(TextInput5_2);
+                        Reset(TextInput3_3);
+                        Reset(TextInput3_4);
+                        Reset(TextInput3_5);
+                        Reset(TextInput3_6);
+                        Reset(TextInput5_6);
+                        Reset(TextInput5_7);
+                        Reset(TextInput5_9);
+                        Reset(TextInput5_8);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblUpdate,false);
+                        Set(gblCountryId,Blank());
+                        Set(gblCountryName,Blank());
+                        Set(gblDivisionID,Blank());
+                        Set(gblDivisionName,Blank());
+                        Set(gblDivisionSUBID,Blank());
+                        Set(gblProductId,Blank());
+                        Set(gblProductName,Blank());
+                        Set(gblProductDivisionID,Blank());
+                        Set(gblSBUId,Blank());
+                        Set(gblSBUName,Blank());
+                        Set(gblSBUCountryID,Blank());
+                        Set(gblcustomer,false);
+                        Set(gblCustomerId,Blank());
+                        Set(gblCustomerName,Blank());
+                        Set(gblCustomerEmail,Blank());
+                        Set(gblCustomerPhone,Blank());
+                        Set(gblCustomerLocation,Blank());
+                        Set(gblConsiderAsId,Blank());
+                        Set(gblConsiderAsTitle,Blank());
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPId,Blank());
+                        Set(gblPPAPTitle,Blank());
+                        Set(gblPPAP,false);
+                        Set(gblRoleMaster,false);
+                        Set(gblRoleMasterId,Blank());
+                        Set(gblRoleMasterName,Blank());
+                        Set(gblRoleMasterRoleID,Blank());
+                        Set(gblStageMaster,false);
+                        Set(gblStageMasterId,Blank());
+                        Set(gblStageMasterName,Blank());
+                        Set(gblStageMasterTitle,Blank());
+                        Set(gblLocation,false);
+                        Set(gblLocationId,Blank());
+                        Set(gblLocationName,Blank());
+                        Set(gblSourceReceipt,false);
+                        Set(gblSourceReceiptId,Blank());
+                        Set(gblSourceReceiptName,Blank());
+                        Set(gblDOCID,Blank());
+                        Set(gblDOCName,Blank());
+                        Set(gblDOCTitle,Blank());
+                        Set(gblSDOCStartDate,Blank());
+                        Set(gblSDOCStartDate,Blank());
+                        Set(gblDOCEndDate,Blank());
+                        Set(gblDOC,false);
+                        Navigate(frmHome);
+                    Text: =If(!gblUpdate,"Submit","Update")
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =1018
+                    Y: =17
+                    ZIndex: =15
+
+                btnBackMSTCountry As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =If(gblCountryMasterData,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblCountryId,Blank());
+                        Set(gblCountryName,Blank());
+                        Back());
+                        If(gblCountryMasterData=false && gblCountryMaster,Set(gblCountryMasterData,true);Set(gblCountryMaster,false);Navigate(frmHome));
+                        
+                        If(gblDivisionMasterData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblCountryId,Blank());
+                        Set(gblCountryName,Blank());
+                        Back());
+                        If(gblDivisionMasterData=false && gblDivisionMaster,Set(gblDivisionMasterData,true);Set(gblDivisionMaster,false);Navigate(frmHome));
+                        
+                        If(gblProductFamilyData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblCountryId,Blank());
+                        Set(gblCountryName,Blank());
+                        Back());
+                        If(gblProductFamilyData=false && gblProductFamily,Set(gblProductFamilyData,true);Set(gblProductFamily,false);Navigate(frmHome));
+                        
+                        If(gblSBUData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblCountryId,Blank());
+                        Set(gblCountryName,Blank());
+                        Back());
+                        If(gblSBUData=false && gblSBU,Set(gblSBUData,true);Set(gblSBU,false);Navigate(frmHome));
+                        
+                        If(gblcustomerData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblCustomerId,Blank());
+                        Set(gblCustomerName,Blank());
+                        Set(gblCustomerEmail,Blank());
+                        Set(gblCustomerPhone,Blank());
+                        Set(gblCustomerLocation,Blank());
+                        Back());
+                        If(gblcustomerData=false && gblcustomer,Set(gblcustomerData,true);Set(gblcustomer,false);Navigate(frmHome));
+                        
+                        If(gblConsiderAsData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Back());
+                        If(gblConsiderAsData=false && gblConsiderAs,Set(gblConsiderAsData,true);Set(gblConsiderAs,false);Navigate(frmHome));
+                        
+                        If(gblPPAPData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPData,false);
+                        Set(gblPPAP,false);
+                        Back());
+                        If(gblPPAPData=false && gblPPAP,Set(gblPPAPData,true);Set(gblPPAP,false);Navigate(frmHome));
+                        
+                        If(gblRoleMasterData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPData,false);
+                        Set(gblPPAP,false);
+                        Set(gblRoleMasterData,false);
+                        Set(gblRoleMaster,false);
+                        Back());
+                        If(gblRoleMasterData=false && gblRoleMaster,Set(gblRoleMasterData,true);Set(gblRoleMaster,false);Navigate(frmHome));
+                        
+                        If(gblStageMasterData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPData,false);
+                        Set(gblPPAP,false);
+                        Set(gblRoleMasterData,false);
+                        Set(gblRoleMaster,false);
+                        Set(gblStageMaster,false);
+                        Set(gblStageMasterData,false);
+                        Back());
+                        If(gblStageMasterData=false && gblStageMaster,Set(gblStageMasterData,true);Set(gblStageMaster,false);Navigate(frmHome));
+                        
+                        If(gblLocationData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPData,false);
+                        Set(gblPPAP,false);
+                        Set(gblRoleMasterData,false);
+                        Set(gblRoleMaster,false);
+                        Set(gblStageMaster,false);
+                        Set(gblStageMasterData,false);
+                        Set(gblLocation,false);
+                        Set(gblLocationData,false);
+                        Back());
+                        If(gblLocationData=false && gblLocation,Set(gblLocationData,true);Set(gblLocation,false);Navigate(frmHome));
+                        
+                        If(gblSourceReceiptData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPData,false);
+                        Set(gblPPAP,false);
+                        Set(gblRoleMasterData,false);
+                        Set(gblRoleMaster,false);
+                        Set(gblStageMaster,false);
+                        Set(gblStageMasterData,false);
+                        Set(gblLocation,false);
+                        Set(gblLocationData,false);
+                        Set(gblSourceReceipt,false);
+                        Set(gblSourceReceiptData,false);
+                        Back());
+                        If(gblSourceReceiptData=false && gblSourceReceipt,Set(gblSourceReceiptData,true);Set(gblSourceReceipt,false);Navigate(frmHome));
+                        
+                        If(gblDocsData ,Reset(TextInput5_1);
+                        Reset(TextInput6_1);
+                        Reset(Dropdown3);
+                        Reset(Dropdown3_1);
+                        Reset(TextInput5_3);
+                        Reset(Dropdown3_2);
+                        Reset(TextInput5_5);
+                        Set(gblCountryMaster,false);
+                        Set(gblDivisionMaster,false);
+                        Set(gblProductFamily,false);
+                        Set(gblSBU,false);
+                        Set(gblCountryMasterData,false);
+                        Set(gblDivisionMasterData,false);
+                        Set(gblProductFamilyData,false);
+                        Set(gblSBUData,false);
+                        Set(gblcustomerData,false);
+                        Set(gblcustomer,false);
+                        Set(gblConsiderAsData,false);
+                        Set(gblConsiderAs,false);
+                        Set(gblPPAPData,false);
+                        Set(gblPPAP,false);
+                        Set(gblRoleMasterData,false);
+                        Set(gblRoleMaster,false);
+                        Set(gblStageMaster,false);
+                        Set(gblStageMasterData,false);
+                        Set(gblLocation,false);
+                        Set(gblLocationData,false);
+                        Set(gblSourceReceipt,false);
+                        Set(gblSourceReceiptData,false);
+                        Set(gblDocsData,false);
+                        Set(gblDOC,false);
+                        Back());
+                        If(gblDocsData=false && gblDOC,Set(gblDocsData,true);Set(gblDOC,false);Navigate(frmHome));
+                        
+                        Set(gblCountryId,Blank());
+                        Set(gblCountryName,Blank());
+                        Set(gblDivisionID,Blank());
+                        Set(gblDivisionName,Blank());
+                        Set(gblDivisionSUBID,Blank());
+                        Set(gblProductId,Blank());
+                        Set(gblProductName,Blank());
+                        Set(gblProductDivisionID,Blank());
+                        Set(gblSBUId,Blank());
+                        Set(gblSBUName,Blank());
+                        Set(gblSBUCountryID,Blank());
+                        Set(gblCustomerId,Blank());
+                        Set(gblCustomerName,Blank());
+                        Set(gblCustomerEmail,Blank());
+                        Set(gblCustomerPhone,Blank());
+                        Set(gblCustomerLocation,Blank());
+                        Set(gblConsiderAsId,Blank());
+                        Set(gblConsiderAsTitle,Blank());
+                        Set(gblPPAPId,Blank());
+                        Set(gblPPAPTitle,Blank());
+                        Set(gblRoleMasterId,Blank());
+                        Set(gblRoleMasterName,Blank());
+                        Set(gblRoleMasterRoleID,Blank());
+                        Set(gblStageMasterId,Blank());
+                        Set(gblStageMasterName,Blank());
+                        Set(gblStageMasterTitle,Blank());
+                        Set(gblLocationId,Blank());
+                        Set(gblLocationName,Blank());
+                        Set(gblSourceReceiptId,Blank());
+                        Set(gblSourceReceiptName,Blank());
+                        Set(gblDOCID,Blank());
+                        Set(gblDOCName,Blank());
+                        Set(gblDOCTitle,Blank());
+                        //Set(gblSDOCIsActive,Blank());
+                        Set(gblUpdate,false);
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =26
+                    Y: =17
+                    ZIndex: =16
+

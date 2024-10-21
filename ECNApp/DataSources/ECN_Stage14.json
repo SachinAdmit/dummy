@@ -1,0 +1,49 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-07-02T16:48:33.6250000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Attachments",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "File name with extension",
+      "{FullPath}": "Full Path",
+      "{HasAttachments}": "Has attachments",
+      "{Identifier}": "Identifier",
+      "{IsFolder}": "IsFolder",
+      "{Link}": "Link to item",
+      "{ModerationComment}": "Comments associated with the content approval of this list item",
+      "{ModerationStatus}": "Content approval status",
+      "{Name}": "Name",
+      "{Path}": "Folder path",
+      "{Thumbnail}": "Thumbnail",
+      "{TriggerWindowEndToken}": "Trigger Window End Token",
+      "{TriggerWindowStartToken}": "Trigger Window Start Token",
+      "{VersionNumber}": "Version number",
+      "Author": "Created By",
+      "Author#Claims": "Created By Claims",
+      "ComplianceAssetId": "Compliance Asset Id",
+      "Created": "Created",
+      "Editor": "Modified By",
+      "Editor#Claims": "Modified By Claims",
+      "ES014_ECNReference": "ES014_ECNReference",
+      "ES014_ECNReference#Id": "ES014_ECNReference Id",
+      "ES014_ModifyBy": "ES014_ModifyBy",
+      "ES014_ModifyBy#Id": "ES014_ModifyBy Id",
+      "ES014_Prod_Stage_Drawing_Date": "ES014_Prod_Stage_Drawing_Date",
+      "ID": "ID",
+      "Modified": "Modified",
+      "OData__ColorTag": "Color Tag",
+      "Title": "Title"
+    },
+    "DatasetName": "https://aditit.sharepoint.com/sites/EngineeringChangeNote",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "ECN_Stage14",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

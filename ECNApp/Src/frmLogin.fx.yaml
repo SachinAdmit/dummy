@@ -1,0 +1,223 @@
+frmLogin As screen:
+    OnVisible: |-
+        =UpdateContext({varLogoutPopup:0});
+
+    LeftSide As groupContainer.manualLayoutContainer:
+        Height: =Max(App.Height, App.MinScreenHeight)
+        Width: =Max(App.Width, App.MinScreenWidth)/2
+        ZIndex: =1
+
+        Image1 As image:
+            Height: =245
+            Image: =Harsha_logo
+            Width: =392
+            X: =(Parent.Width-Image1.Width)/2
+            Y: =(Parent.Height-Image1.Height)/2
+            ZIndex: =1
+
+    RightSide As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(39, 113, 194, 1)
+        Height: =Max(App.Height, App.MinScreenHeight)
+        Width: =Max(App.Width, App.MinScreenWidth)/2
+        X: =Max(App.Width, App.MinScreenWidth)/2
+        ZIndex: =2
+
+        ContainerLogin As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
+            Height: =Parent.Width-Parent.Width*20%
+            PaddingLeft: =100
+            PaddingTop: =100
+            Width: =Parent.Width-Parent.Width*20%
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height  -Self.Height)/2
+            ZIndex: =4
+
+            btnForgotPassword As button:
+                BorderThickness: =0
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(39, 113, 194, 1)
+                Height: =33
+                HoverFill: =ColorFade(RGBA(255, 255, 255, 1), -20%)
+                PaddingBottom: =1
+                PaddingLeft: =1
+                PaddingRight: =1
+                PaddingTop: =1
+                Size: =11
+                TabIndex: =3
+                Text: ="Forgot Password"
+                Width: =144
+                X: =Parent.Width-Self.Width-50
+                Y: =402
+                ZIndex: =1
+
+            imgLoginCenter As image:
+                BorderColor: =RGBA(39, 113, 194, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =98
+                Image: ='OIP (2)'
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                TabIndex: =120
+                X: =(Parent.Width-Self.Width)/2
+                Y: =62
+                ZIndex: =2
+
+            btnLogin As button:
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(39, 113, 194, 1)
+                Height: |
+                    =ContainerLogin.Height/15
+                OnSelect: |+
+                    =// Reset varUser and StageIDList variables after navigation
+                    Set(varUser, Blank());
+                    Set(varFilterStyle,"Dedicated");
+                    Clear(colStageIDs);
+                    Set(varEditRecord,false);
+                    Set(varApprovalUser,false);
+                    Set(varResetListGallery,true);
+                    
+                    // Lookup the user based on login credentials
+                    Set(
+                        varUser,
+                        LookUp(
+                            ECN_UserMaster,
+                            User_Login_ID = txtUsername.Text && User_Login_Password = txtPassword.Text
+                        )
+                    );
+                    
+                    If(
+                        IsBlank(varUser),
+                        // Notify invalid login and set error visibility
+                        Notify("Invalid user ID or Password", NotificationType.Error);
+                        Set(varerrorvisible, true),
+                    
+                        // Collect the list of Stage IDs associated with the user's roles
+                        ClearCollect(
+                        colStageIDs,
+                        ForAll(
+                            Filter(
+                                ECN_UserDetails,
+                                User_Id.Value = Text(varUser.User_Id)
+                            ),
+                            {
+                                Stage_Id: Stage_Id.Value,
+                                ApprovalAccess: If(!IsBlank('ApprovalAccess ') && !IsError('ApprovalAccess '), 'ApprovalAccess ', false)
+                            }
+                        )
+                    );
+                    
+                    //Collect the list of Stage IDs associated with the user's roles
+                        ClearCollect(
+                            colMenuIDs,
+                            Distinct(
+                                Filter(
+                                    ECN_UserDetails,
+                                    User_Id.Value = varUser.User_Id
+                                ).Menu_ID,
+                                Menu_ID.Id           
+                            )
+                        );
+                        // Collect User Roles and Stages
+                        ClearCollect(UserRolesAndStages, Filter(ECN_UserDetails, User_Id.Value = Text(varUser.User_Id)));
+                        //Collection of all the approvals
+                        ClearCollect(ColApprover,Filter(ECN_UserDetails, 'ApprovalAccess '=true));
+                    
+                        // Check if the user has exactly one role with a value of 1
+                       If(
+                        //Check if there is exactly one role in UserRolesAndStages
+                        CountRows(UserRolesAndStages) = 1 &&
+                        // Check if the role ID of this single role is 1
+                        LookUp(UserRolesAndStages, true, Role_Id.Id) = 1,   
+                        // Navigate to frmStage1 if the conditions are met
+                        Set(IsECNCreater,true);
+                        Set(varEditRecord,false);
+                        Navigate(frmST1),   
+                        //Otherwise, navigate to frmHome
+                        If(!IsBlank(LookUp(UserRolesAndStages,Role_Id.Id=1)),
+                        Set(IsECNCreater,true),Set(IsECNCreater,false));
+                        Set(varEditRecord,false);
+                        Navigate(frmHome, ScreenTransition.Fade, {StageIDList: colStageIDs, UserRolesAndStages: UserRolesAndStages,MenuIDList:colMenuIDs})
+                    );
+                    
+                    
+                        //Reset the login fields
+                        Reset(txtUsername);
+                        Reset(txtPassword);
+                    );
+                    
+                    
+                    
+                    
+                    
+                    
+                PaddingRight: =4.50
+                PaddingTop: =4.50
+                Size: =13.50
+                TabIndex: =2
+                Text: ="Login"
+                Width: =ContainerLogin.Width/4
+                X: =(Parent.Width-Self.Width)/2
+                Y: =348
+                ZIndex: =3
+
+            txtPassword As text:
+                Default: =""
+                HintText: ="Password"
+                Mode: =TextMode.Password
+                PaddingLeft: =50
+                PaddingRight: =4.50
+                PaddingTop: =4.50
+                Size: =11.70
+                TabIndex: =1
+                Width: =Parent.Width/1.3
+                X: =(Parent.Width-Self.Width)/2
+                Y: =254
+                ZIndex: =4
+
+            txtUsername As text:
+                Clear: =true
+                Default: =""
+                HintText: ="Email / Login"
+                PaddingBottom: =0
+                PaddingLeft: =50
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11.70
+                Width: =Parent.Width/1.3
+                X: =(Parent.Width - Self.Width)/2
+                Y: =179
+                ZIndex: =5
+
+            icoUser As icon.AddUser:
+                Color: =RGBA(39, 113, 194, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =35
+                Icon: =Icon.AddUser
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                TabIndex: =110
+                Width: =35
+                X: =txtUsername.X+3
+                Y: =txtUsername.Y+2
+                ZIndex: =6
+
+            icoPassword As icon.AddUser:
+                Color: =RGBA(39, 113, 194, 1)
+                Height: =35
+                Icon: =Icon.Lock
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                TabIndex: =100
+                Width: =35
+                X: =txtPassword.X+3
+                Y: =txtPassword.Y+2
+                ZIndex: =7
+

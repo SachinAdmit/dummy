@@ -1,0 +1,823 @@
+{
+  "003c3238-929d-42ea-a090-e2efd7e0b211": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://aditit.sharepoint.com/sites/EngineeringChangeNote": {
+        "dataSources": {
+          "Documents": {
+            "tableName": "45b870ab-b856-4338-81ed-a7977ea65d7d"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "ECN_RiskAnalysisReportDetails",
+      "ECN_Stage2",
+      "TestSanket",
+      "Source of Receipt",
+      "ECN_UserMaster",
+      "ECN_UserDetails",
+      "ECN_Stage3",
+      "ECN_RiskAnalysisReport",
+      "ECN_Stage2_Details",
+      "ECN_Approval_History",
+      "ECN_Stage3_Details",
+      "ECN_ProductFamilyMaster",
+      "ECN_Stage5",
+      "ECN_Stage6_Details",
+      "ECN_Stage8",
+      "ECN_Stage9",
+      "Documents",
+      "Division",
+      "DivisionMaster",
+      "ECN_DivisionMaster",
+      "ECN_PreFeasibilityReportDetails",
+      "Country",
+      "ECN_RoleStageDetails",
+      "ECN_Stage11",
+      "ECN_Stage13",
+      "Consider As",
+      "Customer",
+      "ECN_SBUMaster",
+      "ECN_DocumentMaster",
+      "ECN_Stage14",
+      "ECN_Stage15",
+      "ECN_PreFeasibilityReport",
+      "ECN_Stage10",
+      "ECN_Stage6",
+      "ECN_CountryMaster",
+      "ECN_Stage7",
+      "ECN_StageMaster",
+      "ECN_MenuList",
+      "ECN_RoleMaster",
+      "Location_1",
+      "PF",
+      "PPAP Level",
+      "Product Family",
+      "SBU",
+      "test_user",
+      "ECN_Stage12",
+      "ECN_Stage4",
+      "ECN_Stage1"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "7e90a620-5b43-458d-99f6-6ed2c921749b"
+    ],
+    "id": "003c3238-929d-42ea-a090-e2efd7e0b211"
+  },
+  "0ab274f1-1316-4e2b-b731-deadc0d98a60": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1b796221-1c49-4a79-832b-fd9730c48c63": {
+          "value": "shared_sharepointonline"
+        },
+        "5d4a9251-7875-4c4b-94cf-50f72a6bde82": {
+          "value": "shared_approvals_1"
+        },
+        "87148f75-ad9c-4ff6-b53d-c5b24b7db342": {
+          "value": "shared_sharepointonline_3"
+        },
+        "workflowDisplayName": {
+          "value": "Copy of - Stage2Approval"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "2dc04138-a9c7-4326-b9e7-1b9d85008b5d"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_approvals_1": {
+          "value": "5d4a9251-7875-4c4b-94cf-50f72a6bde82"
+        },
+        "shared_sharepointonline": {
+          "value": "1b796221-1c49-4a79-832b-fd9730c48c63"
+        },
+        "shared_sharepointonline_3": {
+          "value": "87148f75-ad9c-4ff6-b53d-c5b24b7db342"
+        },
+        "workflowDisplayName": {
+          "value": "Copy of - Stage2Approval"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "2dc04138-a9c7-4326-b9e7-1b9d85008b5d"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Copyof-Stage2Approval"
+    ],
+    "dependencies": {
+      "shared_approvals_1": "5d4a9251-7875-4c4b-94cf-50f72a6bde82",
+      "shared_sharepointonline": "1b796221-1c49-4a79-832b-fd9730c48c63",
+      "shared_sharepointonline_3": "87148f75-ad9c-4ff6-b53d-c5b24b7db342"
+    },
+    "dependents": [],
+    "id": "0ab274f1-1316-4e2b-b731-deadc0d98a60"
+  },
+  "0fe0f62e-b98a-4cbb-94e0-32ad8d0bd1ac": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://aditit.sharepoint.com/sites/EngineeringChangeNote": {
+        "dataSources": {
+          "Consider As": {
+            "tableName": "d570bff2-dcc1-44e6-b39e-c345533a64ab"
+          },
+          "Country": {
+            "tableName": "f2453ce7-c334-403c-9900-c74e0780f96a"
+          },
+          "Customer": {
+            "tableName": "b529c9d9-ad9c-4e2f-afdd-e5e74f806e53"
+          },
+          "Division": {
+            "tableName": "430cf94f-c44a-4dc4-8aa7-670bca42dd51"
+          },
+          "DivisionMaster": {
+            "tableName": "f7a15df7-ca3d-44f0-ba93-9cab954783d4"
+          },
+          "ECN_Approval_History": {
+            "tableName": "1f535a4e-b1a5-4f34-88d2-aa7ab29388e8"
+          },
+          "ECN_CountryMaster": {
+            "tableName": "e348db85-c294-4751-bbcc-8acb61baffe4"
+          },
+          "ECN_DivisionMaster": {
+            "tableName": "ff4b2d30-ce82-4538-8b43-fd97ec5dcf55"
+          },
+          "ECN_MenuList": {
+            "tableName": "556cd1ed-c5ef-4b27-8f5a-90466fda9456"
+          },
+          "ECN_PreFeasibilityReport": {
+            "tableName": "7a56b99b-c101-4368-aad1-d0124a38f1e1"
+          },
+          "ECN_PreFeasibilityReportDetails": {
+            "tableName": "3e19e094-8a15-4ec2-90aa-ad2d430668b7"
+          },
+          "ECN_ProductFamilyMaster": {
+            "tableName": "51608a31-ab78-4408-a7b5-c04de8de7ac8"
+          },
+          "ECN_RiskAnalysisReport": {
+            "tableName": "efc7b42e-92a6-4f03-b216-a646b9ed50e9"
+          },
+          "ECN_RiskAnalysisReportDetails": {
+            "tableName": "09987850-ad44-4dbd-ae69-8d16cdf117b7"
+          },
+          "ECN_RoleMaster": {
+            "tableName": "9c43ba02-5c20-428d-b911-93fc0c534340"
+          },
+          "ECN_RoleStageDetails": {
+            "tableName": "deafd36d-4a08-4231-a43c-0d6f07166847"
+          },
+          "ECN_SBUMaster": {
+            "tableName": "e40c2143-a917-4400-853e-837caa892dd5"
+          },
+          "ECN_Stage1": {
+            "tableName": "f233e050-f920-4a49-b8eb-8ca57e8b5c26"
+          },
+          "ECN_Stage10": {
+            "tableName": "f8b3884e-d135-4a14-b4c4-564242657d62"
+          },
+          "ECN_Stage11": {
+            "tableName": "e4a47758-8329-4fca-9321-ce089ea97232"
+          },
+          "ECN_Stage12": {
+            "tableName": "7fe3600e-9edb-47d6-bc2d-ffda4006feb8"
+          },
+          "ECN_Stage13": {
+            "tableName": "814555aa-d5b0-45da-ba50-7c58bb36024a"
+          },
+          "ECN_Stage14": {
+            "tableName": "176e144a-177e-4f66-bf7f-fcebc2b933e2"
+          },
+          "ECN_Stage15": {
+            "tableName": "f5d7eddb-c87f-4d90-a59d-3ddc9bc70c95"
+          },
+          "ECN_Stage2": {
+            "tableName": "2ae59581-8908-4774-8c4a-d272a6578de3"
+          },
+          "ECN_Stage2_Details": {
+            "tableName": "33eb075e-0a20-48d2-92e0-8d3ee642e9bc"
+          },
+          "ECN_Stage3": {
+            "tableName": "40ed5e4c-d92f-4bc4-b1ec-7d146bcd3dc6"
+          },
+          "ECN_Stage3_Details": {
+            "tableName": "96a9b1bb-3a2f-4f0e-bd01-1136614835ac"
+          },
+          "ECN_Stage4": {
+            "tableName": "97b72890-cb74-4ece-a2e2-e1611d4652c3"
+          },
+          "ECN_Stage5": {
+            "tableName": "4f080336-6f9f-4028-ac93-061fe4cf70c2"
+          },
+          "ECN_Stage6": {
+            "tableName": "3b60921b-037f-4e41-8c0d-5d26a3610374"
+          },
+          "ECN_Stage6_Details": {
+            "tableName": "177c1642-cbbd-4895-9bb0-0eb139d9326d"
+          },
+          "ECN_Stage7": {
+            "tableName": "62ae58b4-6597-4204-92ea-8245c3319d25"
+          },
+          "ECN_Stage8": {
+            "tableName": "c1246670-0e95-49e7-8b24-03a9c4172f8b"
+          },
+          "ECN_Stage9": {
+            "tableName": "d7d5107e-b923-4236-8695-f8adeb50b91d"
+          },
+          "ECN_StageMaster": {
+            "tableName": "e3185b51-fdf4-4c3e-940d-a335ca92aab6"
+          },
+          "ECN_UserDetails": {
+            "tableName": "9cdd2e9f-8af2-4a69-9d51-cb5c031e4965"
+          },
+          "ECN_UserMaster": {
+            "tableName": "f3d2b5c1-d4a4-493c-874b-10aad43c27d9"
+          },
+          "Location_1": {
+            "tableName": "a79ddafc-cf9e-48b7-9873-84d9201c5e13"
+          },
+          "PF": {
+            "tableName": "9c79264d-3468-4c7d-b6a7-8d330963df5a"
+          },
+          "PPAP Level": {
+            "tableName": "e315e0fc-1a86-487d-8941-7218ca25519f"
+          },
+          "Product Family": {
+            "tableName": "52d603b3-a555-4b8e-af68-8dee20f0856f"
+          },
+          "SBU": {
+            "tableName": "a0e1e94c-4be7-4990-a38f-b313735e5e34"
+          },
+          "Source of Receipt": {
+            "tableName": "dfed669d-14bd-49c2-bdfe-99ca82706cc8"
+          },
+          "TestSanket": {
+            "tableName": "ec6fa5e0-24b4-4465-aa2c-c27eb90ab138"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Consider As",
+      "Country",
+      "Customer",
+      "Division",
+      "DivisionMaster",
+      "ECN_Approval_History",
+      "ECN_CountryMaster",
+      "ECN_DivisionMaster",
+      "ECN_MenuList",
+      "ECN_PreFeasibilityReport",
+      "ECN_PreFeasibilityReportDetails",
+      "ECN_ProductFamilyMaster",
+      "ECN_RiskAnalysisReport",
+      "ECN_RiskAnalysisReportDetails",
+      "ECN_RoleMaster",
+      "ECN_RoleStageDetails",
+      "ECN_SBUMaster",
+      "ECN_Stage1",
+      "ECN_Stage10",
+      "ECN_Stage11",
+      "ECN_Stage12",
+      "ECN_Stage13",
+      "ECN_Stage14",
+      "ECN_Stage15",
+      "ECN_Stage2",
+      "ECN_Stage2_Details",
+      "ECN_Stage3",
+      "ECN_Stage3_Details",
+      "ECN_Stage4",
+      "ECN_Stage5",
+      "ECN_Stage6",
+      "ECN_Stage6_Details",
+      "ECN_Stage7",
+      "ECN_Stage8",
+      "ECN_Stage9",
+      "ECN_StageMaster",
+      "ECN_UserDetails",
+      "ECN_UserMaster",
+      "Location_1",
+      "PF",
+      "PPAP Level",
+      "Product Family",
+      "SBU",
+      "Source of Receipt",
+      "TestSanket"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "0fe0f62e-b98a-4cbb-94e0-32ad8d0bd1ac"
+  },
+  "1b796221-1c49-4a79-832b-fd9730c48c63": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "0ab274f1-1316-4e2b-b731-deadc0d98a60"
+    ],
+    "id": "1b796221-1c49-4a79-832b-fd9730c48c63"
+  },
+  "210702a8-80a4-46fa-8545-cea8651b68cc": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://aditit.sharepoint.com/sites/EngineeringChangeNote": {
+        "dataSources": {
+          "Consider As": {
+            "tableName": "d570bff2-dcc1-44e6-b39e-c345533a64ab"
+          },
+          "Country": {
+            "tableName": "f2453ce7-c334-403c-9900-c74e0780f96a"
+          },
+          "Customer": {
+            "tableName": "b529c9d9-ad9c-4e2f-afdd-e5e74f806e53"
+          },
+          "ECN_Approval_History": {
+            "tableName": "1f535a4e-b1a5-4f34-88d2-aa7ab29388e8"
+          },
+          "ECN_CountryMaster": {
+            "tableName": "e348db85-c294-4751-bbcc-8acb61baffe4"
+          },
+          "ECN_DivisionMaster": {
+            "tableName": "ff4b2d30-ce82-4538-8b43-fd97ec5dcf55"
+          },
+          "ECN_MenuList": {
+            "tableName": "556cd1ed-c5ef-4b27-8f5a-90466fda9456"
+          },
+          "ECN_ProductFamilyMaster": {
+            "tableName": "51608a31-ab78-4408-a7b5-c04de8de7ac8"
+          },
+          "ECN_RoleMaster": {
+            "tableName": "9c43ba02-5c20-428d-b911-93fc0c534340"
+          },
+          "ECN_RoleStageDetails": {
+            "tableName": "deafd36d-4a08-4231-a43c-0d6f07166847"
+          },
+          "ECN_SBUMaster": {
+            "tableName": "e40c2143-a917-4400-853e-837caa892dd5"
+          },
+          "ECN_Stage1": {
+            "tableName": "f233e050-f920-4a49-b8eb-8ca57e8b5c26"
+          },
+          "ECN_Stage10": {
+            "tableName": "f8b3884e-d135-4a14-b4c4-564242657d62"
+          },
+          "ECN_Stage11": {
+            "tableName": "e4a47758-8329-4fca-9321-ce089ea97232"
+          },
+          "ECN_Stage12": {
+            "tableName": "7fe3600e-9edb-47d6-bc2d-ffda4006feb8"
+          },
+          "ECN_Stage13": {
+            "tableName": "814555aa-d5b0-45da-ba50-7c58bb36024a"
+          },
+          "ECN_Stage14": {
+            "tableName": "176e144a-177e-4f66-bf7f-fcebc2b933e2"
+          },
+          "ECN_Stage15": {
+            "tableName": "f5d7eddb-c87f-4d90-a59d-3ddc9bc70c95"
+          },
+          "ECN_Stage2": {
+            "tableName": "2ae59581-8908-4774-8c4a-d272a6578de3"
+          },
+          "ECN_Stage2_Details": {
+            "tableName": "33eb075e-0a20-48d2-92e0-8d3ee642e9bc"
+          },
+          "ECN_Stage3": {
+            "tableName": "40ed5e4c-d92f-4bc4-b1ec-7d146bcd3dc6"
+          },
+          "ECN_Stage3_Details": {
+            "tableName": "96a9b1bb-3a2f-4f0e-bd01-1136614835ac"
+          },
+          "ECN_Stage4": {
+            "tableName": "97b72890-cb74-4ece-a2e2-e1611d4652c3"
+          },
+          "ECN_Stage5": {
+            "tableName": "4f080336-6f9f-4028-ac93-061fe4cf70c2"
+          },
+          "ECN_Stage6": {
+            "tableName": "3b60921b-037f-4e41-8c0d-5d26a3610374"
+          },
+          "ECN_Stage6_Details": {
+            "tableName": "177c1642-cbbd-4895-9bb0-0eb139d9326d"
+          },
+          "ECN_Stage7": {
+            "tableName": "62ae58b4-6597-4204-92ea-8245c3319d25"
+          },
+          "ECN_Stage8": {
+            "tableName": "c1246670-0e95-49e7-8b24-03a9c4172f8b"
+          },
+          "ECN_Stage9": {
+            "tableName": "d7d5107e-b923-4236-8695-f8adeb50b91d"
+          },
+          "ECN_StageMaster": {
+            "tableName": "e3185b51-fdf4-4c3e-940d-a335ca92aab6"
+          },
+          "ECN_UserDetails": {
+            "tableName": "9cdd2e9f-8af2-4a69-9d51-cb5c031e4965"
+          },
+          "ECN_UserMaster": {
+            "tableName": "f3d2b5c1-d4a4-493c-874b-10aad43c27d9"
+          },
+          "Feasibility form": {
+            "tableName": "10bb253d-817c-48ae-a347-d37ffd976566"
+          },
+          "Location_1": {
+            "tableName": "a79ddafc-cf9e-48b7-9873-84d9201c5e13"
+          },
+          "PF": {
+            "tableName": "9c79264d-3468-4c7d-b6a7-8d330963df5a"
+          },
+          "PPAP Level": {
+            "tableName": "e315e0fc-1a86-487d-8941-7218ca25519f"
+          },
+          "Product Family": {
+            "tableName": "52d603b3-a555-4b8e-af68-8dee20f0856f"
+          },
+          "Source of Receipt": {
+            "tableName": "dfed669d-14bd-49c2-bdfe-99ca82706cc8"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Consider As",
+      "Country",
+      "Customer",
+      "ECN_Approval_History",
+      "ECN_CountryMaster",
+      "ECN_DivisionMaster",
+      "ECN_MenuList",
+      "ECN_ProductFamilyMaster",
+      "ECN_RoleMaster",
+      "ECN_RoleStageDetails",
+      "ECN_SBUMaster",
+      "ECN_Stage1",
+      "ECN_Stage11",
+      "ECN_Stage10",
+      "ECN_Stage12",
+      "ECN_Stage13",
+      "ECN_Stage14",
+      "ECN_Stage15",
+      "ECN_Stage2",
+      "ECN_Stage2_Details",
+      "ECN_Stage3",
+      "ECN_Stage3_Details",
+      "ECN_Stage4",
+      "ECN_Stage5",
+      "ECN_Stage6",
+      "ECN_Stage6_Details",
+      "ECN_Stage7",
+      "ECN_Stage8",
+      "ECN_Stage9",
+      "ECN_StageMaster",
+      "ECN_UserDetails",
+      "ECN_UserMaster",
+      "Feasibility form",
+      "Location_1",
+      "PF",
+      "PPAP Level",
+      "Product Family",
+      "Source of Receipt"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "210702a8-80a4-46fa-8545-cea8651b68cc"
+  },
+  "480673b2-71ab-4fe0-b4d4-00c18cf96953": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "Export to Excel"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "2d052802-0a8e-400d-95a8-fbd5d3ead3cd"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "Export to Excel"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "2d052802-0a8e-400d-95a8-fbd5d3ead3cd"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ExporttoExcel"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "480673b2-71ab-4fe0-b4d4-00c18cf96953"
+  },
+  "5d4a9251-7875-4c4b-94cf-50f72a6bde82": {
+    "connectionRef": {
+      "displayName": "Approvals",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/1711/1.0.1711.3876/approvals/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_approvals"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "0ab274f1-1316-4e2b-b731-deadc0d98a60"
+    ],
+    "id": "5d4a9251-7875-4c4b-94cf-50f72a6bde82"
+  },
+  "7e90a620-5b43-458d-99f6-6ed2c921749b": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "003c3238-929d-42ea-a090-e2efd7e0b211": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowDisplayName": {
+          "value": "Copy of - Submit, Rework, Approve and Rejected"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "90ec7592-bdf1-4729-8ff1-5c2379233c83"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline_1": {
+          "value": "003c3238-929d-42ea-a090-e2efd7e0b211"
+        },
+        "workflowDisplayName": {
+          "value": "Copy of - Submit, Rework, Approve and Rejected"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "90ec7592-bdf1-4729-8ff1-5c2379233c83"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Copyof-Submit,Rework,ApproveandRejected"
+    ],
+    "dependencies": {
+      "shared_sharepointonline_1": "003c3238-929d-42ea-a090-e2efd7e0b211"
+    },
+    "dependents": [],
+    "id": "7e90a620-5b43-458d-99f6-6ed2c921749b"
+  },
+  "81840551-c880-4609-a60d-5b2eafbdedcf": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://aditit.sharepoint.com/sites/EngineeringChangeNote": {
+        "dataSources": {
+          "Consider As": {
+            "tableName": "d570bff2-dcc1-44e6-b39e-c345533a64ab"
+          },
+          "Country": {
+            "tableName": "f2453ce7-c334-403c-9900-c74e0780f96a"
+          },
+          "Customer": {
+            "tableName": "b529c9d9-ad9c-4e2f-afdd-e5e74f806e53"
+          },
+          "Division": {
+            "tableName": "430cf94f-c44a-4dc4-8aa7-670bca42dd51"
+          },
+          "DivisionMaster": {
+            "tableName": "f7a15df7-ca3d-44f0-ba93-9cab954783d4"
+          },
+          "ECN_Approval_History": {
+            "tableName": "1f535a4e-b1a5-4f34-88d2-aa7ab29388e8"
+          },
+          "ECN_CountryMaster": {
+            "tableName": "e348db85-c294-4751-bbcc-8acb61baffe4"
+          },
+          "ECN_DivisionMaster": {
+            "tableName": "ff4b2d30-ce82-4538-8b43-fd97ec5dcf55"
+          },
+          "ECN_DocumentMaster": {
+            "tableName": "0f8ae395-8dcc-47af-bb72-9041a6f33be4"
+          },
+          "ECN_MenuList": {
+            "tableName": "556cd1ed-c5ef-4b27-8f5a-90466fda9456"
+          },
+          "ECN_PreFeasibilityReport": {
+            "tableName": "7a56b99b-c101-4368-aad1-d0124a38f1e1"
+          },
+          "ECN_PreFeasibilityReportDetails": {
+            "tableName": "3e19e094-8a15-4ec2-90aa-ad2d430668b7"
+          },
+          "ECN_ProductFamilyMaster": {
+            "tableName": "51608a31-ab78-4408-a7b5-c04de8de7ac8"
+          },
+          "ECN_RiskAnalysisReport": {
+            "tableName": "efc7b42e-92a6-4f03-b216-a646b9ed50e9"
+          },
+          "ECN_RiskAnalysisReportDetails": {
+            "tableName": "09987850-ad44-4dbd-ae69-8d16cdf117b7"
+          },
+          "ECN_RoleMaster": {
+            "tableName": "9c43ba02-5c20-428d-b911-93fc0c534340"
+          },
+          "ECN_RoleStageDetails": {
+            "tableName": "deafd36d-4a08-4231-a43c-0d6f07166847"
+          },
+          "ECN_SBUMaster": {
+            "tableName": "e40c2143-a917-4400-853e-837caa892dd5"
+          },
+          "ECN_Stage1": {
+            "tableName": "f233e050-f920-4a49-b8eb-8ca57e8b5c26"
+          },
+          "ECN_Stage10": {
+            "tableName": "f8b3884e-d135-4a14-b4c4-564242657d62"
+          },
+          "ECN_Stage11": {
+            "tableName": "e4a47758-8329-4fca-9321-ce089ea97232"
+          },
+          "ECN_Stage12": {
+            "tableName": "7fe3600e-9edb-47d6-bc2d-ffda4006feb8"
+          },
+          "ECN_Stage13": {
+            "tableName": "814555aa-d5b0-45da-ba50-7c58bb36024a"
+          },
+          "ECN_Stage14": {
+            "tableName": "176e144a-177e-4f66-bf7f-fcebc2b933e2"
+          },
+          "ECN_Stage15": {
+            "tableName": "f5d7eddb-c87f-4d90-a59d-3ddc9bc70c95"
+          },
+          "ECN_Stage2": {
+            "tableName": "2ae59581-8908-4774-8c4a-d272a6578de3"
+          },
+          "ECN_Stage2_Details": {
+            "tableName": "33eb075e-0a20-48d2-92e0-8d3ee642e9bc"
+          },
+          "ECN_Stage3": {
+            "tableName": "40ed5e4c-d92f-4bc4-b1ec-7d146bcd3dc6"
+          },
+          "ECN_Stage3_Details": {
+            "tableName": "96a9b1bb-3a2f-4f0e-bd01-1136614835ac"
+          },
+          "ECN_Stage4": {
+            "tableName": "97b72890-cb74-4ece-a2e2-e1611d4652c3"
+          },
+          "ECN_Stage5": {
+            "tableName": "4f080336-6f9f-4028-ac93-061fe4cf70c2"
+          },
+          "ECN_Stage6": {
+            "tableName": "3b60921b-037f-4e41-8c0d-5d26a3610374"
+          },
+          "ECN_Stage6_Details": {
+            "tableName": "177c1642-cbbd-4895-9bb0-0eb139d9326d"
+          },
+          "ECN_Stage7": {
+            "tableName": "62ae58b4-6597-4204-92ea-8245c3319d25"
+          },
+          "ECN_Stage8": {
+            "tableName": "c1246670-0e95-49e7-8b24-03a9c4172f8b"
+          },
+          "ECN_Stage9": {
+            "tableName": "d7d5107e-b923-4236-8695-f8adeb50b91d"
+          },
+          "ECN_StageMaster": {
+            "tableName": "e3185b51-fdf4-4c3e-940d-a335ca92aab6"
+          },
+          "ECN_UserDetails": {
+            "tableName": "9cdd2e9f-8af2-4a69-9d51-cb5c031e4965"
+          },
+          "ECN_UserMaster": {
+            "tableName": "f3d2b5c1-d4a4-493c-874b-10aad43c27d9"
+          },
+          "Location_1": {
+            "tableName": "a79ddafc-cf9e-48b7-9873-84d9201c5e13"
+          },
+          "PF": {
+            "tableName": "9c79264d-3468-4c7d-b6a7-8d330963df5a"
+          },
+          "PPAP Level": {
+            "tableName": "e315e0fc-1a86-487d-8941-7218ca25519f"
+          },
+          "Product Family": {
+            "tableName": "52d603b3-a555-4b8e-af68-8dee20f0856f"
+          },
+          "SBU": {
+            "tableName": "a0e1e94c-4be7-4990-a38f-b313735e5e34"
+          },
+          "Source of Receipt": {
+            "tableName": "dfed669d-14bd-49c2-bdfe-99ca82706cc8"
+          },
+          "test_user": {
+            "tableName": "b64f15d3-2934-4311-8c54-e112f5c6fe95"
+          },
+          "TestSanket": {
+            "tableName": "ec6fa5e0-24b4-4465-aa2c-c27eb90ab138"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Consider As",
+      "Country",
+      "Customer",
+      "Division",
+      "DivisionMaster",
+      "ECN_Approval_History",
+      "ECN_CountryMaster",
+      "ECN_DivisionMaster",
+      "ECN_DocumentMaster",
+      "ECN_MenuList",
+      "ECN_PreFeasibilityReport",
+      "ECN_PreFeasibilityReportDetails",
+      "ECN_ProductFamilyMaster",
+      "ECN_RiskAnalysisReportDetails",
+      "ECN_RiskAnalysisReport",
+      "ECN_RoleMaster",
+      "ECN_RoleStageDetails",
+      "ECN_SBUMaster",
+      "ECN_Stage1",
+      "ECN_Stage10",
+      "ECN_Stage11",
+      "ECN_Stage12",
+      "ECN_Stage13",
+      "ECN_Stage14",
+      "ECN_Stage15",
+      "ECN_Stage2",
+      "ECN_Stage2_Details",
+      "ECN_Stage3",
+      "ECN_Stage3_Details",
+      "ECN_Stage4",
+      "ECN_Stage5",
+      "ECN_Stage6",
+      "ECN_Stage6_Details",
+      "ECN_Stage7",
+      "ECN_Stage8",
+      "ECN_Stage9",
+      "ECN_StageMaster",
+      "ECN_UserDetails",
+      "ECN_UserMaster",
+      "Location_1",
+      "PF",
+      "PPAP Level",
+      "Product Family",
+      "SBU",
+      "Source of Receipt",
+      "test_user",
+      "TestSanket"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "81840551-c880-4609-a60d-5b2eafbdedcf"
+  },
+  "87148f75-ad9c-4ff6-b53d-c5b24b7db342": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "0ab274f1-1316-4e2b-b731-deadc0d98a60"
+    ],
+    "id": "87148f75-ad9c-4ff6-b53d-c5b24b7db342"
+  }
+}

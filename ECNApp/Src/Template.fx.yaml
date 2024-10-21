@@ -1,0 +1,353 @@
+"Template As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnVisible: =
+
+    ScreenContainer As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =1
+
+            header As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =2
+
+                lblTitleMST As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =3
+
+                btnExitMST As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =//Exit();
+                        Set(varUser, Blank());
+                        Clear(colStageIDs);
+                        Navigate(frmLogin,ScreenTransition.CoverRight)
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =4
+
+                imgUserMST As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =5
+
+                imgCompanyLogoMST As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =6
+
+                lblUserNameMST As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =7
+
+                lblSubTitle As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: ="ECN View"
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =8
+
+                lblUserRoleST14_2 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =9
+
+        MainContainer As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =10
+
+            ctrDetail As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =11
+
+        FooterContainer As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =13
+
+            footer As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =14
+
+                btnBackMST As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =Back()
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =26
+                    Y: =17
+                    ZIndex: =15
+
+                btnSubmitST12_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Save"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =If(
+                            IsBlank(txtRMTotQtyST12.Text) || IsBlank(txtShopWIPTotQtyST12.Text) || IsBlank(txtFGsTotQtyST12.Text),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            UpdateContext(
+                                {
+                                    existingRecordST12: LookUp(
+                                        ECN_Stage12,
+                                        ES012_ECNReference.Value = varSelectedECN.ES001_ECNReference
+                                    )
+                                }
+                            );
+                            If(
+                                !IsBlank(existingRecordST12),
+                                Patch(
+                                    ECN_Stage12,
+                                    existingRecordST12,
+                                    {
+                                        ES012_RM_Qty: Value(txtRMTotQtyST12.Text),
+                                        ES012_ShopWIP_Qty: Value(txtShopWIPTotQtyST12.Text),
+                                        ES012_FG_Qty: Value(txtFGsTotQtyST12.Text),
+                                        ES012_ECNReference: {
+                                            Value: varSelectedECN.ES001_ECNReference,
+                                            Id: LookUp(
+                                                ECN_Stage1,
+                                                ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                            ).ID
+                                        },
+                                        ES012_ModifyBy: {
+                                            Value: varUser.User_Name,
+                                            Id: LookUp(
+                                                ECN_UserMaster,
+                                                User_Id = varUser.User_Id
+                                            ).ID
+                                        }
+                                    }
+                                ),
+                                Patch(
+                                    ECN_Stage12,
+                                    Defaults(ECN_Stage12),
+                                    {
+                                        Title: varSelectedECN.ES001_ECNReference,
+                                        ES012_RM_Qty: Value(txtRMTotQtyST12.Text),
+                                        ES012_ShopWIP_Qty: Value(txtShopWIPTotQtyST12.Text),
+                                        ES012_FG_Qty: Value(txtFGsTotQtyST12.Text),
+                                        ES012_ECNReference: {
+                                            Value: varSelectedECN.ES001_ECNReference,
+                                            Id: LookUp(
+                                                ECN_Stage1,
+                                                ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                            ).ID
+                                        },
+                                        ES012_ModifyBy: {
+                                            Value: varUser.User_Name,
+                                            Id: LookUp(
+                                                ECN_UserMaster,
+                                                User_Id = varUser.User_Id
+                                            ).ID
+                                        }
+                                    }
+                                )
+                            );
+                            If(
+                                !IsEmpty(Errors(ECN_Stage12)),
+                                Notify(
+                                    "An error occurred while saving the record.",
+                                    NotificationType.Error
+                                ),
+                                Patch(
+                                    ECN_Stage1,
+                                    LookUp(
+                                        ECN_Stage1,
+                                        ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                    ),
+                                    {
+                                        ES001_CurrentStage: {
+                                            Value: "Stage13",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = "13"
+                                            ).ID
+                                        },
+                                        Current_Stage_Status: {Value: "New"}
+                                    }
+                                );
+                                Notify(
+                                    "Record saved successfully!",
+                                    NotificationType.Success
+                                )
+                            );
+                            Navigate(frmHome)
+                        )
+                    Text: ="Submit"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =1018
+                    Y: =17
+                    ZIndex: =16
+
+                btnClearST8_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eraser"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    Text: ="Clear"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =854
+                    Y: =17
+                    ZIndex: =17
+

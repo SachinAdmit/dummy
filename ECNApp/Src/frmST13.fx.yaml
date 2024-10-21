@@ -1,0 +1,1553 @@
+"frmST13 As screen.'autoLayout_HeaderFooter_ver1.0'":
+    OnVisible: |-
+        =Reset(ddlNavigateST13);
+        UpdateContext({varValidationValue:0});
+
+    ScreenContainerST13 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainerST13 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            headerST13 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                imgUserST13 As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =1
+
+                lblUserNameST13 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =2
+
+                imgCompanyLogoST13 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =3
+
+                lblTitleST13 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =4
+
+                lblSubTitleST13 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: ="Stage - 13"
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =6
+
+                btnExitST13 As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =UpdateContext({varLogoutPopup:1});
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =7
+
+                lblUserRoleST13 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =8
+
+        MainContainerST13 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =3
+
+            ctnListST2_11 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                DropShadow: =DropShadow.Regular
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =90
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =927
+                Y: =footer_2.Height
+                ZIndex: =1
+
+                lblFICodeST2_11 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="FI Code:"
+                    Width: =80
+                    X: =365
+                    Y: =8
+                    ZIndex: =11
+
+                txtFICodeST2_11 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_FICode
+                        //txtFICodeST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =100
+                    X: =445
+                    Y: =10
+                    ZIndex: =12
+
+                lblPartNoST2_11 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="Part No:"
+                    Width: =85
+                    X: =572
+                    Y: =8
+                    ZIndex: =13
+
+                txtPartNoST2_11 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_PartNumber
+                        //txtPartNoST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    Reset: =true
+                    Width: =150
+                    X: =657
+                    Y: =10
+                    ZIndex: =14
+
+                lblNDNST2_11 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="New Drawing Number:"
+                    Width: =210
+                    X: =10
+                    Y: =45
+                    ZIndex: =15
+
+                txtNDNST2_11 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_NewDrawingNumber
+                        //txtNDNST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =220
+                    Y: =45
+                    ZIndex: =16
+
+                txtNDN_RVDST2_11 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_NewDrawingRevision
+                        //txtNDN_RVDST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =925
+                    Y: =45
+                    ZIndex: =18
+
+                lblCustomerST2_11 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Text: |-
+                        ="Customer:"
+                    Width: =118
+                    X: =807
+                    Y: =8
+                    ZIndex: =19
+
+                txtCustomerST2_11 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_Customer.Value
+                        //ddlCustomerST1.SelectedText.Value
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    Reset: =true
+                    Width: =250
+                    X: =925
+                    Y: =10
+                    ZIndex: =20
+
+                lblECNNoST2_11 As label:
+                    Align: =Align.Justify
+                    FontWeight: =FontWeight.Bold
+                    Height: =28
+                    Text: |-
+                        ="ECN No:"
+                    Width: =95
+                    X: =10
+                    Y: =10
+                    ZIndex: =21
+
+                txtECNNoST2_11 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_ECNReference
+                        //txtFICodeST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =90
+                    Y: =10
+                    ZIndex: =22
+
+                lblNDN_RVDST2_11 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="New Drawing Revision/Version and Date:"
+                    Width: =380
+                    X: =542
+                    Y: =45
+                    ZIndex: =23
+
+            ctrDetailST13 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =2
+
+                lblPeriodPermissionTitleST13 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(71, 158, 245, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =60
+                    LineHeight: =1.5
+                    Text: ="Marketing will take decision on existing WIP and FGs with the help of customer. Marketing will ensure pending orders closed or not. Quantity/Period permission taken from customer by marketing for supply of part as per old drawing."
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                rectDecisionST13 As rectangle:
+                    BorderThickness: =1
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =240
+                    Width: =1165
+                    X: =14
+                    Y: =112
+                    ZIndex: =2
+
+                lblApplicableTickST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =60
+                    Text: ="Applicable stages *"
+                    Width: =250
+                    X: =14
+                    Y: =112
+                    ZIndex: =3
+
+                lblTotalQtyST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =60
+                    Text: ="Total Quantity (Nos.)"
+                    X: =264
+                    Y: =112
+                    ZIndex: =4
+
+                lblUseST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =30
+                    Text: ="Use as it is"
+                    X: =414
+                    Y: =142
+                    ZIndex: =5
+
+                lblScrapST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =30
+                    Text: ="Scrap"
+                    X: =563
+                    Y: =142
+                    ZIndex: =6
+
+                lblReworkST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =30
+                    Text: ="Rework"
+                    X: =713
+                    Y: =142
+                    ZIndex: =7
+
+                lblDispositionST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =30
+                    Text: ="Disposition (tick one)"
+                    Width: =450
+                    X: =414
+                    Y: =112
+                    ZIndex: =8
+
+                lblRemarksST13 As label:
+                    Align: =Align.Center
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(71, 158, 245, 1)
+                    Height: =60
+                    Text: ="Remarks"
+                    Width: =315
+                    X: =864
+                    Y: =112
+                    ZIndex: =9
+
+                lblRMST13 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Color: =RGBA(15, 84, 140, 1)
+                    Fill: =RGBA(255, 255, 0, 1)
+                    Height: =30
+                    Text: ="RM *"
+                    Width: =250
+                    X: =14
+                    Y: =232
+                    ZIndex: =10
+
+                lblShopWIPST13 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Color: =RGBA(15, 84, 140, 1)
+                    Fill: =RGBA(255, 255, 0, 1)
+                    Height: =30
+                    Text: ="Shop WIP *"
+                    Width: =250
+                    X: =14
+                    Y: =262
+                    ZIndex: =11
+
+                lblFGsST13 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Color: =RGBA(15, 84, 140, 1)
+                    Fill: =RGBA(255, 255, 0, 1)
+                    Height: =30
+                    Text: ="FGs *"
+                    Width: =250
+                    X: =14
+                    Y: =292
+                    ZIndex: =12
+
+                lblTransitST13 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =30
+                    Text: ="Transit *"
+                    Width: =250
+                    X: =14
+                    Y: =172
+                    ZIndex: =13
+
+                lblWarehouseST13 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =30
+                    Text: ="Warehouse *"
+                    Width: =250
+                    X: =14
+                    Y: =202
+                    ZIndex: =14
+
+                lblPlanImplDTST13 As label:
+                    Align: =Align.Right
+                    BorderThickness: =1
+                    Fill: =RGBA(180, 214, 250, 1)
+                    Height: =30
+                    Text: ="Plan Implementation Date (*)"
+                    Width: =250
+                    X: =14
+                    Y: =322
+                    ZIndex: =15
+
+                txtRMTotQtyST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =VarECN_Stage12.ES012_RM_Qty
+                    DisabledBorderColor: =If(Value(varStageItem)<>13, RGBA(166, 166, 166, 1),Self.BorderColor)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Disabled)
+                    Fill: =RGBA(255, 255, 0, 1)
+                    Format: =TextFormat.Number
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =264
+                    Y: =232
+                    ZIndex: =16
+
+                txtShopWIPTotQtyST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =VarECN_Stage12.ES012_ShopWIP_Qty
+                    DisabledBorderColor: =If(Value(varStageItem)<>13, RGBA(166, 166, 166, 1),Self.BorderColor)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Disabled)
+                    Fill: =RGBA(255, 255, 0, 1)
+                    Format: =TextFormat.Number
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =264
+                    Y: =262
+                    ZIndex: =17
+
+                txtFGsTotQtyST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =VarECN_Stage12.ES012_FG_Qty
+                    DisabledBorderColor: =If(Value(varStageItem)<>13, RGBA(166, 166, 166, 1),Self.BorderColor)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Disabled)
+                    Fill: =RGBA(255, 255, 0, 1)
+                    Format: =TextFormat.Number
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =264
+                    Y: =292
+                    ZIndex: =18
+
+                txtTransitTotQtyST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_Transit_Qty,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =264
+                    Y: =172
+                    ZIndex: =19
+
+                txtWarehouseTotQtyST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_Warehouse_Qty,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Format: =TextFormat.Number
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =264
+                    Y: =202
+                    ZIndex: =20
+
+                chkRMUseST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&& (chkRMUseST13.Value=false&&chkRMScrapST13.Value=false&&chkRMReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_RM_Disposition.Value="Use as it is",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkRMReworkST13.Value=true||chkRMScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    OnCheck: |
+                        =chkRMScrapST13.Value = false;
+                        chkRMReworkST13.Value = false;
+                    OnUncheck: |-
+                        =chkRMScrapST13.Value = true;
+                        chkRMReworkST13.Value = true;
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =414
+                    Y: =232
+                    ZIndex: =21
+
+                chkShowWIPUseST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkShowWIPUseST13.Value=false&&chkShowWIPScrapST13.Value=false&&chkShowWIPReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_ShopWIP_Disposition.Value="Use as it is",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkShowWIPReworkST13.Value=true||chkShowWIPScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =414
+                    Y: =262
+                    ZIndex: =22
+
+                chkFGsUseST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkFGsUseST13.Value=false&&chkFGs2ScrapST13.Value=false&&chkFGs2ReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_FG_Disposition.Value="Use as it is",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkFGs2ReworkST13.Value=true||chkFGs2ScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =414
+                    Y: =292
+                    ZIndex: =23
+
+                chkTrasitUseST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkTrasitUseST13.Value=false&&chkTrasitScrapST13.Value=false&&chkTrasitReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_Transit_Disposition.Value="Use as it is",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkTrasitReworkST13.Value=true||chkTrasitScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =414
+                    Y: =172
+                    ZIndex: =24
+
+                chkWarehouseUseST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkWarehouseUseST13.Value=false&&chkWarehouseScrapST13.Value=false&&chkWarehouseReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_Warehouse_Disposition.Value="Use as it is",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkWarehouseReworkST13.Value=true||chkWarehouseScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =414
+                    Y: =202
+                    ZIndex: =25
+
+                chkRMScrapST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&& (chkRMUseST13.Value=false&&chkRMScrapST13.Value=false&&chkRMReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_RM_Disposition.Value="Scrap",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkRMReworkST13.Value=true||chkRMUseST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    OnCheck: |-
+                        =chkRMUseST13.Value = false;
+                        chkRMReworkST13.Value = false;
+                    OnUncheck: |-
+                        =chkRMUseST13.Value = true;
+                        chkRMReworkST13.Value = true;
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =563
+                    Y: =232
+                    ZIndex: =26
+
+                chkShowWIPScrapST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkShowWIPUseST13.Value=false&&chkShowWIPScrapST13.Value=false&&chkShowWIPReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_ShopWIP_Disposition.Value="Scrap",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkShowWIPReworkST13.Value=true||chkShowWIPUseST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Text: =
+                    X: =563
+                    Y: =262
+                    ZIndex: =27
+
+                chkFGs2ScrapST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkFGsUseST13.Value=false&&chkFGs2ScrapST13.Value=false&&chkFGs2ReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_FG_Disposition.Value="Scrap",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkFGs2ReworkST13.Value=true||chkFGsUseST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =563
+                    Y: =292
+                    ZIndex: =28
+
+                chkTrasitScrapST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkTrasitUseST13.Value=false&&chkTrasitScrapST13.Value=false&&chkTrasitReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_Transit_Disposition.Value="Scrap",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkTrasitReworkST13.Value=true||chkTrasitUseST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =563
+                    Y: =172
+                    ZIndex: =29
+
+                chkWarehouseScrapST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkWarehouseUseST13.Value=false&&chkWarehouseScrapST13.Value=false&&chkWarehouseReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_Warehouse_Disposition.Value="Scrap",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkWarehouseReworkST13.Value=true||chkWarehouseUseST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =563
+                    Y: =202
+                    ZIndex: =30
+
+                chkRMReworkST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&& (chkRMUseST13.Value=false&&chkRMScrapST13.Value=false&&chkRMReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_RM_Disposition.Value="Rework",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkRMUseST13.Value=true||chkRMScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =714
+                    Y: =232
+                    ZIndex: =31
+
+                chkShowWIPReworkST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkShowWIPUseST13.Value=false&&chkShowWIPScrapST13.Value=false&&chkShowWIPReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_ShopWIP_Disposition.Value="Rework",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkShowWIPUseST13.Value=true||chkShowWIPScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =714
+                    Y: =262
+                    ZIndex: =32
+
+                chkFGs2ReworkST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkFGsUseST13.Value=false&&chkFGs2ScrapST13.Value=false&&chkFGs2ReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_FG_Disposition.Value="Rework",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkFGsUseST13.Value=true||chkFGs2ScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =714
+                    Y: =292
+                    ZIndex: =33
+
+                chkTrasitReworkST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkTrasitUseST13.Value=false&&chkTrasitScrapST13.Value=false&&chkTrasitReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_Transit_Disposition.Value="Rework",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkTrasitUseST13.Value=true||chkTrasitScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =714
+                    Y: =172
+                    ZIndex: =34
+
+                chkWarehouseReworkST13 As checkbox:
+                    BorderThickness: =1
+                    CheckboxBorderColor: =If(varValidationValue=1&&(chkWarehouseUseST13.Value=false&&chkWarehouseScrapST13.Value=false&&chkWarehouseReworkST13.Value=false),Color.Red, RGBA(0, 18, 107, 1))
+                    CheckboxSize: =30
+                    Default: |-
+                        =If(
+                        VarECN_Stage13.ES013_Warehouse_Disposition.Value="Rework",
+                        true,false
+                        
+                        )
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13||chkWarehouseUseST13.Value=true||chkWarehouseScrapST13.Value=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    PaddingLeft: =60
+                    Reset: =varResetCtrls
+                    Text: =
+                    X: =714
+                    Y: =202
+                    ZIndex: =35
+
+                txtRMRemarksST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_RM_Remarks,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =864
+                    Y: =232
+                    ZIndex: =36
+
+                txtFGsRemarksST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_FG_Remarks,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =863
+                    Y: =292
+                    ZIndex: =37
+
+                txtShopWIPRemarksST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_ShopWIP_Remarks,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =863
+                    Y: =262
+                    ZIndex: =38
+
+                txtTransitRemarksST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_Transit_Remarks,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =864
+                    Y: =172
+                    ZIndex: =39
+
+                txtWarehouseRemarksST13 As text:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.Text),Color.Red, RGBA(0, 18, 107, 1))
+                    Default: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_Warehouse_Remarks,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Reset: =varResetCtrls
+                    Width: =315
+                    X: =864
+                    Y: =202
+                    ZIndex: =40
+
+                dtpPlanImplDTST13 As datepicker:
+                    BorderColor: =If(varValidationValue=1&&IsBlank(Self.SelectedDate),Color.Red, RGBA(0, 18, 107, 1))
+                    DefaultDate: =If(!IsBlank(VarECN_Stage13),VarECN_Stage13.ES013_Implementation_Date,Blank())
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    InputTextPlaceholder: ="Select date"
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =264
+                    Y: =322
+                    ZIndex: =41
+
+        FooterContainerST13 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =4
+
+            footerST13 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                btnSubmitST13 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =If(Value(varStageItem)<>13,DisplayMode.Disabled,DisplayMode.Edit)
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Save"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =UpdateContext({varValidationValue:1});
+                        Clear(colValidationST13);
+                        
+                        If(IsBlank(txtTransitTotQtyST13.Text)||IsBlank(txtWarehouseTotQtyST13.Text)||IsBlank(txtRMTotQtyST13.Text)||IsBlank(txtShopWIPTotQtyST13.Text)||IsBlank(txtFGsTotQtyST13.Text)||IsBlank(dtpPlanImplDTST13.SelectedDate)||IsBlank(txtTransitRemarksST13.Text)||IsBlank(txtWarehouseRemarksST13.Text)||IsBlank(txtRMRemarksST13.Text)||IsBlank(txtShopWIPRemarksST13.Text)||IsBlank(txtFGsRemarksST13.Text),Collect(colValidationST13,{value:0}),Collect(colValidationST13,{value:1}));
+                        
+                        If((chkTrasitUseST13.Value=false&&chkTrasitScrapST13.Value=false&&chkTrasitReworkST13.Value=false)||
+                            (chkWarehouseUseST13.Value=false&&chkWarehouseScrapST13.Value=false&&chkWarehouseReworkST13.Value=false)||
+                            (chkRMUseST13.Value=false&&chkRMScrapST13.Value=false&&chkRMReworkST13.Value=false)||
+                            (chkShowWIPUseST13.Value=false&&chkShowWIPScrapST13.Value=false&&chkShowWIPReworkST13.Value=false)||
+                            (chkFGsUseST13.Value=false&&chkFGs2ScrapST13.Value=false&&chkFGs2ReworkST13.Value=false),
+                            Collect(colValidationST13,{value:0}),Collect(colValidationST13,{value:1}));
+                        If(0 in colValidationST13, Notify("Please fill in all required fields",NotificationType.Error,3000),
+                        
+                        UpdateContext(
+                            {
+                                existingRecordST13: LookUp(
+                                    ECN_Stage13,
+                                    ES013_ECNReference.Value = varSelectedECN.ES001_ECNReference
+                                )
+                            }
+                        );
+                        If(
+                            !IsBlank(existingRecordST13),
+                                // Update the existing record
+                            Patch(
+                                ECN_Stage13,
+                                existingRecordST13,
+                                {
+                                    Title: varSelectedECN.ES001_ECNReference,
+                                    ES013_Transit_Qty: Value(txtTransitTotQtyST13.Text),
+                                    ES013_Warehouse_Qty: Value(txtWarehouseTotQtyST13.Text),
+                                    ES013_RM_Qty: Value(txtRMTotQtyST13.Text),
+                                    ES013_ShopWIP_Qty: Value(txtShopWIPTotQtyST13.Text),
+                                    ES013_FG_Qty: Value(txtFGsTotQtyST13.Text),
+                                    ES013_Transit_Remarks: txtTransitRemarksST13.Text,
+                                    ES013_Warehouse_Remarks: txtWarehouseRemarksST13.Text,
+                                    ES013_RM_Remarks: txtRMRemarksST13.Text,
+                                    ES013_ShopWIP_Remarks: txtShopWIPRemarksST13.Text,
+                                    ES013_FG_Remarks: txtFGsRemarksST13.Text,
+                                    ES013_ECNReference: {
+                                        Value: varSelectedECN.ES001_ECNReference,
+                                        Id: LookUp(
+                                            ECN_Stage1,
+                                            ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                        ).ID
+                                    },
+                                    // Disposition fields with shortened checkbox names
+                                    ES013_Transit_Disposition: If(
+                                        chkTrasitUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkTrasitScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkTrasitReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_Warehouse_Disposition: If(
+                                        chkWarehouseUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkWarehouseScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkWarehouseReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_RM_Disposition: If(
+                                        chkRMUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkRMScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkRMReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_ShopWIP_Disposition: If(
+                                        chkShowWIPUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkShowWIPScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkShowWIPReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_FG_Disposition: If(
+                                        chkFGsUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkFGs2ScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkFGs2ReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_ModifyBy: {
+                                        Value: varUser.User_Name,
+                                        Id: LookUp(
+                                            ECN_UserMaster,
+                                            User_Id = varUser.User_Id
+                                        ).ID
+                                    },
+                                    ES013_Implementation_Date: dtpPlanImplDTST13.SelectedDate
+                                       // ES003_Status: {Value: "Pending"},
+                        //  ES003_ConsiderAs: {Value: ddlConsiderAsST3.Selected.Value}
+                                }
+                            ),
+                                // Insert a new record if it does not exist
+                            Patch(
+                                ECN_Stage13,
+                                Defaults(ECN_Stage13),
+                                {
+                                    Title: varSelectedECN.ES001_ECNReference,
+                                    ES013_Transit_Qty: Value(txtTransitTotQtyST13.Text),
+                                    ES013_Warehouse_Qty: Value(txtWarehouseTotQtyST13.Text),
+                                    ES013_RM_Qty: Value(txtRMTotQtyST13.Text),
+                                    ES013_ShopWIP_Qty: Value(txtShopWIPTotQtyST13.Text),
+                                    ES013_FG_Qty: Value(txtFGsTotQtyST13.Text),
+                                    ES013_Transit_Remarks: txtTransitRemarksST13.Text,
+                                    ES013_Warehouse_Remarks: txtWarehouseRemarksST13.Text,
+                                    ES013_RM_Remarks: txtRMRemarksST13.Text,
+                                    ES013_ShopWIP_Remarks: txtShopWIPRemarksST13.Text,
+                                    ES013_FG_Remarks: txtFGsRemarksST13.Text,
+                                    ES013_ECNReference: {
+                                        Value: varSelectedECN.ES001_ECNReference,
+                                        Id: LookUp(
+                                            ECN_Stage1,
+                                            ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                        ).ID
+                                    },
+                                    // Disposition fields with shortened checkbox names
+                                    ES013_Transit_Disposition: If(
+                                        chkTrasitUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkTrasitScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkTrasitReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_Warehouse_Disposition: If(
+                                        chkWarehouseUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkWarehouseScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkWarehouseReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_RM_Disposition: If(
+                                        chkRMUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkRMScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkRMReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_ShopWIP_Disposition: If(
+                                        chkShowWIPUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkShowWIPScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkShowWIPReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_FG_Disposition: If(
+                                        chkFGsUseST13.Value = true,
+                                        {Value: "Use as it is"},
+                                        If(
+                                            chkFGs2ScrapST13.Value = true,
+                                            {Value: "Scrap"},
+                                            If(
+                                                chkFGs2ReworkST13.Value = true,
+                                                {Value: "Rework"}
+                                            )
+                                        )
+                                    ),
+                                    ES013_ModifyBy: {
+                                        Value: varUser.User_Name,
+                                        Id: LookUp(
+                                            ECN_UserMaster,
+                                            User_Id = varUser.User_Id
+                                        ).ID
+                                    },
+                                    ES013_Implementation_Date: dtpPlanImplDTST13.SelectedDate
+                                       // ES003_Status: {Value: "Pending"},
+                        //  ES003_ConsiderAs: {Value: ddlConsiderAsST3.Selected.Value}
+                                }
+                            )
+                        );
+                            // Show success or error messages and update ECN_Stage1 currentstatus
+                        If(
+                            !IsEmpty(Errors(ECN_Stage13)),
+                            Notify(
+                                "An error occurred while saving the record.",
+                                NotificationType.Error
+                            ),
+                            Patch(
+                                ECN_Stage1,
+                                LookUp(
+                                    ECN_Stage1,
+                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                ),
+                                {
+                                    ES001_CurrentStage: {
+                                        Value: "Stage14",
+                                        Id: LookUp(
+                                            ECN_StageMaster,
+                                            Stage_Id = 14
+                                        ).ID
+                                    },
+                                        Current_Stage_Status: {Value: "New"}
+                                }
+                            );
+                            If(
+                                IsBlank(existingRecordST13),
+                                Notify(
+                                    "Record saved successfully!",
+                                    NotificationType.Success
+                                ),
+                                Notify(
+                                    "Record updated successfully!",
+                                    NotificationType.Success
+                                )
+                            )
+                        );
+                        Navigate(frmHome)
+                        
+                        )
+                    Text: ="Submit"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =1018
+                    Y: =17
+                    ZIndex: =1
+
+                btnUpdateST13 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Document"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =ClearCollect(colDynamicHTMLST2,{vText:""});
+                        ForAll(VarECN_Stage2Details,Patch(colDynamicHTMLST2,First(colDynamicHTMLST2),{vText:First(colDynamicHTMLST2).vText&"
+                          <tr>
+                                                <td style=""border: 1px solid #ddd; padding: 8px; text-align: left;"">"&ThisRecord.ES002_SR_NO&"</td>
+                                                <td style=""border: 1px solid #ddd; padding: 8px; text-align: left;"">"&ThisRecord.ES002_ParameterName&"</td>
+                                                <td style=""border: 1px solid #ddd; padding: 8px; text-align: left;"">"&ThisRecord.ES002_CurrentDrawingSpecification&"</td>
+                                                <td style=""border: 1px solid #ddd; padding: 8px; text-align: left;"">"&ThisRecord.ES002_NewDrawingSpecification&"</td>
+                                            </tr>
+                        
+                        "}));
+                        Navigate(ScreenReport);
+                    Text: ="Report"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =854
+                    Y: =17
+                    ZIndex: =2
+
+                btnClearST13 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eraser"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =Set(varResetCtrls,true);
+                        Set(varResetCtrls,false);
+                    Text: ="Clear"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =686
+                    Y: =17
+                    ZIndex: =3
+
+                btnBackST13 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =
+                        
+                        Navigate(frmHome)
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =26
+                    Y: =17
+                    ZIndex: =4
+
+                btnNavigateDummy13 As Button:
+                    Align: =Align.Left
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontColor: =
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowSort"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =
+                    Text: ="Navigate"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =256
+                    X: =410
+                    Y: =17
+                    ZIndex: =5
+
+                ddlNavigateST13 As dropdown:
+                    BorderColor: =RGBA(39, 113, 194, 1)
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: ="Stage 13"
+                    Height: =30
+                    Items: |
+                        =Switch(Value(varStageItem),
+                        
+                        1,["Stage 1"],
+                        2,["Stage 1","Stage 2"],
+                        3,["Stage 1","Stage 2","Stage 3"],
+                        4,["Stage 1","Stage 2","Stage 3","Stage 4"],
+                        5,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5"],
+                        6,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6"],
+                        7,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7"],
+                        8,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8"],
+                        9,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9"],
+                        10,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10"],
+                        11,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11"],
+                        12,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12"],
+                        13,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13"],
+                        14,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14"],
+                        15,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15"],
+                        16,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15","Stage 16"],[""])
+                    OnChange: |
+                        =Switch(Self.Selected.Value,
+                        "Stage 1",Navigate(frmST1),
+                        "Stage 2",Navigate(frmST2),
+                        "Stage 3",Navigate(frmST3),
+                        "Stage 4",Navigate(frmST4),
+                        "Stage 5",Navigate(frmST5),
+                        "Stage 6",Navigate(frmST6),
+                        "Stage 7",Navigate(frmST7),
+                        "Stage 8",Navigate(frmST8),
+                        "Stage 9",Navigate(frmST9),
+                        "Stage 10",Navigate(frmST10),
+                        "Stage 11",Navigate(frmST11),
+                        "Stage 12",Navigate(frmST12),
+                        "Stage 13",Navigate(frmST13),
+                        "Stage 14",Navigate(frmST14),
+                        "Stage 15",Navigate(frmST15),
+                        "Stage 16",Navigate(frmST15)
+                        
+                        )
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =true
+                    Size: =11.70
+                    Width: =118
+                    X: =538
+                    Y: =22
+                    ZIndex: =6
+
+    PopupContainer_13 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(200, 200, 200, 0.8)
+        Height: =740
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: =If(varLogoutPopup=1,true,false)
+        Width: =1200
+        X: =15
+        Y: =15
+        ZIndex: =2
+
+        Popup_13 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            btnPopupBack_13 As button:
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =188
+                Size: =11
+                Text: ="Are you sure to logout?"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =2
+
+            btnPopupTop_13 As button:
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(39, 113, 194, 1)
+                DisplayMode: =DisplayMode.Disabled
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                Size: =13
+                Text: ="Confirm Logout"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =5
+
+            btnPopupBottom_13 As button:
+                DisabledFill: =RGBA(214, 221, 224, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(214, 221, 224, 1)
+                RadiusTopLeft: =00
+                RadiusTopRight: =0
+                Text: =
+                Width: =347
+                X: =755
+                Y: =243
+                ZIndex: =6
+
+            btnPopupYes_13 As button:
+                Fill: =RGBA(132, 40, 38, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Set(varUser, Blank());
+                    Clear(colStageIDs);
+                    Navigate(frmLogin);
+                    UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="Yes"
+                Width: =95
+                X: =822
+                Y: =248
+                ZIndex: =7
+
+            btnPopupNo_13 As button:
+                Fill: =RGBA(39, 113, 194, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="No"
+                Width: =95
+                X: =940
+                Y: =248
+                ZIndex: =8
+

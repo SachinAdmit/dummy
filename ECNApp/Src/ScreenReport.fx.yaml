@@ -1,0 +1,947 @@
+"ScreenReport As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnVisible: =
+
+    ScreenContainerReport As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =2
+
+        HeaderContainerReport As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            headerReport As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                imgUserST14_1 As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =1
+
+                lblUserNameST14_1 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =2
+
+                imgCompanyLogoST14_1 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =3
+
+                lblTitleST14_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =4
+
+                lblSubTitleST14_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: ="ECN View"
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =6
+
+                btnExitST14_1 As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =//Exit();
+                        Set(varUser, Blank());
+                        Clear(colStageIDs);
+                        Navigate(frmLogin,ScreenTransition.CoverRight)
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =7
+
+                lblUserRoleST14_1 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =8
+
+        MainContainerReport As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =3
+
+            ctrDetailReport As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                HtmlText2 As htmlViewer:
+                    Height: =554
+                    HtmlText: |-
+                        ="<!DOCTYPE html>
+                        <html lang=""en"">
+                        <head>
+                            <meta charset=""UTF-8"">
+                            <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+                            <title>Document</title>
+                        </head>
+                        <body>    
+                            <div id=""ecnFullDiv"" style=""border: 1px black solid"">
+                                <div id=""docNumberSection"" style='" & docNumberSection & "'>"&VarECN_Stage1.ES001_Document.Value&"</div>
+                                <div id=""headingSection"" style='" & headingSection & "'>
+                                    <div id=""harshaLogo""><img src=""https://harshaengineers.com/images/Harsha_logo.png"" style='" & harshaLogoImg & "' /></div>
+                                    <div id=""pageHeading""
+                                        style='"& pageHeading &"'>
+                                        <div style='" & pageHeadingText & "' class=""pageHeadingText"">
+                                            Engineering Change Note (ECN)
+                                        </div>
+                                        <div class=""pageSubheadingText"">
+                                            (Product Change related)
+                                        </div>
+                                    </div>
+                                </div>" &
+                        //If(Value(varStageItem)>1,  
+                            "<div class=""stageSection"" style='"& stageSection &"'>
+                                <div style='"&stageHeader&"'class='"&stageHeader&"'>
+                                    <h2> Stage 1: Mkt/Engg. </h2>
+                                </div>         
+                                <table style='"& tableStyle &"'>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' rowspan=""2"" >SBU*</th>
+                                        <td style='" & thTdStyle & "' rowspan=""2"">" & LookUp(ECN_SBUMaster, ID = VarECN_Stage1.ES001_SBU.Id).SBUMST_NAME & "</td>
+                                        <th style='" & thTdStyle & "'>Division*</th>
+                                        <td style='" & thTdStyle & "'>" & LookUp(ECN_DivisionMaster, ID = VarECN_Stage1.ES001_Division.Id).DIVMST_NAME & "
+                                        </td>
+                                        <th style='" & thTdStyle & "'>
+                                            ECN NO
+                                        </th>
+                                        <td style='" & thTdStyle & "' colspan=""3"">" & VarECN_Stage1.ES001_ECNReference & "</td>
+                                    </tr>  
+                                    <tr>  
+                                        <th style='" & thTdStyle & "'>Customer</th>
+                                        <td style='" & thTdStyle & "'>" & LookUp(Customer, ID = VarECN_Stage1.ES001_Customer.Id).Name & "</td>
+                                        <th style='" & thTdStyle & "'>Date</th>
+                                        <td style='" & thTdStyle & "' colspan=""3"">" & VarECN_Stage1.ES001_DateSubmitted & "</td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "'>FI Code</th>
+                                        <td style='" & thTdStyle & "'>" & VarECN_Stage1.ES001_FICode & "</td>
+                                        <th style='" & thTdStyle & "'>Part No</th>
+                                        <td style='" & thTdStyle & "'>" & VarECN_Stage1.ES001_PartNumber & "</td>
+                                        <th style='" & thTdStyle & "'>Source of Receipt</th>
+                                        <td style='" & thTdStyle & "'>" & VarECN_Stage1.ES001_SourceOfReceipt.Value & "</td>
+                                        <th style='" & thTdStyle & "'>Product Family*</th>
+                                        <td style='" & thTdStyle & "'>" & LookUp(ECN_ProductFamilyMaster, ID = VarECN_Stage1.ES001_ProductFamily.Id
+                                            ).PDFMST_NAME & "
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""2"">Current Drawing Number</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_CurrentDrawingNumber & "</td>
+                                        <th style='" & thTdStyle & "' colspan=""2"">Current Drawing Revision/Version and Date</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_CurrentDrawingVersionDate & "</td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""2"">Current ECV Number</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_CurrentECVNumber & "</td>
+                                        <th style='" & thTdStyle & "' colspan=""2"">Current ECV Revision/Version</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_CurrentECVRevision & "</td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""2"">New Drawing Number</th>
+                                        <td style='" & thTdStyle & "' colspan=""2""> " & VarECN_Stage1.ES001_NewDrawingNumber & "</td>
+                                        <th style='" & thTdStyle & "' colspan=""2"">New Drawing Revision/Version and Date</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_NewDrawingVersionDate & "</td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""2"">New ECV Number</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_NewECVNumber & "</td>
+                                        <th style='" & thTdStyle & "' colspan=""2"">New ECV Revision/Version</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage1.ES001_NewECVVersionDate & "</td>
+                                    </tr>
+                                </table>
+                            </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>2,
+                            "<div class=""stageSection"" style='"& stageSection &"'>
+                                <div style='"&stageHeader&"' class=""stageHeader"">
+                                    <h2> Stage 2: Engg. </h2>
+                                </div>
+                                <table style='"& detailsTable &"'  class=""detailsTable"">
+                                    <tr>
+                                        <th style='" & thTdCenterStyle & "'>Sr. No.</th>
+                                        <th style='" & thTdCenterStyle & "'>Parameter Name</th>
+                                        <th style='" & thTdCenterStyle & "'>Current Drawing
+                                            Specification</th>
+                                        <th style='" & thTdCenterStyle & "'>New Drawing
+                                            Specification</th>
+                                    </tr>" & First(colDynamicHTMLST2).vText & "
+                                </table>
+                                <table style='"& tableStyle &"'>
+                                    <tr>
+                                        <th style='"& thTdStyle &"' colspan=""2"">Risk Assessment: </th>
+                                        <td  style=""border: 1px solid #858484; padding: 8px; text-align: left""colspan=""8"">Created/Not Created</td>
+                                    </tr>
+                                    <tr>
+                                        <th style='"& thTdStyle &"' colspan=""2"">Feasibility Form: </th>
+                                        <td  style=""border: 1px solid #858484; padding: 8px; text-align: left""colspan=""8"">Created/Not Created</td>
+                                    </tr>
+                                    <tr>
+                                        <td style='" & thTdStyle & "' colspan=""10""><b>Cost impact on product due to the proposed change: </b><input type=""checkbox""disabled" & If(
+                                            Boolean(VarECN_Stage2.ES002_CostImpact) = true, " checked", "") & "></th>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""10""><b>Tooling/Fixture: </b><input type=""checkbox""disabled" & If(
+                                            Boolean(VarECN_Stage2.ES002_ToolingFixture) = true, " checked", "") & "></th>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""10"">Technical & commercial differences to be share to marketing</th>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "' colspan=""2"">Cost</th>
+                                        <td style='" & thTdStyle & "' colspan=""2"">" & VarECN_Stage2.ES002_TechnicalComDiffCost & "</td>
+                                        <th style='" & thTdStyle & "' colspan=""2"">Remarks</th>
+                                        <td style='" & thTdStyle & "' colspan=""4"">" & VarECN_Stage2.ES002_TechnicalComDiffRemark & "</td>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & thTdStyle & "'  colspan=""10"">Documents affected (Tick on Applicable) :</th>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">Control Plan</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_ControlPlan) = true, " checked", "") & ">
+                                            </span>    
+                                        </th>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">PFMEA</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_PFMEA) = true, " checked", "") & ">
+                                            <span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">FPIR / IPIR</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_FPIR_IPIR) = true, " checked", "") & ">
+                                            </span>
+                                        </th>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">Stage Drawing</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_StageDrawing) = true, " checked", "") & ">
+                                            </span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">PFD</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_PFD) = true, " checked", "") & ">
+                                            </span>
+                                        </th>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">HIPS</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_HIPS) = true, " checked", "") & ">
+                                            </span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style='" & docOption & "' colspan=""2"">
+                                            <span style='"& docOptionHeading &"' class=""docOptionHeading"">Others</span>
+                                            <span style='"& docOptionCheckbox &"' class=""docOptionCheckbox"">
+                                                <input type=""checkbox""disabled" & If(Boolean(VarECN_Stage2.ES002_OthersCheck) = true, " checked", "") & ">
+                                            </span>
+                                        </th>
+                                        <td  style=""border: 1px solid #858484; padding: 8px; text-align: left""colspan=""8""><b>Please Specify:</b> " & VarECN_Stage2.ES002_Others & "</td>
+                                    </tr>
+                                    <tr class=""approvalSection"" style='"& approvalSection &"'>
+                                        <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                            Created by
+                                        </th>
+                                        <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                            Approved By (HOD Engg)
+                                        </th>
+                                            <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                            Action
+                                        </th>
+                                        <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""10"">
+                                            Comments
+                                        </th>
+                                    </tr>
+                                    "&First(colDynamicHTMLapprovalST2).vText&"
+                                </table>
+                            </div>"
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>3,
+                        "<div class=""stageSection"" style='"& stageSection &"'>
+                              <div class=""stageHeader"" style='"& stageHeader &"'>
+                                <h2> Stage 3: Mkt </h2>
+                              </div>
+                              <table class=""detailsTable"" style='"& detailsTable &"'>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left""colspan=""10"">
+                                    Changes Approval for technical & commercial differences from customer.
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center""colspan=""1"">
+                                    S.No.
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center""colspan=""2"">
+                                    Impacted other customer-1
+                                  </th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: center""colspan=""2"">
+                                    Current supplied location
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">
+                                    Change implemented location
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">
+                                    Expected implemenetation (*)
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center""colspan=""2"">
+                                    PPAP Level *:
+                                  </th>
+                                </tr>"&First(colDynamicHTMLST3).vText&"</table>
+                              <table style='"& tableStyle &"'>
+                                <tr>
+                                  <td  style=""border: 1px solid #858484; padding: 8px; text-align: left""colspan=""11"">
+                                    Decision on existing RM, WIP, FGs and other items.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"" rowspan=""2"" class=""textCenter"">
+                                    Applicable stages (Tick)
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" rowspan=""2"" class=""textCenter"">
+                                    Total Quantity (Nos.)
+                                  </th>
+                        
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""3"" class=""textCenter"">
+                                    Disposition (tick one)
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""5"" rowspan=""2"" class=""textCenter"">
+                                    Remarks
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Use as it is</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Scrap</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Rework</th>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">RM</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">" & VarECN_Stage3.ES003_RM_TotalQuantity & "</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_RM_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_RM_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_RM_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""5"">" & VarECN_Stage3.ES003_RM_Remarks & "</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">Shop WIP</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">" & VarECN_Stage3.ES003_ShopWIP_TotalQuantity & "</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_ShopWIP_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_ShopWIP_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_ShopWIP_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left""colspan=""5"">" & VarECN_Stage3.ES003_ShopWIP_Remarks & "</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">FGs</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">" & VarECN_Stage3.ES003_FGs_TotalQuantity & "</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_FGs_Decision.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_FGs_Decision.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_FGs_Decision.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""5"">" & VarECN_Stage3.ES003_FGs_Remarks & "</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">Transit</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">" & VarECN_Stage3.ES003_Transit_TotalQuantity & "</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_Transit_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_Transit_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_Transit_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""5"">" & VarECN_Stage3.ES003_Transit_Remarks & "</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">Warehouse</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">" & VarECN_Stage3.ES003_Warehouse_TotalQuantity & "</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_Warehouse_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_Warehouse_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage3.ES003_Warehouse_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""5"">" & VarECN_Stage3.ES003_Warehouse_Remarks & "</td>
+                                </tr>
+                                <tr class=""approvalSection"" style='"& approvalSection &"'>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left""  colspan=""2"">
+                                    Created by
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Approved By (HOD Marketing)
+                                  </th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Action
+                                  </th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""10"">
+                                    Comments
+                                  </th>
+                                </tr>
+                                "&First(colDynamicHTMLapprovalST3).vText&"
+                              </table>
+                            </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>4,
+                         "<div style='"& stageSection &"' class=""stageSection"">
+                              <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 4: Mkt </h2>
+                              </div>
+                              <table style='"& tableStyle &"'>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""1"">
+                                    <b>Zoho Project Name*:</b> "& VarECN_Stage4.ES004_ZohoProjectID &"
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>5,
+                         "<div style='"& stageSection &"' class=""stageSection"">
+                              <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 5: Engg </h2>
+                              </div>
+                              <table style='"& tableStyle &"' >
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""2"">New FI Code Requirment</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&If(VarECN_Stage5.ES005_NewFICodeRequired = true, "Yes", "No") &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Reason for New Code*</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"">"& VarECN_Stage5.ES005_ReasonForNewCode &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Remarks</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">"& VarECN_Stage5.ES005_Remarks &"</td>
+                                </tr>
+                                <tr style='"& textCenter &"' class=""textCenter"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""2"">Information of customer changed to Process (If Secondary change)</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&If(VarECN_Stage5.ES005_CustomerChangedToProcess = true, "Yes", "No") &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Remarks*</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""4"">"& VarECN_Stage5.ES005_CustomerChangeRemarks &"</td>
+                                </tr>
+                                <tr style='"& textCenter &"' class=""textCenter"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""2"">RM change</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&If(VarECN_Stage5.ES005_RMChange = true, "Yes", "No") &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Remarks*</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""4"">"& VarECN_Stage5.ES005_RMChangeRemarks &"</td>
+                                </tr>
+                                <tr style='"& textCenter &"' class=""textCenter"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""2"">Tool design change Through PDM system</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&If(VarECN_Stage5.ES005_ToolDesignChange = true, "Yes", "No") &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Remarks*</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""4"">"& VarECN_Stage5.ES005_ToolDesignChangeRemarks &"</td>
+                                </tr>
+                                <tr style='"& textCenter &"' class=""textCenter"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""2"">Job order no. need to add</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&If(VarECN_Stage5.ES005_JobOrderNoRequired = true, "Yes", "No") &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Remarks*</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""4"">"& VarECN_Stage5.ES005_JobOrderNoRemarks &"</td>
+                                </tr>
+                                <tr style='"& textCenter &"' class=""textCenter"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""2"">Stage drawing / FPIR change</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&If(VarECN_Stage5.ES005_StageDrawingFPIRChange = true, "Yes", "No") &"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"">Remarks*</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""4"">"& VarECN_Stage5.ES005_StageDrawingFPIRChangeRemarks &"</td>
+                                </tr>
+                                <tr style='"& approvalSection &"' class=""approvalSection"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">
+                                    Created by
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2"">
+                                    Approved By (HOD Engg)
+                                  </th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Action
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""10"">
+                                    Comments
+                                  </th>
+                                </tr>
+                        "&First(colDynamicHTMLapprovalST5).vText&"
+                              </table>
+                            </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>6,
+                         "<div style='"& stageSection &"' class=""stageSection"">
+                              <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 6: Tool Crib </h2>
+                              </div>
+                              <table style='"& detailsTable &"' class=""detailsTable"">
+                                <tr>
+                                  <th style='"& textCenter &"' class=""textCenter"">SR.NO.</th>
+                                  <th style='"& textCenter &"' class=""textCenter"">Part Name</th>
+                                  <th style='"& textCenter &"' class=""textCenter"">Drawing No</th>
+                                  <th style='"& textCenter &"' class=""textCenter"">Qty.</th>
+                                  <th style='"& textCenter &"' class=""textCenter"">Action</th>
+                                  <th style='"& textCenter &"' class=""textCenter"">Remarks</th>
+                                </tr>"&First(colDynamicHTMLST6).vText&"</table>
+                            </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>7,
+                         "<div style='"& stageSection &"' class=""stageSection"">
+                              <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 7: Tool Room </h2>
+                              </div>
+                              <table style='"& tableStyle &"'>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Manufacturing Tool Completion(*)</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">"&VarECN_Stage7.ES007_ToolCompletionDate&"</td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">Remarks</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""4"">"&VarECN_Stage7.ES007_ToolCompletionRemarks&"</td>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Tool Inspection Report(*)</th>"&
+                                    If(!IsBlank(varECN_Stage7FileLink),
+                                  "<td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""6""><a href='"&varECN_Stage7FileLink&"'>"&varECN_Stage7FileName&"</a></td>",
+                                  "<td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""6"">There is nothing attached</td>")&"
+                        
+                                </tr>
+                                <tr style='"& approvalSection &"' class=""approvalSection"">
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Created by
+                                  </th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Approved By (HOD Tool Room)
+                                  </th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Action
+                                  </th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""10"">
+                                    Comments
+                                  </th>
+                                </tr>
+                        "&First(colDynamicHTMLapprovalST7).vText&"
+                              </table>
+                            </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>8,
+                        "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                            <h2> Stage 8: CPPC </h2>
+                            </div>
+                            <table style='"& tableStyle &"'>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">PR for RM Procurement (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""7"">"&VarECN_Stage8.ES008_PRForRMProcurement&"</td>
+                                </tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Plan for Sample Trial (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""7"">"&VarECN_Stage8.ES008_PlanForSampleTrial&"</td>
+                                </tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">
+                                    Sample Qty.
+                                    </th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""7"">
+                                    "&VarECN_Stage8.ES008_SampleQty&"
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Batch Qty</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""7"">"&VarECN_Stage8.ES008_BatchQty&"</td>
+                                </tr>
+                            </table>
+                        </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>9,
+                        "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                            <h2> Stage 9: Mfg. </h2>
+                            </div>
+                            <table style='"&tableStyle&"'>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">Actual Trial Start Date (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">"&VarECN_Stage9.ES009_ActualTrialStartDate&"</td>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">Trial End Date (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">"&VarECN_Stage9.ES009_TrialEndDate&"</td>
+                                </tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">FPIR / IPIR (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">Attached/Not Attached</td>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""1"">Remarks</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">"&VarECN_Stage9.ES009_Remarks&"</td>
+                                </tr>
+                            </table>
+                        </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>10,
+                        "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 10: QA </h2>
+                            </div>
+                            <table style='"& tableStyle &"'>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""14"">
+                                    Documents affected (Tick on Applicable) :
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>Control Plan</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_ControlPlan = true, " checked", "") & "></span>
+                                    </th>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>PFMEA</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_PFMEA = true, " checked", "") & "></span>
+                                    </th>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>Work Instruction</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_WorkInstruction = true, " checked", "") & "></span>
+                                    </th>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>Training need</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_TrainingNeed = true, " checked", "") & "></span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>Kaizen</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_Kaizen = true, " checked", "") & "></span>
+                                    </th>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>HIPS</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_HIPS = true, " checked", "") & "></span>
+                                    </th>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"'>JH Check sheet</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_JHCheckSheet = true, " checked", "") & "></span>
+                                    </th>
+                                    <th style='"&docOption&"' class=""docOption"" colspan=""2"">
+                                    <span style='"&docOptionHeading&"' class=""docOptionHeading"">Others</span>
+                                    <span style='"&docOptionCheckbox&"'><input type=""checkbox""disabled" & If(VarECN_Stage10.ES010_Others = true, " checked", "") & "></span>
+                                    </th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""6"">
+                                        <b>Please Specify:</b> "&VarECN_Stage10.ES010_PleaseSpecify&"
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">PPAP Document(*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""12"">Attached/Not Attached</td>
+                                </tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">BSR Submission Date (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""12"">"&VarECN_Stage10.ES010_BSRSubmissionDate&"</td>
+                                </tr>
+                                <tr style='"& approvalSection &"' class=""approvalSection"">
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Created by</th>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Approved By (HOD QA)</th>
+                                  <th  style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Action</th>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""10"">Comments</th>
+                                </tr>
+                        "&First(colDynamicHTMLapprovalST10).vText&"
+                            </table>
+                        </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>11,
+                         "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                        		<h2> Stage 11: QA </h2>
+                            </div>
+                        	<table style='"& tableStyle &"'>
+                        		<tr>
+                        		  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">PPAP approval and PSW sign off from customer, till PSW Sign off production will continue as per old revision drawing.</th>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">Attached/Not Attached</td>
+                        		  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">Remarks</th>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">"&VarECN_Stage11.ES011_PPAP_Remarks&"</td>
+                        		</tr>
+                                <tr>
+                                    <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">PPAP Approval Date (*)</th>
+                                    <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">"&VarECN_Stage11.ES011_PPAP_Date&"</td>
+                                </tr>
+                        	</table>
+                        </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>12,        
+                         "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 12: CPPC </h2>
+                            </div>
+                        	<table style='"& tableStyle &"'>
+                        		<tr>
+                        		  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">Applicable stages</th>
+                        		  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""4"">Total Quantity (Nos.)</th>
+                        		</tr>
+                        		<tr>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">RM</td>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""4"">"& VarECN_Stage12.ES012_RM_Qty &"</td>
+                        		</tr>
+                        		<tr>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">Shop WIP</td>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""4"">"& VarECN_Stage12.ES012_ShopWIP_Qty &"</td>
+                        		</tr>
+                        		<tr>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">FGs</td>
+                        		  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""4"">"& VarECN_Stage12.ES012_FG_Qty &"</td>
+                        		</tr>
+                                <tr>
+                                <th style=""border: 1px solid #858484; padding: 8px; text-align: left"">PPAP Approval Date (*)</th>
+                                <td style=""border: 1px solid #858484; padding: 8px; text-align: left"">"& VarECN_Stage11.ES011_PPAP_Date &"</td>
+                                <tr/>
+                        	</table>
+                        </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>13,
+                        "<div style='"& stageSection &"' class=""stageSection"">
+                              <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 13: Mkt </h2>
+                              </div>
+                              <table style='"& tableStyle &"'>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""2""></td>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""3"" style=""text-align: center;"">Disposition (tick one)</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" colspan=""4""></td>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Applicable stages</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Total Quantity (Nos.)</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Use as it is</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Scrap</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Rework</th>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""4"">Remarks</th>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Transit</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&VarECN_Stage13.ES013_Transit_Qty&"</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_Transit_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_Transit_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_Transit_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""4"">"&VarECN_Stage13.ES013_Transit_Remarks&"</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Warehouse</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&VarECN_Stage13.ES013_Warehouse_Qty&"</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_Warehouse_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_Warehouse_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_Warehouse_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""4"">"&VarECN_Stage13.ES013_Warehouse_Remarks&"</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">RM</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&VarECN_Stage13.ES013_RM_Qty&"</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_RM_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_RM_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_RM_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""4"">"&VarECN_Stage13.ES013_RM_Remarks&"</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">Shop WIP</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&VarECN_Stage13.ES013_ShopWIP_Qty&"</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_ShopWIP_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_ShopWIP_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_ShopWIP_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""4"">"&VarECN_Stage13.ES013_ShopWIP_Remarks&"</td>
+                                </tr>
+                                <tr>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">FGs</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"">"&VarECN_Stage13.ES013_FG_Qty&"</td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_FG_Disposition.Value = "Use as it is", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_FG_Disposition.Value = "Scrap", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center""><input type=""checkbox""disabled" & If(VarECN_Stage13.ES013_FG_Disposition.Value = "Rework", " checked", "") & "></td>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: center"" class=""textCenter"" colspan=""4"">"&VarECN_Stage13.ES013_FG_Remarks&"</td>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" class=""textCenter"" colspan=""2"">Plan Implementation Date</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" class=""textCenter"" colspan=""2"">"&VarECN_Stage13.ES013_Implementation_Date&"</td>
+                                </tr>
+                              </table>
+                            </div>"
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>14,
+                        "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                        		<h2> Stage 14: Engg. </h2>
+                            </div>
+                            <table style=""width: 100%; border-collapse:collapse; table-layout: fixed;"">
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""1"">Production Stage Drawing</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""3"">"& VarECN_Stage14.ES014_Prod_Stage_Drawing_Date &"</td>
+                                </tr>
+                            </table>
+                        </div>" 
+                        //,"")
+                        &
+                        //If(Value(varStageItem)>15,
+                        "<div style='"& stageSection &"' class=""stageSection"">
+                            <div style='"& stageHeader &"' class=""stageHeader"">
+                                <h2> Stage 15: Mfg. </h2>
+                            </div>
+                            <table style='"& tableStyle &"'>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Actual Change Implementation date</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""3"">"& VarECN_Stage15.ES015_Actual_Change_Impl_Date &"</td>
+                                </tr>
+                                <tr>
+                                  <th style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""2"">Old Drawing Return to Engg.</th>
+                                  <td style=""border: 1px solid #858484; padding: 8px; text-align: left"" colspan=""3"">"& VarECN_Stage15.ES015_Old_Drawing_Return_Engg_Date &"</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style='"& ecnCloseDiv &"' id=""ecnCloseDiv"">
+                        	<b>ECN Close</b>
+                        </div>" 
+                        //,"")
+                        & "</body>
+                        </html>"
+                    Width: =1197
+                    ZIndex: =2
+
+        FooterContainerReport As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =4
+
+            footerReport As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                btnBackReport As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =Back()
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =26
+                    Y: =17
+                    ZIndex: =4
+

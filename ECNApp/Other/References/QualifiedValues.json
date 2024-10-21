@@ -1,0 +1,23 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_sharedlinksetting_forms",
+      "Namespace": "Shared Link Settings (Forms)",
+      "Values": {
+        "Information": "987dd069-89c7-4f29-9e70-6a0cee0e976f"
+      }
+    },
+    {
+      "Kind": "default.cds_sharepointsite_forms",
+      "Namespace": "SharePoint Sites (Forms)",
+      "Values": {
+        "Information": "ba6522af-e71b-df11-aa01-00155d2a9006"
+      }
+    },
+    {
+      "Kind": "default.cds_sharedworkspace_forms",
+      "Namespace": "Shared Workspaces (Forms)",
+      "Values": {}
+    }
+  ]
+}

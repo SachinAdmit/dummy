@@ -1,0 +1,36 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "LeftSideBar",
+    "TemplateGuid": "d6076423c44c4cc1a8d61f9dd1479e0a"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "MenuWidth",
+      "Hidden": true,
+      "Name": "MenuWidth",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "The find current width of my Component",
+      "Type": "{\"Version\":\"1.343\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638650146874152843",
+  "Name": "d6076423c44c4cc1a8d61f9dd1479e0a",
+  "OverridableProperties": {},
+  "Version": "1.0"
+}

@@ -1,0 +1,134 @@
+LeftSideBar As CanvasComponent:
+    Fill: =RGBA(102, 182, 227, 1)
+    Height: =Max(App.Height,App.DesignHeight)-Header_Home.Height
+    MenuWidth: =If(varOpenMenu,Max(App.Height,App.DesignHeight)/5+40,70)
+    Width: =LeftSideBar.MenuWidth
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Icon10 As icon.Hamburger:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(varOpenMenu,!varOpenMenu)
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =13.50
+        PaddingTop: =13.50
+        Width: =62.98
+        X: =0.00
+        Y: =3
+        ZIndex: =1
+
+    "Gallery5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        DelayItemLoading: =true
+        Height: =App.Height-Icon10.Height-15
+        Items: |
+            =/*Filter(ECN_SideMenuList, 
+                   (RoleId.Id = 0 || RoleId.Id in UserRolesAndStages.Role_Id) && 
+                   (StageId.Value = 0 || StageId.Value in UserRolesAndStages.Stage_Id) && 
+                   IsBlank(ParentID))*/
+            
+                   Filter(
+                ECN_SideMenuList,
+                (RoleId.Id = 0 || 
+                 CountRows(Filter(UserRolesAndStages, Role_Id.Id = RoleId.Id)) > 0) && 
+                (StageId.Value = 0 || 
+                 CountRows(Filter(UserRolesAndStages, Stage_Id.Id = StageId.Id)) > 0) && 
+                IsBlank(ParentID)
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =47
+        Width: =193
+        X: =0.00
+        Y: =Icon10.Height+15
+        ZIndex: =2
+
+        Subtitle4 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0.00
+            PaddingTop: =15
+            Size: =10.80
+            Text: =ThisItem.ShowText
+            VerticalAlign: =VerticalAlign.Top
+            Width: =124
+            X: =62
+            Y: =6
+            ZIndex: =3
+
+        NextArrow4 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledColor: =RGBA(119, 119, 119, 1)
+            Height: =47
+            Icon: |
+                =
+                Switch(
+                    ThisItem.IconName,
+                    "Home", Icon.Home,
+                    "Settings", Icon.Settings,
+                    "User", Icon.Person,
+                    "Search", Icon.Search,
+                    "Left",Icon.Tablet,
+                    "Task",Icon.Add,
+                    Icon.Home // Default icon if no match is found
+                )
+            OnSelect: |-
+                =Set(VarScreenName, ThisItem.ScreenName);
+                Switch(
+                    VarScreenName,
+                    "Homescreen", Navigate(Homescreen),
+                    "SBUScreen", Navigate(SBUMasterScreen),
+                    "DivisionScreen ", Navigate(DivisionMasterScreen),
+                    // Add more screens as needed
+                    Notify("Screen not found", NotificationType.Error)
+                );
+            PaddingBottom: =8
+            PaddingLeft: =8
+            PaddingRight: =8
+            PaddingTop: =8
+            Tooltip: ="View item details"
+            Width: =48
+            X: =14
+            ZIndex: =4
+
+        Separator4 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =1
+            Height: =0
+            OnSelect: =Select(Parent)
+            Width: =193
+            Y: =80
+            ZIndex: =5
+
+        Rectangle7 As rectangle:
+            Height: =Parent.TemplateHeight - Separator4.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =3.60
+            X: =0.00
+            ZIndex: =6
+
+    Label2 As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =70
+        Size: =15
+        Text: ="ECN Portal"
+        Width: =120
+        X: =62
+        Y: =3
+        ZIndex: =3
+

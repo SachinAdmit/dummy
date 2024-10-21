@@ -1,0 +1,44 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |
+        =ClearCollect(ColumnNames, ["ECN NO", "SBU", "Product","Source of Receipt", "Product Family"]);
+        Set(varFilterStyle,"Dedicated");
+        Set(varResetListGallery,false);
+        /*Set(StyleFormHeader, "background-color: gray; height: 2rem; display: flex; align-items: center; justify-content: end; padding-right: 10px;");
+        Set(StyleReportSection, "border: 1px black solid; display: flex; background-color: lightyellow;");
+        Set(StyleTD, "border: 1px solid #ddd; padding: 8px; text-align: left;");*/
+        
+        Set(docNumberSection, "background-color: gray; height: 2rem; display: flex; align-items: center; justify-content: end;padding-right: 10px;");
+        Set(ecnFullDiv, "border: 1px black solid;");
+        Set(headingSection, "display: flex; background-color: #c1e1c1;");
+        Set(harshaLogoImg, "width: 150px; height: 80px; margin-left: 2rem;");
+        Set(pageHeading, "flex-grow: 1; text-align: center; margin-top: auto; margin-bottom: auto;");
+        Set(pageHeadingText, "font-size: 1.5rem; font-weight: 700");
+        Set(stageSection, "border: 1px black solid; display: flex; background-color: lightyellow; flex-direction: column;");
+        Set(stageHeader, "background-color: lightgrey; height: 2rem; display: flex; align-items: center; justify-content: center;");
+        Set(tableStyle, "width: 100%; border-collapse:collapse; table-layout: fixed;");
+        Set(trStyle, "border: 1px solid #858484; text-align: center");
+        Set(thTdStyle, "border: 1px solid #858484; padding: 8px; text-align: left");
+        Set(thTdCenterStyle, "border: 1px solid #858484; padding: 8px; text-align: center");
+        Set(detailsTable, "border: black double 1px; border-style:double");
+        Set(docOption, "position: relative; padding: 8px 30px 8px 8px; text-align: left; width: 20%; border: 1px solid #858484;");
+        Set(docOptionHeading, "display: inline-block; max-width: calc(100% - 30px);");
+        Set(docOptionCheckbox, "position: absolute; right: 5px; top: 50%; transform: translateY(-50%);");
+        Set(approvalSection, "background-color:rgb(185, 226, 245);");
+        Set(ecnCloseDiv, "text-align: center; background-color: darkolivegreen; font-size: 30px;");
+        Set(textCenter, "border: 1px solid #858484; padding: 8px; text-align: center;");
+    StartScreen: |-
+        =//Switch(Param("screenname"),"events",scrStage1,"admin",scrStage2,Homescreen)
+        //If(IsBlank(UserRolesAndStages) || UserRolesAndStages = "", Navigate(scrLogin),Nav;
+        //Navigate(frmLogin, ScreenTransition.Fade)
+        //scrLogin
+        frmLogin
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

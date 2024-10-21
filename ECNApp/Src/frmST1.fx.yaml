@@ -1,0 +1,1213 @@
+"frmST1 As screen.'autoLayout_HeaderFooter_ver1.0'":
+    OnHidden: =ClearCollect(ECNCollection, ECN_Stage1);
+    OnVisible: |-
+        =UpdateContext({varResetCtrls:true});
+        UpdateContext({VarValidationValue: 0});
+        ClearCollect(ECNCollection, ECN_Stage1);
+        Set(varUserEmail,User().Email);
+        Reset(ddlNavigateST1);
+        UpdateContext({varResetCtrls:false});
+
+    ScreenContainerST1 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainerST1 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            headerST1 As groupContainer.manualLayoutContainer:
+                ContentLanguage: =
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                imgUserST1 As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =1
+
+                lblUserNameST1 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: |
+                        ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =2
+
+                imgCompanyLogoST1 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =3
+
+                lblTitleST1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =4
+
+                lblSubTitleST1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: ="Stage - 1"
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =6
+
+                btnExitST1 As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =//Exit();
+                        UpdateContext({varLogoutPopup:1});
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =7
+
+                lblUserRoleST1 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =8
+
+        MainContainerST1 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =3
+
+            cntDetailST1 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Rectangle5 As rectangle:
+                    BorderThickness: =1
+                    Fill: =RGBA(245, 245, 245, 0.69)
+                    Height: =323
+                    Width: =1158
+                    X: =20
+                    Y: =210
+                    ZIndex: =1
+
+                lblDivisionST1 As label:
+                    Height: =30
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Text: ="Division *"
+                    Width: =100
+                    X: =400
+                    Y: =25
+                    ZIndex: =2
+
+                lblSBUST1 As label:
+                    Height: =30
+                    Text: ="SBU *"
+                    Width: =71
+                    X: =40
+                    Y: =25
+                    ZIndex: =3
+
+                ddlDivisionST1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,Color.Red, RGBA(39, 113, 194, 1))
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: =If(varEditRecord=true,varSelectedECN.ES001_Division.Value)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    Items: =Distinct(Filter(ECN_DivisionMaster,DIVMST_SBUMSTID.Value=Text(LookUp(ECN_SBUMaster,SBUMST_NAME=ddlSBUST1.Selected.Value).SBUMST_ID)),DIVMST_NAME)
+                    OnChange: =
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =varResetCtrls
+                    Size: =11.70
+                    Width: =200
+                    X: =520
+                    Y: =25
+                    ZIndex: =4
+
+                ddlSBUST1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,Color.Red, RGBA(39, 113, 194, 1))
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: |
+                        =If(varEditRecord=true,LookUp(ECN_SBUMaster, ID=Int(varSelectedECN.ES001_SBU.Value)).SBUMST_NAME)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    FontWeight: =FontWeight.Lighter
+                    Height: =30
+                    Items: |-
+                        =//If(Dropdown2.Selected.Value="ECN NO",Distinct(ECN,ES001_ECNReference),Dropdown2.Selected.Value="SBU",Distinct(ECN,SBU.Value),Dropdown2.Selected.Value="Product",Distinct(ECN,Product),Dropdown2.Selected.Value="Source of Receipt",Distinct(ECN,'Source of Receipt'.Value),Dropdown2.Selected.Value="Product Family",Distinct(ECN,'Product Family'),Dropdown2.Selected.Value="Created By",Distinct(ECN,'Created By'.DisplayName),Dropdown2.Selected.Value="Division",Distinct(ECN,Division.Value),Blank())
+                        
+                        Distinct(ECN_SBUMaster,SBUMST_NAME)
+                    OnChange: =
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =varResetCtrls
+                    Size: =11.70
+                    Width: =200
+                    X: =111
+                    Y: =25
+                    ZIndex: =5
+
+                lblECNNoST1 As label:
+                    Height: =30
+                    Text: ="ECN NO. *"
+                    Width: =100
+                    X: =760
+                    Y: =25
+                    ZIndex: =6
+
+                txtECNNoST1 As text:
+                    Default: |-
+                        =///If(Form.Mode = FormMode.Edit, ThisItem., "")
+                        //SelectedECNNo.ECNNO_x002e_
+                        If(
+                            varEditRecord = true,
+                            varSelectedECN.ES001_ECNReference,
+                            "ECN" & "_" & ddlSBUST1.Selected.Value & "_" & ddlDivisionST1.Selected.Value & "_" & Text(
+                                CountRows(
+                                    Filter(
+                                        ECN_Stage1,
+                                        ddlDivisionST1.Selected.Value
+                                    )
+                                ) + 1,
+                                "[$-en-US]00"
+                            )
+                        )
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    OnChange: =Set(varECNNo,txtECNNoST1.Text)
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =900
+                    Y: =25
+                    ZIndex: =7
+
+                lblProductFamilyST1 As label:
+                    Height: =30
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Text: ="Product Family*"
+                    Width: =149
+                    X: =851
+                    Y: =155
+                    ZIndex: =8
+
+                lblSrcOfRecST1 As label:
+                    Height: =30
+                    Text: ="Source of receipt*"
+                    Width: =160
+                    X: =500
+                    Y: =155
+                    ZIndex: =9
+
+                ddlProductFamilyST1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,Color.Red, RGBA(39, 113, 194, 1))
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: |-
+                        =If(varEditRecord=true,
+                        LookUp(ECN_ProductFamilyMaster, PDFMST_NAME=varSelectedECN.ES001_ProductFamily.Value).PDFMST_NAME)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    Items: |+
+                        =//["ECN NO", "Created By", "Division","Source of Receipt","SBU","Product", "Product Family"]
+                        
+                        Distinct(Filter(ECN_ProductFamilyMaster,PDFMST_DIVMSTID.Value=Text(LookUp(ECN_DivisionMaster,DIVMST_NAME=ddlDivisionST1.Selected.Value).DIVMST_ID)),PDFMST_NAME)
+                        //Filter('Product Family',
+                        //    LookUp(Product, 'SBU Ref'.Value = ddlSBUST1.Selected.Value).Id)
+                        
+                        
+                    OnChange: =
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =varResetCtrls
+                    Size: =11.70
+                    Width: =150
+                    X: =1000
+                    Y: =155
+                    ZIndex: =10
+
+                ddlSrcOfRecST1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,Color.Red, RGBA(39, 113, 194, 1))
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: =If(varEditRecord=true,varSelectedECN.ES001_SourceOfReceipt.Value)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    FontWeight: =FontWeight.Lighter
+                    Height: =30
+                    Items: =Distinct('Source of Receipt',Title)
+                    OnChange: =
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =varResetCtrls
+                    Size: =11.70
+                    Width: =170
+                    X: =660
+                    Y: =155
+                    ZIndex: =11
+
+                lblFICodeST1 As label:
+                    Height: =30
+                    Text: ="FI Code"
+                    Width: =80
+                    X: =40
+                    Y: =155
+                    ZIndex: =12
+
+                txtFICodeST1 As text:
+                    Default: |-
+                        =If(varEditRecord=true&&Value(varStageItem)>1,varSelectedECN.ES001_FICode)
+                        //If(varEditRecord = true,SelectedECNNo.ES001_FICode," ")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =111
+                    Y: =155
+                    ZIndex: =13
+
+                lblPartNoST1 As label:
+                    Height: =30
+                    Text: ="Part No"
+                    Width: =80
+                    X: =270
+                    Y: =155
+                    ZIndex: =14
+
+                txtPartNoST1 As text:
+                    Default: |
+                        =If(varEditRecord = true,varSelectedECN.ES001_PartNumber,"")
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =341
+                    Y: =155
+                    ZIndex: =15
+
+                lblCustomerST1 As label:
+                    Height: =30
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Text: ="Customer *"
+                    Width: =120
+                    X: =450
+                    Y: =90
+                    ZIndex: =16
+
+                ddlCustomerST1 As dropdown:
+                    AllowEmptySelection: =true
+                    BorderColor: =If(IsBlank(Self.Selected.Value)&&VarValidationValue=1,Color.Red, RGBA(39, 113, 194, 1))
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: =If(varEditRecord=true,varSelectedECN.ES001_Customer.Value)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    Items: =Distinct(Customer,Title)
+                    OnChange: =
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =varResetCtrls
+                    Size: =11.70
+                    Width: =291
+                    X: =569
+                    Y: =90
+                    ZIndex: =17
+
+                lblDateST1 As label:
+                    Height: =30
+                    Text: ="Date *"
+                    Width: =100
+                    X: =900
+                    Y: =90
+                    ZIndex: =18
+
+                dtpDateST1 As datepicker:
+                    DefaultDate: |-
+                        =If(varEditRecord=true,varSelectedECN.ES001_DateSubmitted,
+                            Today())
+                    DisabledFill: =RGBA(214, 221, 224, 1)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =30
+                    Reset: =varResetCtrls
+                    Width: =150
+                    X: =1000
+                    Y: =90
+                    ZIndex: =19
+
+                lblCDNST1 As label:
+                    Height: =30
+                    Text: ="Current Drawing Number"
+                    Width: =240
+                    X: =20
+                    Y: =250
+                    ZIndex: =20
+
+                txtCDNST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_CurrentDrawingNumber)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =260
+                    Y: =250
+                    ZIndex: =21
+
+                lblCENST1 As label:
+                    Height: =30
+                    Text: ="Current ECV Number"
+                    Width: =220
+                    X: =40
+                    Y: =320
+                    ZIndex: =22
+
+                txtCENST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_CurrentECVNumber)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =260
+                    Y: =320
+                    ZIndex: =23
+
+                lblNDNST1 As label:
+                    Height: =30
+                    Text: ="New Drawing Number"
+                    Width: =220
+                    X: =40
+                    Y: =390
+                    ZIndex: =24
+
+                txtNDNST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_NewDrawingNumber)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =260
+                    Y: =390
+                    ZIndex: =25
+
+                lblNENST1 As label:
+                    Height: =30
+                    Text: |-
+                        ="New ECV Number		
+                        "
+                    Width: =220
+                    X: =40
+                    Y: =460
+                    ZIndex: =26
+
+                txtNENST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_NewECVNumber)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =260
+                    Y: =460
+                    ZIndex: =27
+
+                lblCDN_RVDST1 As label:
+                    Height: =30
+                    Text: ="Current Drawing Revision/Version and Date"
+                    Width: =375
+                    X: =525
+                    Y: =250
+                    ZIndex: =28
+
+                txtCDN_RVDST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_CurrentDrawingVersionDate)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =900
+                    Y: =250
+                    ZIndex: =29
+
+                lblCEN_RVDST1 As label:
+                    Height: =30
+                    Text: ="Current ECV Revision/Version"
+                    Width: =375
+                    X: =525
+                    Y: =320
+                    ZIndex: =30
+
+                txtCEN_RVDST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_CurrentECVRevision)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =900
+                    Y: =320
+                    ZIndex: =31
+
+                lblNDN_RVDST1 As label:
+                    Height: =30
+                    Text: ="New Drawing Revision/Version and Date"
+                    Width: =375
+                    X: =525
+                    Y: =390
+                    ZIndex: =32
+
+                txtNDN_RVDST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_NewDrawingVersionDate)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =900
+                    Y: =390
+                    ZIndex: =33
+
+                lblNEN_RVDST1 As label:
+                    Height: =30
+                    Text: ="New ECV Revision/Version"
+                    Width: =375
+                    X: =525
+                    Y: =460
+                    ZIndex: =34
+
+                txtNEN_RVDST1 As text:
+                    Default: =If(varEditRecord=true,VarECN_Stage1.ES001_NewECVVersionDate)
+                    DisabledColor: =Color.Black
+                    DisplayMode: =If(varEditRecord=true&&Value(varStageItem)<>1,DisplayMode.Disabled,DisplayMode.Edit)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    Reset: =varResetCtrls
+                    Width: =250
+                    X: =900
+                    Y: =460
+                    ZIndex: =35
+
+                lblFICodeST1_1 As label:
+                    Height: =30
+                    Text: ="Document"
+                    Width: =96
+                    X: =3
+                    Y: =90
+                    ZIndex: =36
+
+                txtDocumentST1 As text:
+                    Default: =LookUp(ECN_DocumentMaster,IsBlank(DOCMST_ENDDATE)=true).DOCMST_NAME
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =30
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    OnChange: =Set(varECNNo,txtDocumentST1.Text)
+                    PaddingLeft: =5
+                    PaddingRight: =0
+                    Reset: =varResetCtrls
+                    Width: =321
+                    X: =100
+                    Y: =90
+                    ZIndex: =38
+
+        FooterContainerST1 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =4
+
+            footerST1 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                btnSubmitST1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =If(varEditRecord=true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Save"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |
+                        =// Set context variable for the existing record
+                        UpdateContext({VarValidationValue: 1});
+                        UpdateContext(
+                            {
+                                Stage1existingRecord: LookUp(
+                                    ECN_Stage1,
+                                    ES001_ECNReference = SelectedECNNo.ES001_ECNReference
+                                )
+                            }
+                        );
+                        // Set context variable for the ECN number
+                        UpdateContext({varECNNo: txtECNNoST1.Text});
+                        // Validation: Ensure all required fields are filled
+                        If(
+                            IsBlank(ddlSBUST1.Selected.Value) || IsBlank(ddlDivisionST1.Selected.Value) || IsBlank(ddlCustomerST1.Selected.Value) || IsBlank(dtpDateST1.SelectedDate) || IsBlank(ddlProductFamilyST1.Selected.Value) || IsBlank(txtECNNoST1.Text) || IsBlank(ddlSrcOfRecST1.Selected.Value),
+                            Notify(
+                                "Please fill in all required fields",
+                                NotificationType.Error
+                            ),
+                            UpdateContext({VarValidationValue: 0});
+                            If(
+                                varEditRecord,
+                                // Update existing record
+                                Patch(
+                                    ECN_Stage1,
+                                    Stage1existingRecord,
+                                    {
+                                        Title: varECNNo,
+                                        ES001_ECNReference: varECNNo,
+                                        ES001_DateSubmitted: dtpDateST1.SelectedDate,
+                                        ES001_SBU: {
+                                            Value: ddlSBUST1.Selected.Value,
+                                            Id: LookUp(
+                                                ECN_SBUMaster,
+                                                SBUMST_NAME = ddlSBUST1.Selected.Value
+                                            ).SBUMST_ID
+                                        },
+                                        ES001_Division: {
+                                            Value: ddlDivisionST1.Selected.Value,
+                                            Id: LookUp(
+                                                ECN_DivisionMaster,
+                                                DIVMST_NAME = ddlDivisionST1.Selected.Value
+                                            ).DIVMST_ID
+                                        },
+                                        ES001_Customer: {
+                                            Value: ddlCustomerST1.Selected.Value,
+                                            Id: LookUp(
+                                                Customer,
+                                                Title = ddlCustomerST1.Selected.Value
+                                            ).ID
+                                        },
+                                        ES001_PartNumber: txtPartNoST1.Text,
+                                        ES001_SourceOfReceipt: {
+                                            Value: ddlSrcOfRecST1.Selected.Value,
+                                            Id: LookUp(
+                                                'Source of Receipt',
+                                                Title = ddlSrcOfRecST1.Selected.Value
+                                            ).ID
+                                        },
+                                        ES001_ProductFamily: {
+                                            Value: ddlProductFamilyST1.Selected.Value,
+                                            Id: LookUp(
+                                                ECN_ProductFamilyMaster,
+                                                PDFMST_NAME = ddlProductFamilyST1.Selected.Value
+                                            ).ID
+                                        },
+                                        ES001_CurrentDrawingNumber: txtCDNST1.Text,
+                                        ES001_CurrentECVNumber: txtCENST1.Text,
+                                        ES001_NewDrawingNumber: txtNDNST1.Text,
+                                        ES001_NewECVNumber: txtNENST1.Text,
+                                        ES001_CurrentDrawingRevision: txtCDN_RVDST1.Text,
+                                        ES001_CurrentECVRevision: txtCEN_RVDST1.Text,
+                                        ES001_NewDrawingRevision: txtNDN_RVDST1.Text,
+                                        ES001_NewECVRevision: txtNEN_RVDST1.Text,
+                                        ES001_CurrentDrawingVersionDate: txtCDN_RVDST1.Text,
+                                        ES001_CurrentECVVersionDate: txtCEN_RVDST1.Text,
+                                        ES001_NewDrawingVersionDate: txtNDN_RVDST1.Text,
+                                        ES001_NewECVVersionDate: txtNEN_RVDST1.Text,
+                                        ES001_FICode: txtFICodeST1.Text,
+                                        ES001_CurrentStage: {
+                                            Value: "2",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = 2
+                                            ).ID
+                                        },
+                                        ES001_Requestor: {
+                                            Value: varUser.User_Name,
+                                            Id: LookUp(
+                                                ECN_UserMaster,
+                                                User_Id = varUser.User_Id
+                                            ).ID
+                                        },
+                                         Current_Stage_Status: {Value: "New"} ,
+                                         ES001_Document:{Id:LookUp(ECN_DocumentMaster,IsBlank(DOCMST_ENDDATE)=true).ID,Value:txtDocumentST1.Text}             
+                                    }
+                                );
+                                Notify(
+                                    "Data Updated Successfully",
+                                    NotificationType.Success
+                                ),
+                                // Create new record
+                                Patch(
+                                    ECN_Stage1,
+                                    Defaults(ECN_Stage1),
+                                    {
+                                         Title: varECNNo,
+                                        ES001_ECNReference: varECNNo,
+                                        ES001_DateSubmitted: dtpDateST1.SelectedDate,
+                                        ES001_SBU: {
+                                            Value: ddlSBUST1.Selected.Value,
+                                            Id: LookUp(
+                                                ECN_SBUMaster,
+                                                SBUMST_NAME = ddlSBUST1.Selected.Value
+                                            ).SBUMST_ID
+                                        },
+                                        ES001_Division: {
+                                            Value: ddlDivisionST1.Selected.Value,
+                                            Id: LookUp(
+                                                ECN_DivisionMaster,
+                                                DIVMST_NAME = ddlDivisionST1.Selected.Value
+                                            ).DIVMST_ID
+                                        },
+                                        ES001_Customer: {
+                                            Value: ddlCustomerST1.Selected.Value,
+                                            Id: LookUp(
+                                                Customer,
+                                                Title = ddlCustomerST1.Selected.Value
+                                            ).ID
+                                        },
+                                        ES001_PartNumber: txtPartNoST1.Text,
+                                        ES001_SourceOfReceipt: {
+                                            Value: ddlSrcOfRecST1.Selected.Value,
+                                            Id: LookUp(
+                                                'Source of Receipt',
+                                                Title = ddlSrcOfRecST1.Selected.Value
+                                            ).ID
+                                        },
+                                        ES001_ProductFamily: {
+                                            Value: ddlProductFamilyST1.Selected.Value,
+                                            Id: LookUp(
+                                                ECN_ProductFamilyMaster,
+                                                PDFMST_NAME = ddlProductFamilyST1.Selected.Value
+                                            ).ID
+                                        },
+                                        ES001_CurrentDrawingNumber: txtCDNST1.Text,
+                                        ES001_CurrentECVNumber: txtCENST1.Text,
+                                        ES001_NewDrawingNumber: txtNDNST1.Text,
+                                        ES001_NewECVNumber: txtNENST1.Text,
+                                        ES001_CurrentDrawingRevision: txtCDN_RVDST1.Text,
+                                        ES001_CurrentECVRevision: txtCEN_RVDST1.Text,
+                                        ES001_NewDrawingRevision: txtNDN_RVDST1.Text,
+                                        ES001_NewECVRevision: txtNEN_RVDST1.Text,
+                                        ES001_CurrentDrawingVersionDate: txtCDN_RVDST1.Text,
+                                        ES001_CurrentECVVersionDate: txtCEN_RVDST1.Text,
+                                        ES001_NewDrawingVersionDate: txtNDN_RVDST1.Text,
+                                        ES001_NewECVVersionDate: txtNEN_RVDST1.Text,
+                                        ES001_FICode: txtFICodeST1.Text,
+                                        ES001_CurrentStage: {
+                                            Value: "2",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = 2
+                                            ).ID
+                                        },
+                                        ES001_Requestor: {
+                                            Value: varUser.User_Name,
+                                            Id: LookUp(
+                                                ECN_UserMaster,
+                                                User_Id = varUser.User_Id
+                                            ).ID
+                                        },
+                                        Current_Stage_Status: {Value: "New"},
+                                        ES001_Document:{Id:LookUp(ECN_DocumentMaster,IsBlank(DOCMST_ENDDATE)=true).ID,Value:txtDocumentST1.Text} 
+                                    }
+                                );
+                                Notify(
+                                    "Record created successfully",
+                                    NotificationType.Success
+                                );
+                        
+                                Set(
+                                    varEditRecord,
+                                    false
+                                );
+                                Reset(txtPartNoST1);
+                        Reset(txtCDNST1);
+                        Reset(txtCENST1);
+                        Reset(txtNDNST1);
+                        Reset(txtNENST1);
+                        Reset(txtCDN_RVDST1);
+                        Reset(txtCEN_RVDST1);
+                        Reset(txtNDN_RVDST1);
+                        Reset(txtNEN_RVDST1);
+                        Reset(txtFICodeST1);
+                        Reset(dtpDateST1);
+                        Reset(ddlSBUST1);
+                        Reset(ddlDivisionST1);
+                        Reset(ddlCustomerST1);
+                        Reset(ddlSrcOfRecST1);
+                        Reset(ddlProductFamilyST1);
+                            );
+                            // After save or update, navigate to the next screen
+                        Set(
+                                varTitle,
+                                txtFICodeST1.Text
+                            );
+                            Set(
+                                varEditRecord,
+                                false
+                            );
+                            If(
+                                IsECNCreater,
+                                Navigate(frmST1),
+                                Navigate(frmHome);Set(varResetListGallery,true););
+                        );
+                    Text: ="Submit"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =1018
+                    Y: =17
+                    ZIndex: =1
+
+                btnUpdateST1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.View
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Edit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |
+                        =/*If(
+                            // Validation: Ensure all required fields are filled
+                            IsBlank(txtFICodeST1.Text) || 
+                            IsBlank(ddlDivisionST1.Selected.Value) || 
+                          //  IsBlank(ddlCustomerST1.Selected.Value) || 
+                            IsBlank(dtpDateST1.SelectedDate) || 
+                            IsBlank(txtPartNoST1.Text) || 
+                            IsBlank(ddlSrcOfRecST1.Selected.Value),
+                            
+                            // If validation fails, show an error notification
+                            Notify("Please fill in all required fields", NotificationType.Error),
+                        
+                            // If validation passes, execute the code
+                            If(
+                                varEditRecord = true,
+                                Patch(
+                                    ECN_Stage1,
+                                    LookUp(
+                                        ECN_Stage1,
+                                        ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                    ),
+                                    {
+                                        Title: txtFICodeST1.Text,
+                                        Division: {Value: ddlDivisionST1.Selected.Value},
+                                      //  Customer: {Value: ddlCustomerST1.Selected.Value},
+                                        Date: dtpDateST1.SelectedDate,
+                                        'Part No': txtPartNoST1.Text,
+                                        'Source of Receipt': {Value: ddlSrcOfRecST1.Selected.Value},
+                                        'Current Drawing Number': txtCDNST1.Text,
+                                        'Current ECV Number': txtCENST1.Text,
+                                        'New Drawing Number': txtNDNST1.Text,
+                                        'New ECV Number': txtNENST1.Text,
+                                        'Current Drawing Revision/Version and Date': txtCDN_RVDST1.Text,
+                                        'Current ECV Revision/Version': txtCEN_RVDST1.Text,
+                                        'New Drawing Revision/Version and Date': txtNDN_RVDST1.Text,
+                                        'New ECV Revision/Version': txtNEN_RVDST1.Text,
+                                        SBU: ddlSBUST1.Selected.Value,
+                                        'Product Family': ddlProductFamilyST1.Selected.Value
+                                    }
+                                );
+                                Notify(
+                                    "Data Updated Successfully",
+                                    NotificationType.Success
+                                );
+                                ECNItemCreated.Run(
+                                    varSelectedECN.ES001_ECNReference,
+                                    varUserEmail
+                                ),
+                                Patch(
+                                    ECN_Stage1, 
+                                    Defaults(ECN_Stage1), // Use Defaults to create a new record
+                                    {
+                                        Title: txtFICodeST1.Text,
+                                        Division: {Value: ddlDivisionST1.Selected.Value},
+                                      //  Customer: {Value: ddlCustomerST1.Selected.Value},
+                                        Date: dtpDateST1.SelectedDate,
+                                        'Part No': txtPartNoST1.Text,
+                                        'Source of Receipt': {Value: ddlSrcOfRecST1.Selected.Value},
+                                        'Current Drawing Number': txtCDNST1.Text,
+                                        'Current ECV Number': txtCENST1.Text,
+                                        'New Drawing Number': txtNDNST1.Text,
+                                        'New ECV Number': txtNENST1.Text,
+                                        'Current Drawing Revision/Version and Date': txtCDN_RVDST1.Text,
+                                        'Current ECV Revision/Version': txtCEN_RVDST1.Text,
+                                        'New Drawing Revision/Version and Date': txtNDN_RVDST1.Text,
+                                        'New ECV Revision/Version': txtNEN_RVDST1.Text,
+                                        SBU: ddlSBUST1.Selected.Value,
+                                        'Product Family': ddlProductFamilyST1.Selected.Value
+                                    }
+                                );
+                                Notify("Record created successfully", NotificationType.Success)
+                            );
+                            
+                            // After save or update, navigate to next screen
+                            Set(
+                                varTitle,
+                                txtFICodeST1.Text
+                            );
+                            NewForm(frm_Stage1);
+                            Navigate(frmST2)
+                        );*/
+                    Text: ="Update"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =854
+                    Y: =17
+                    ZIndex: =2
+
+                btnClearST1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eraser"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =
+                        
+                        UpdateContext({varResetCtrls:true});
+                        UpdateContext({varResetCtrls:false});
+                    Text: ="Clear"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =686
+                    Y: =17
+                    ZIndex: =3
+
+                btnBackST1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =If(IsECNCreater = true,DisplayMode.Disabled,DisplayMode.Edit)
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =Navigate(frmHome)
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Visible: =If(CountRows(UserRolesAndStages) = 1&&!IsBlank(LookUp(UserRolesAndStages,Role_Id.Id=1)),false,true)
+                    Width: =140
+                    X: =16
+                    Y: =17
+                    ZIndex: =4
+
+                btnNavigateDummy2 As Button:
+                    Align: =Align.Left
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontColor: =
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowSort"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =
+                    Text: ="Navigate"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Visible: =If(varEditRecord=true,true,false)
+                    Width: =256
+                    X: =410
+                    Y: =17
+                    ZIndex: =5
+
+                ddlNavigateST1 As dropdown:
+                    BorderColor: =RGBA(39, 113, 194, 1)
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: ="Stage 1"
+                    Height: =30
+                    Items: |
+                        =Switch(Value(varStageItem),
+                        
+                        1,["Stage 1"],
+                        2,["Stage 1","Stage 2"],
+                        3,["Stage 1","Stage 2","Stage 3"],
+                        4,["Stage 1","Stage 2","Stage 3","Stage 4"],
+                        5,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5"],
+                        6,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6"],
+                        7,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7"],
+                        8,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8"],
+                        9,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9"],
+                        10,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10"],
+                        11,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11"],
+                        12,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12"],
+                        13,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13"],
+                        14,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14"],
+                        15,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15"],
+                        16,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15","Stage 16"],[""])
+                    OnChange: |
+                        =Switch(Self.Selected.Value,
+                        "Stage 1",Navigate(frmST1),
+                        "Stage 2",Navigate(frmST2),
+                        "Stage 3",Navigate(frmST3),
+                        "Stage 4",Navigate(frmST4),
+                        "Stage 5",Navigate(frmST5),
+                        "Stage 6",Navigate(frmST6),
+                        "Stage 7",Navigate(frmST7),
+                        "Stage 8",Navigate(frmST8),
+                        "Stage 9",Navigate(frmST9),
+                        "Stage 10",Navigate(frmST10),
+                        "Stage 11",Navigate(frmST11),
+                        "Stage 12",Navigate(frmST12),
+                        "Stage 13",Navigate(frmST13),
+                        "Stage 14",Navigate(frmST14),
+                        "Stage 15",Navigate(frmST15),
+                        "Stage 16",Navigate(frmST15)
+                        
+                        )
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =true
+                    Size: =11.70
+                    Visible: =If(varEditRecord=true,true,false)
+                    Width: =118
+                    X: =538
+                    Y: =22
+                    ZIndex: =6
+
+    PopupContainer_1 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(200, 200, 200, 0.8)
+        Height: =740
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: =If(varLogoutPopup=1,true,false)
+        Width: =1200
+        X: =15
+        Y: =15
+        ZIndex: =2
+
+        Popup_1 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            btnPopupBack_1 As button:
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =188
+                Size: =11
+                Text: ="Are you sure to logout?"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =2
+
+            btnPopupTop_1 As button:
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(39, 113, 194, 1)
+                DisplayMode: =DisplayMode.Disabled
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                Size: =13
+                Text: ="Confirm Logout"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =5
+
+            btnPopupBottom_1 As button:
+                DisabledFill: =RGBA(214, 221, 224, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(214, 221, 224, 1)
+                RadiusTopLeft: =00
+                RadiusTopRight: =0
+                Text: =
+                Width: =347
+                X: =755
+                Y: =243
+                ZIndex: =6
+
+            btnPopupYes_1 As button:
+                Fill: =RGBA(132, 40, 38, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Set(varUser, Blank());
+                    Clear(colStageIDs);
+                    Navigate(frmLogin);
+                    UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="Yes"
+                Width: =95
+                X: =822
+                Y: =248
+                ZIndex: =7
+
+            btnPopupNo_1 As button:
+                Fill: =RGBA(39, 113, 194, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="No"
+                Width: =95
+                X: =940
+                Y: =248
+                ZIndex: =8
+

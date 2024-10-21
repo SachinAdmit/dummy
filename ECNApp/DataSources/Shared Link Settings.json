@@ -1,0 +1,148 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sharedlinksettings",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sharedlinksetting",
+    "Name": "Shared Link Settings",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "componentidunique": "Row id unique",
+      "componentstate": "Component State",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "extensionofrecordid": "Extension Entity Id",
+      "importsequencenumber": "Import Sequence Number",
+      "isenabledforsharedlinkcreation": "Enable For Office Collaboration",
+      "ismanaged": "Is Managed",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "name": "Name",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "overwritetime": "Record Overwrite Time",
+      "sharedlinksetting_AsyncOperations": "System Jobs",
+      "sharedlinksetting_BulkDeleteFailures": "Bulk Delete Failures",
+      "sharedlinksetting_DuplicateBaseRecord": "Duplicate Records (sharedlinksetting_DuplicateBaseRecord)",
+      "sharedlinksetting_DuplicateMatchingRecord": "Duplicate Records (sharedlinksetting_DuplicateMatchingRecord)",
+      "sharedlinksetting_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "sharedlinksetting_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sharedlinksetting_ProcessSession": "Process Sessions",
+      "sharedlinksetting_SyncErrors": "Sync Errors",
+      "sharedlinksettingid": "Shared Link Setting",
+      "solutionid": "Solution",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Shared Link Settings",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Component State",
+    "Name": "componentstate",
+    "OptionSetInfoNameMapping": {
+      "0": "Published",
+      "1": "Unpublished",
+      "2": "Deleted",
+      "3": "Deleted Unpublished"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "componentstate",
+        "OptionSetReferenceEntityName": "Shared Link Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "componentstate",
+    "RelatedEntityName": "Shared Link Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Component Managed",
+    "Name": "ismanaged",
+    "OptionSetInfoNameMapping": {
+      "0": "Unmanaged",
+      "1": "Managed"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ismanaged",
+        "OptionSetReferenceEntityName": "Shared Link Settings"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "ismanaged",
+    "RelatedEntityName": "Shared Link Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Enable For Office Collaboration (Shared Link Settings)",
+    "Name": "sharedlinksetting_isenabledforsharedlinkcreation",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "isenabledforsharedlinkcreation",
+        "OptionSetReferenceEntityName": "Shared Link Settings"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "isenabledforsharedlinkcreation",
+    "RelatedEntityName": "Shared Link Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Shared Link Settings)",
+    "Name": "sharedlinksetting_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Shared Link Settings"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Shared Link Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Shared Link Settings)",
+    "Name": "sharedlinksetting_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Shared Link Settings"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Shared Link Settings",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,1162 @@
+"frmST6 As screen.'autoLayout_HeaderFooter_ver1.0'":
+    OnVisible: |-
+        =Reset(ddlNavigateST6);
+        UpdateContext({varValidationValue:0});
+
+    ScreenContainerST6 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainerST6 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            headerST6 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                imgUserST6 As image:
+                    Height: =60
+                    Image: =User().Image
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Width: =60
+                    X: =1080
+                    Y: =7.5
+                    ZIndex: =1
+
+                lblUserNameST6 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="Welcome, " & varUser.User_Name
+                    Width: =300
+                    X: =770
+                    Y: =25
+                    ZIndex: =2
+
+                imgCompanyLogoST6 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Harsha_logo_small
+                    ImagePosition: =ImagePosition.Center
+                    OnSelect: =Set(varOpenMenu,!varOpenMenu)
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =125
+                    X: =17.5
+                    Y: =17.5
+                    ZIndex: =3
+
+                lblTitleST6 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =20
+                    Text: ="Engineering Change Note "
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =5
+                    ZIndex: =4
+
+                lblSubTitleST6 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(214, 221, 224, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    LineHeight: =1
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Size: =15
+                    Text: ="Stage - 6"
+                    Width: =350
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =45
+                    ZIndex: =6
+
+                btnExitST6 As Button:
+                    Align: =Align.Justify
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =40
+                    FontStrikethrough: =false
+                    Height: =60
+                    Icon: ="ArrowExit"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =//Exit();
+                        UpdateContext({varLogoutPopup:1});
+                    Text: =
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =40
+                    X: =1150
+                    Y: =7
+                    ZIndex: =7
+
+                lblUserRoleST6 As label:
+                    Align: =Align.Right
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Semibold
+                    Height: =25
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Size: =12
+                    Text: ="User Role"
+                    Visible: =false
+                    Width: =300
+                    X: =770
+                    Y: =47
+                    ZIndex: =8
+
+        MainContainerST6 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =3
+
+            ctnListST2_4 As groupContainer.manualLayoutContainer:
+                BorderThickness: =1
+                DropShadow: =DropShadow.Regular
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =90
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =927
+                Y: =footer_2.Height
+                ZIndex: =1
+
+                lblFICodeST2_4 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="FI Code:"
+                    Width: =80
+                    X: =365
+                    Y: =8
+                    ZIndex: =11
+
+                txtFICodeST2_4 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_FICode
+                        //txtFICodeST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =100
+                    X: =445
+                    Y: =10
+                    ZIndex: =12
+
+                lblPartNoST2_4 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="Part No:"
+                    Width: =85
+                    X: =572
+                    Y: =8
+                    ZIndex: =13
+
+                txtPartNoST2_4 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_PartNumber
+                        //txtPartNoST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    Reset: =true
+                    Width: =150
+                    X: =657
+                    Y: =10
+                    ZIndex: =14
+
+                lblNDNST2_4 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="New Drawing Number:"
+                    Width: =210
+                    X: =10
+                    Y: =45
+                    ZIndex: =15
+
+                txtNDNST2_4 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_NewDrawingNumber
+                        //txtNDNST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =220
+                    Y: =45
+                    ZIndex: =16
+
+                txtNDN_RVDST2_4 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_NewDrawingRevision
+                        //txtNDN_RVDST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =925
+                    Y: =45
+                    ZIndex: =18
+
+                lblCustomerST2_4 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    PaddingRight: =4.50
+                    PaddingTop: =4.50
+                    Text: |-
+                        ="Customer:"
+                    Width: =118
+                    X: =807
+                    Y: =8
+                    ZIndex: =19
+
+                txtCustomerST2_4 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_Customer.Value
+                        //ddlCustomerST1.SelectedText.Value
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    Reset: =true
+                    Width: =250
+                    X: =925
+                    Y: =10
+                    ZIndex: =20
+
+                lblECNNoST2_4 As label:
+                    Align: =Align.Justify
+                    FontWeight: =FontWeight.Bold
+                    Height: =28
+                    Text: |-
+                        ="ECN No:"
+                    Width: =95
+                    X: =10
+                    Y: =10
+                    ZIndex: =21
+
+                txtECNNoST2_4 As text:
+                    Default: |-
+                        =varSelectedECN.ES001_ECNReference
+                        //txtFICodeST1.Text
+                    DisabledColor: =Color.Black
+                    DisplayMode: =DisplayMode.Disabled
+                    Height: =28
+                    LineHeight: =1
+                    Mode: =TextMode.MultiLine
+                    PaddingBottom: =0
+                    PaddingLeft: =5
+                    Reset: =true
+                    Width: =250
+                    X: =90
+                    Y: =10
+                    ZIndex: =22
+
+                lblNDN_RVDST2_4 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Text: |-
+                        ="New Drawing Revision/Version and Date:"
+                    Width: =380
+                    X: =542
+                    Y: =45
+                    ZIndex: =23
+
+            ctrDetailST6 As groupContainer.manualLayoutContainer:
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =Parent.Width
+                ZIndex: =2
+
+                ctnListST6 As groupContainer.manualLayoutContainer:
+                    BorderThickness: =1
+                    DropShadow: =DropShadow.Regular
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Width: =1195
+                    ZIndex: =1
+
+                    lblHdrPartNameST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: =
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Part Name"
+                        Width: =250
+                        X: =lblHdrSrNoST6.X+lblHdrSrNoST6.Width
+                        ZIndex: =2
+
+                    lblHdrSrNoST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: |
+                            =//Set(varSortColumn, "ECN No");
+                            //Set(varSortOrder, If(varSortColumn = "ECN No" && varSortOrder = SortOrder.Ascending, SortOrder.Descending, SortOrder.Ascending));
+                            Set(varSortECNNo, true)
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Sr. No."
+                        Width: =85
+                        X: =lblActionST6.X+lblActionST6.Width
+                        ZIndex: =3
+
+                    lblHdrDrawingNoST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: =
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Drawing No"
+                        Width: =350
+                        X: =lblHdrPartNameST6.X+lblHdrPartNameST6.Width
+                        ZIndex: =4
+
+                    lblHdrQtyST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: =
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Quantity"
+                        Width: =100
+                        X: =lblHdrDrawingNoST6.X+lblHdrDrawingNoST6.Width
+                        ZIndex: =7
+
+                    lblActionST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: |
+                            =//Set(varSortColumn, "ECN No");
+                            //Set(varSortOrder, If(varSortColumn = "ECN No" && varSortOrder = SortOrder.Ascending, SortOrder.Descending, SortOrder.Ascending));
+                            Set(varSortECNNo, true)
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Action"
+                        Width: =60
+                        ZIndex: =10
+
+                    lblHdrActionST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: =
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Action"
+                        X: =lblHdrQtyST6.X+lblHdrQtyST6.Width
+                        ZIndex: =11
+
+                    lblHdrRemarksST6 As label:
+                        Align: =Align.Center
+                        BorderThickness: =1
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledFill: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(71, 158, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =30
+                        LineHeight: =1
+                        OnSelect: =
+                        PaddingRight: =4.50
+                        PaddingTop: =4.50
+                        Size: =11
+                        Text: ="Remarks"
+                        Width: =200
+                        X: =lblHdrActionST6.X+lblHdrActionST6.Width
+                        ZIndex: =12
+
+                    GalleryST6 As gallery.galleryVertical:
+                        BorderThickness: =1
+                        DelayItemLoading: =true
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =514
+                        Items: |+
+                            =VarECN_Stage6Details
+                            
+                            
+                        Layout: =Layout.Vertical
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateFill: |
+                            =If(ThisItem.IsSelected, RGBA(0, 120, 215, 0.1), RGBA(255, 255, 255, 1))  // Light blue for selected item, white otherwise
+                        TemplateSize: =36
+                        Width: =1195
+                        Y: =40
+                        ZIndex: =13
+
+                        RectangleST3_1 As rectangle:
+                            BorderColor: =RGBA(128, 128, 128, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(215, 223, 240, 1)
+                            Height: =0.2
+                            OnSelect: =Select(Parent)
+                            Width: =1185
+                            Y: =30
+                            ZIndex: =1
+
+                        IcoEditST3_1 As icon.Edit:
+                            Color: =RGBA(72, 163, 62, 1)
+                            DisplayMode: =If(Value(varStageItem)>6,DisplayMode.Disabled,DisplayMode.Edit)
+                            Height: =30
+                            Icon: =Icon.Add
+                            OnSelect: |+
+                                =Collect(
+                                        VarECN_Stage6Details,
+                                        {
+                                           TextInput1: Max(GalleryST6.AllItems,Value(TxtsnoST6.Text))+1           
+                                           // ES003_ECNReference: ThisItem.'ECN NO.'
+                                        }
+                                    );
+                                
+                                   /* Collect(
+                                        VarECN_Stage6Details,
+                                        {
+                                            TxtSnSt2: If(
+                                                IsEmpty(VarECN_Stage6Details),
+                                                1, // Start with 1 if the collection is empty
+                                                Max(VarECN_Stage2Details, Value(TxtSnSt2)) + 1
+                                            ),
+                                          TextInput3_1: "",
+                                            TextInput3_2: "",
+                                            TextInput3_3: "",
+                                            TextInput3_4: "",
+                                            TextInput3_5: ""           
+                                           
+                                        
+                                        }
+                                    )
+                                
+                                /*If(
+                                    !IsBlank(ThisItem.TxtPNSt2.Text) &&
+                                    !IsBlank(ThisItem.TxtCDSSt2.Text) &&
+                                    !IsBlank(ThisItem.TxtNDSSt2.Text),
+                                
+                                    Collect(
+                                        VarECN_Stage2Details,
+                                        {
+                                            TxtSnSt2: If(
+                                                IsEmpty(VarECN_Stage2Details),
+                                                1, // Start with 1 if the collection is empty
+                                                Max(VarECN_Stage2Details, Value(TxtSnSt2)) + 1
+                                            ),
+                                            TxtPNSt2: "", // Clear the text for the new row
+                                            TxtCDSSt2: "",
+                                            TxtNDSSt2: "",
+                                            ECN_No: SelectedECNNo.'ECN NO.'
+                                        }
+                                    ),
+                                    
+                                    Notify("All fields must be filled before adding a new row.", NotificationType.Error)
+                                );*/
+                                
+                                
+                                
+                                
+                            PaddingRight: =0.00
+                            Tooltip: ="Edit"
+                            Visible: |
+                                =If(Max(VarECN_Stage6Details,TextInput1)=ThisItem.TextInput1,true,false)
+                            Width: =30
+                            X: =lblActionST3.X
+                            ZIndex: =2
+
+                        IcoDeleteST3_1 As icon.Trash:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(215, 58, 60, 1)
+                            DisplayMode: =If(Value(varStageItem)>6,DisplayMode.Disabled,DisplayMode.Edit)
+                            Height: =30
+                            Icon: =Icon.Trash
+                            OnSelect: |-
+                                =Remove(
+                                    VarECN_Stage6Details, 
+                                    ThisItem
+                                );
+                            PaddingRight: =0.00
+                            Visible: =If(ThisItem.TextInput1=Max(VarECN_Stage6Details,TextInput1) &&ThisItem.TextInput1<>1,true,false)
+                            Width: =30
+                            X: =30
+                            ZIndex: =3
+
+                        TxtsnoST6 As text:
+                            Default: =If(!IsBlank( ThisItem.TextInput1),ThisItem.TextInput1,ThisItem.ES006_SR_NO)
+                            DisabledColor: =Color.Black
+                            DisplayMode: =DisplayMode.Disabled
+                            Height: =30
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =10
+                            Width: =lblHdrSrNoST6.Width
+                            X: |
+                                =lblHdrSrNoST6.X
+                            ZIndex: =4
+
+                        TxtPartNST6 As text:
+                            BorderColor: |-
+                                =If(varValidationValue=1&&Value(TxtsnoST6.Text)=1&&IsBlank(Self.Text),Color.Red, 
+                                    If(varValidationValue=1&&(!IsBlank(TxtPartNST6.Text)||!IsBlank(TxtDrawingNST6.Text)||!IsBlank(TxtQltyST6.Text)||!IsBlank(DrpActionST6.Selected.Value)||!IsBlank(TxtRemarkST6.Text))&&IsBlank(Self.Text),Color.Red,RGBA(0, 18, 107, 1)))
+                            Default: =ThisItem.ES006_PartName
+                            DisabledColor: =Color.Black
+                            DisplayMode: =If(Value(varStageItem)<>6,DisplayMode.Disabled,DisplayMode.Edit)
+                            Height: =30
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =10
+                            Reset: =varResetCtrls
+                            Width: =lblHdrPartNameST6.Width
+                            X: =lblHdrPartNameST6.X
+                            ZIndex: =5
+
+                        TxtDrawingNST6 As text:
+                            BorderColor: |-
+                                =If(varValidationValue=1&&Value(TxtsnoST6.Text)=1&&IsBlank(Self.Text),Color.Red, 
+                                    If(varValidationValue=1&&(!IsBlank(TxtPartNST6.Text)||!IsBlank(TxtDrawingNST6.Text)||!IsBlank(TxtQltyST6.Text)||!IsBlank(DrpActionST6.Selected.Value)||!IsBlank(TxtRemarkST6.Text))&&IsBlank(Self.Text),Color.Red,RGBA(0, 18, 107, 1)))
+                            Default: =ThisItem.ES006_DrawingNo
+                            DisabledColor: =Color.Black
+                            DisplayMode: =If(Value(varStageItem)<>6,DisplayMode.Disabled,DisplayMode.Edit)
+                            Format: =TextFormat.Number
+                            Height: =30
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =10
+                            Reset: =varResetCtrls
+                            Width: =lblHdrDrawingNoST6.Width
+                            X: =lblHdrDrawingNoST6.X
+                            ZIndex: =7
+
+                        DrpActionST6 As Dropdown.pcfdataset:
+                            BorderColor: |-
+                                =If(varValidationValue=1&&Value(TxtsnoST6.Text)=1&&IsBlank(Self.Selected.Value),Color.Red, 
+                                    If(varValidationValue=1&&(!IsBlank(TxtPartNST6.Text)||!IsBlank(TxtDrawingNST6.Text)||!IsBlank(TxtQltyST6.Text)||!IsBlank(DrpActionST6.Selected.Value)||!IsBlank(TxtRemarkST6.Text))&&IsBlank(Self.Selected.Value),Color.Red,RGBA(0, 18, 107, 1)))
+                            BorderThickness: =2
+                            DefaultSelectedItems: =ThisItem.ES006_Action
+                            DisplayMode: =If(Value(varStageItem)<>6,DisplayMode.Edit,DisplayMode.Edit)
+                            Height: =30
+                            Items: |
+                                =Choices(ECN_Stage6_Details.ES006_Action)
+                            PaddingBottom: =5
+                            PaddingLeft: =10
+                            PaddingRight: =5
+                            PaddingTop: =5
+                            Width: =lblHdrActionST6.Width
+                            X: =lblHdrActionST6.X
+                            Y: =0
+                            ZIndex: =9
+
+                        TxtQltyST6 As text:
+                            BorderColor: |-
+                                =If(varValidationValue=1&&Value(TxtsnoST6.Text)=1&&IsBlank(Self.Text),Color.Red, 
+                                    If(varValidationValue=1&&(!IsBlank(TxtPartNST6.Text)||!IsBlank(TxtDrawingNST6.Text)||!IsBlank(TxtQltyST6.Text)||!IsBlank(DrpActionST6.Selected.Value)||!IsBlank(TxtRemarkST6.Text))&&IsBlank(Self.Text),Color.Red,RGBA(0, 18, 107, 1)))
+                            Default: =ThisItem.ES006_Qty
+                            DisabledColor: =Color.Black
+                            DisplayMode: =If(Value(varStageItem)<>6,DisplayMode.Disabled,DisplayMode.Edit)
+                            Format: =TextFormat.Number
+                            Height: =30
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =10
+                            Reset: =varResetCtrls
+                            Width: =lblHdrQtyST6.Width
+                            X: =lblHdrQtyST6.X
+                            ZIndex: =10
+
+                        TxtRemarkST6 As text:
+                            BorderColor: |-
+                                =If(varValidationValue=1&&Value(TxtsnoST6.Text)=1&&IsBlank(Self.Text),Color.Red, 
+                                    If(varValidationValue=1&&(!IsBlank(TxtPartNST6.Text)||!IsBlank(TxtDrawingNST6.Text)||!IsBlank(TxtQltyST6.Text)||!IsBlank(DrpActionST6.Selected.Value)||!IsBlank(TxtRemarkST6.Text))&&IsBlank(Self.Text),Color.Red,RGBA(0, 18, 107, 1)))
+                            Default: =ThisItem.ES006_Remarks
+                            DisabledColor: =Color.Black
+                            DisplayMode: =If(Value(varStageItem)<>6,DisplayMode.Disabled,DisplayMode.Edit)
+                            Height: =30
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =10
+                            Reset: =varResetCtrls
+                            Width: =lblHdrRemarksST6.Width
+                            X: =lblHdrRemarksST6.X
+                            ZIndex: =11
+
+                        lblGalST6 As label:
+                            Height: =30
+                            OnSelect: =Select(Parent)
+                            Text: =ThisItem.'Compliance Asset Id'
+                            Visible: =If(Value(varStageItem)<>6,true,false)
+                            X: =845
+                            ZIndex: =12
+
+        FooterContainerST6 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(39, 113, 194, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =4
+
+            footerST6 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =75
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                btnSubmitST6 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =If(Value(varStageItem)<>6,DisplayMode.Disabled,DisplayMode.Edit)
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Save"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =    Clear(colValidationST6);
+                            UpdateContext({varValidationValue:1});
+                            
+                            ForAll(
+                                GalleryST6.AllItems,
+                                If(
+                                    !IsBlank(ThisRecord.TxtPartNST6.Text) || !IsBlank(ThisRecord.TxtDrawingNST6.Text) || !IsBlank(ThisRecord.TxtQltyST6.Text) || !IsBlank(ThisRecord.DrpActionST6.Selected.Value) || !IsBlank(ThisRecord.TxtRemarkST6.Text)||Value(ThisRecord.TxtsnoST6.Text)=1,
+                                    If(
+                                        IsBlank(ThisRecord.TxtPartNST6.Text) || IsBlank(ThisRecord.TxtDrawingNST6.Text) || IsBlank(ThisRecord.TxtQltyST6.Text) || IsBlank(ThisRecord.DrpActionST6.Selected.Value) || IsBlank (ThisRecord.TxtRemarkST6.Text),
+                                        Collect(
+                                            colValidationST6,
+                                            {Value: 0}
+                                        ),
+                                        Collect(
+                                            colValidationST6,
+                                            {Value: 1}
+                                        )
+                                    )
+                                )
+                            );
+                        
+                        If(
+                            0 in colValidationST6.Value,
+                            Notify(
+                                "Validation Error, please fill required fields in Red.",
+                                NotificationType.Error
+                            ),
+                            // Proceed with the patch operations if gallery has items
+                            ForAll(
+                                GalleryST6.AllItems,
+                        If(!IsBlank(ThisRecord.TxtPartNST6.Text),
+                        
+                                If(
+                                    // Check if the record is new or existing by checking the ID
+                                    IsBlank(ThisRecord.ID),
+                                    // Insert new record into the SharePoint list
+                                    Patch(
+                                        ECN_Stage6_Details,
+                                        Defaults(ECN_Stage6_Details),
+                                        {
+                                            Title: varSelectedECN.ES001_ECNReference,
+                                            ES006_PartName: ThisRecord.TxtPartNST6.Text,
+                                            ES006_DrawingNo: Value(ThisRecord.TxtDrawingNST6.Text),
+                                            ES006_Qty: Value(ThisRecord.TxtQltyST6.Text),
+                                            ES006_Action: ThisRecord.DrpActionST6.Selected,
+                                            ES006_Remarks: ThisRecord.TxtRemarkST6.Text,
+                                            ES006_SR_NO:ThisRecord.TextInput1,
+                                            ES006_ECNReference: {
+                                                Value: varSelectedECN.ES001_ECNReference,
+                                                Id: LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ).ID
+                                            }
+                                        }
+                                    ),
+                                    // Update existing record in the SharePoint list
+                                    Patch(
+                                        ECN_Stage6_Details,
+                                        LookUp(
+                                            ECN_Stage6_Details,
+                                            ID = ThisRecord.ID
+                                        ),
+                                        {
+                                            Title: varSelectedECN.ES001_ECNReference,
+                                            ES006_PartName: ThisRecord.TxtPartNST6.Text,
+                                            ES006_DrawingNo: Value(ThisRecord.TxtDrawingNST6.Text),
+                                            ES006_Qty: Value(ThisRecord.TxtQltyST6.Text),
+                                            ES006_Action: ThisRecord.DrpActionST6.Selected,
+                                            ES006_Remarks: ThisRecord.TxtRemarkST6.Text,
+                                            ES006_SR_NO:ThisRecord.TextInput1,
+                                            ES006_ECNReference: {
+                                                Value: varSelectedECN.ES001_ECNReference,
+                                                Id: LookUp(
+                                                    ECN_Stage1,
+                                                    ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                                ).ID
+                                            }
+                                        }
+                                    )
+                                ))
+                            );
+                            UpdateContext(
+                                {
+                                    existingRecordST6: LookUp(
+                                        ECN_Stage6,
+                                        ES006_ECNReference.Value = varSelectedECN.ES001_ECNReference
+                                    )
+                                }
+                            );
+                            If(
+                                !IsBlank(existingRecordST6),
+                                // Update the existing record
+                                Patch(
+                                    ECN_Stage6,
+                                    existingRecordST6,
+                                    {
+                                        Title: varSelectedECN.ES001_ECNReference,
+                                        ES006_ECNReference: {
+                                            Value: varSelectedECN.ES001_ECNReference,
+                                            Id: LookUp(
+                                                ECN_Stage1,
+                                                ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                            ).ID
+                                        },
+                                        ES006_Status: {Value: "Pending"},
+                                        ES006_ModifyBy: {
+                                            Value: varUser.User_Name,
+                                            Id: LookUp(
+                                                ECN_UserMaster,
+                                                User_Id = varUser.User_Id
+                                            ).ID
+                                        },
+                                        ES006_Date:Today()
+                                    }
+                                ),
+                                // Insert a new record if it does not exist
+                                Patch(
+                                    ECN_Stage6,
+                                    Defaults(ECN_Stage6),
+                                    {
+                                        Title: varSelectedECN.ES001_ECNReference,
+                                        ES006_ECNReference: {
+                                            Value: varSelectedECN.ES001_ECNReference,
+                                            Id: LookUp(
+                                                ECN_Stage1,
+                                                ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                            ).ID
+                                        },
+                                        ES006_Status: {Value: "Pending"},
+                                        ES006_ModifyBy: {
+                                            Value: varUser.User_Name,
+                                            Id: LookUp(
+                                                ECN_UserMaster,
+                                                User_Id = varUser.User_Id
+                                            ).ID
+                                        },
+                                        ES006_Date:Today()
+                                    }
+                                )
+                            );
+                            // Show success or error messages and update ECN_Stage1 currentstatus
+                        If(
+                                !IsEmpty(Errors(ECN_Stage6)),
+                                Notify(
+                                    "An error occurred while saving the record.",
+                                    NotificationType.Error
+                                ),
+                                Patch(
+                                    ECN_Stage1,
+                                    LookUp(
+                                        ECN_Stage1,
+                                        ES001_ECNReference = varSelectedECN.ES001_ECNReference
+                                    ),
+                                    {
+                                        ES001_CurrentStage: {
+                                            Value: "Stage7",
+                                            Id: LookUp(
+                                                ECN_StageMaster,
+                                                Stage_Id = 7
+                                            ).ID
+                                        },
+                                        Current_Stage_Status: {Value: "New"}   
+                                    }
+                                );
+                                If(
+                                    IsBlank(existingRecordST6),
+                                    Notify(
+                                        "Record saved successfully!",
+                                        NotificationType.Success
+                                    ),
+                                    Notify(
+                                        "Record updated successfully!",
+                                        NotificationType.Success
+                                    )
+                                )
+                            );
+                            Navigate(frmHome)
+                        )
+                    Text: ="Submit"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =1018
+                    Y: =17
+                    ZIndex: =1
+
+                btnUpdateST6 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Document"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =Navigate(ScreenReport);
+                    Text: ="Report"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =854
+                    Y: =17
+                    ZIndex: =2
+
+                btnBackST6 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowLeft"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |-
+                        =
+                        
+                        Navigate(frmHome)
+                    Text: ="Back"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =26
+                    Y: =17
+                    ZIndex: =4
+
+                btnNavigateDummy6 As Button:
+                    Align: =Align.Left
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontColor: =
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="ArrowSort"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: =
+                    Text: ="Navigate"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =256
+                    X: =410
+                    Y: =17
+                    ZIndex: =5
+
+                ddlNavigateST6 As dropdown:
+                    BorderColor: =RGBA(39, 113, 194, 1)
+                    ChevronBackground: =RGBA(39, 113, 194, 1)
+                    Default: ="Stage 6"
+                    Height: =30
+                    Items: |
+                        =Switch(Value(varStageItem),
+                        
+                        1,["Stage 1"],
+                        2,["Stage 1","Stage 2"],
+                        3,["Stage 1","Stage 2","Stage 3"],
+                        4,["Stage 1","Stage 2","Stage 3","Stage 4"],
+                        5,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5"],
+                        6,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6"],
+                        7,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7"],
+                        8,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8"],
+                        9,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9"],
+                        10,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10"],
+                        11,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11"],
+                        12,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12"],
+                        13,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13"],
+                        14,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14"],
+                        15,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15"],
+                        16,["Stage 1","Stage 2","Stage 3","Stage 4","Stage 5","Stage 6","Stage 7","Stage 8","Stage 9","Stage 10","Stage 11","Stage 12","Stage 13","Stage 14","Stage 15","Stage 16"],[""])
+                    OnChange: |
+                        =Switch(Self.Selected.Value,
+                        "Stage 1",Navigate(frmST1),
+                        "Stage 2",Navigate(frmST2),
+                        "Stage 3",Navigate(frmST3),
+                        "Stage 4",Navigate(frmST4),
+                        "Stage 5",Navigate(frmST5),
+                        "Stage 6",Navigate(frmST6),
+                        "Stage 7",Navigate(frmST7),
+                        "Stage 8",Navigate(frmST8),
+                        "Stage 9",Navigate(frmST9),
+                        "Stage 10",Navigate(frmST10),
+                        "Stage 11",Navigate(frmST11),
+                        "Stage 12",Navigate(frmST12),
+                        "Stage 13",Navigate(frmST13),
+                        "Stage 14",Navigate(frmST14),
+                        "Stage 15",Navigate(frmST15),
+                        "Stage 16",Navigate(frmST15)
+                        
+                        )
+                    PaddingRight: =9.00
+                    PaddingTop: =9.00
+                    Reset: =true
+                    Size: =11.70
+                    Width: =118
+                    X: =538
+                    Y: =22
+                    ZIndex: =6
+
+                btnClearST3_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                    BasePaletteColor: =
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =2
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =20
+                    FontStrikethrough: =false
+                    Height: =40
+                    Icon: ="Eraser"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    OnSelect: |
+                        =Set(varResetCtrls,true);
+                        Set(varResetCtrls,false);
+                    Text: ="Clear"
+                    VerticalAlign: =VerticalAlign.Middle
+                    Width: =140
+                    X: =686
+                    Y: =17
+                    ZIndex: =7
+
+    PopupContainer_6 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(200, 200, 200, 0.8)
+        Height: =740
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: =If(varLogoutPopup=1,true,false)
+        Width: =1200
+        X: =15
+        Y: =15
+        ZIndex: =2
+
+        Popup_6 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            btnPopupBack_6 As button:
+                DisabledColor: =RGBA(0, 0, 0, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =188
+                Size: =11
+                Text: ="Are you sure to logout?"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =2
+
+            btnPopupTop_6 As button:
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(39, 113, 194, 1)
+                DisplayMode: =DisplayMode.Disabled
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                Size: =13
+                Text: ="Confirm Logout"
+                Width: =347
+                X: =755
+                Y: =95
+                ZIndex: =5
+
+            btnPopupBottom_6 As button:
+                DisabledFill: =RGBA(214, 221, 224, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(214, 221, 224, 1)
+                RadiusTopLeft: =00
+                RadiusTopRight: =0
+                Text: =
+                Width: =347
+                X: =755
+                Y: =243
+                ZIndex: =6
+
+            btnPopupYes_6 As button:
+                Fill: =RGBA(132, 40, 38, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =Set(varUser, Blank());
+                    Clear(colStageIDs);
+                    Navigate(frmLogin);
+                    UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="Yes"
+                Width: =95
+                X: =822
+                Y: =248
+                ZIndex: =7
+
+            btnPopupNo_6 As button:
+                Fill: =RGBA(39, 113, 194, 1)
+                Height: =30
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |-
+                    =UpdateContext({varLogoutPopup:0});
+                Size: =12
+                Text: ="No"
+                Width: =95
+                X: =940
+                Y: =248
+                ZIndex: =8
+
